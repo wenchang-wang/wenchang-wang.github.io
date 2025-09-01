@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - Wenchang Wang</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 1200px;
+            margin: 80px auto 0;
+            padding: 0 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        .research-section {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .research-item {
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .research-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .research-title {
+            color: #2c3e50;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .research-authors {
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .research-venue {
+            color: #555;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .research-date {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .research-status {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .research-status.revise {
+            background: #f39c12;
+        }
+
+        .research-status.award {
+            background: #e74c3c;
+        }
+
+        .works-progress {
+            list-style: none;
+        }
+
+        .works-progress li {
+            margin-bottom: 15px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 3px solid #95a5a6;
+        }
+
+        .works-progress li:before {
+            content: "•";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 15px;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+
+            .research-section {
+                padding: 20px;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .research-item {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Wenchang Wang</a>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="cv.html">CV</a></li>
+                <li><a href="research.html" class="active">Research</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <h1 class="page-title">Research</h1>
+
+        <!-- Recent Research -->
+        <div class="research-section">
+            <h2 class="section-title">Recent Research</h2>
+            
+            <div class="research-item">
+                <div class="research-title">
+                    When Sexual Health Education Becomes the Paradise of Stigma, Discrimination, and Sexual Humor: An Analysis of Engagement with Sexual Health Content on Weibo
+                </div>
+                <div class="research-authors">
+                    <strong>Wang, W.</strong>, Bao, L., Xia, D., Zhou, H., Li, S., & Ma, Y.
+                </div>
+                <div class="research-venue">
+                    Health Communication
+                </div>
+                <div class="research-date">
+                    Apr 2024 - Jul 2024
+                    <span class="research-status revise">Revise & Resubmit</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Peer-Reviewed Conference -->
+        <div class="research-section">
+            <h2 class="section-title">Peer-Reviewed Conference</h2>
+            
+            <div class="research-item">
+                <div class="research-title">
+                    Fine-Tuned Large Language Models: Superior Annotator in Computational Social Science
+                </div>
+                <div class="research-authors">
+                    <strong>Wang, W.</strong>
+                </div>
+                <div class="research-venue">
+                    2025 NCA 111th Conference, Denver, USA
+                </div>
+                <div class="research-date">
+                    Mar 2024 - July 2024
+                </div>
+            </div>
+
+            <div class="research-item">
+                <div class="research-title">
+                    Exposure and Engagement: Analyzing the Impact of Visual Strategies by Fitness Influencers on Social Media
+                </div>
+                <div class="research-authors">
+                    <strong>Wang, W.</strong>
+                </div>
+                <div class="research-venue">
+                    2025 IC²S² Conference, Norrköping, Sweden
+                </div>
+                <div class="research-date">
+                    Aug 2024 - Feb 2025
+                </div>
+            </div>
+
+            <div class="research-item">
+                <div class="research-title">
+                    When Sexual Education Becomes the Paradise of Discrimination, Stigma, and Sexual Humor: A Discussion and Empirical Examination of Health Information Dissemination and Interaction Patterns in Weibo Community
+                </div>
+                <div class="research-authors">
+                    <strong>Wang, W.</strong>, Zhou, H., Xia, D., Li, S., & Ma, Y.
+                </div>
+                <div class="research-venue">
+                    2025 ICA 75th Conference, Denver, USA
+                </div>
+                <div class="research-date">
+                    Mar 2024 - July 2024
+                </div>
+            </div>
+
+            <div class="research-item">
+                <div class="research-title">
+                    Towards Seriousness or Entertainment? An Empirical Analysis of the Digital Transformation of The New York Times
+                </div>
+                <div class="research-authors">
+                    Li, S., <strong>Wang, W.</strong>, & Zhou, H.
+                </div>
+                <div class="research-venue">
+                    2025 ICA 75th Conference, Denver, USA
+                </div>
+                <div class="research-date">
+                    Aug 2024 - Oct 2024
+                </div>
+            </div>
+
+            <div class="research-item">
+                <div class="research-title">
+                    Quantifying Academic Capital: Examining the Evolution of Inequality in China's Communication Research Production
+                </div>
+                <div class="research-authors">
+                    Zhou, H., <strong>Wang, W.</strong>, & Li, S.
+                </div>
+                <div class="research-venue">
+                    2025 ICA 75th Conference, Denver, USA
+                </div>
+                <div class="research-date">
+                    Jan 2024 - Mar 2024
+                    <span class="research-status award">Promising Student Paper Award</span>
+                </div>
+            </div>
+
+            <div class="research-item">
+                <div class="research-title">
+                    "The Invisible Poor in the Eyes of LLMs" — A Study on Stereotypes in Large Language Models
+                </div>
+                <div class="research-authors">
+                    <strong>Wang, W.</strong>, & Xia, D.
+                </div>
+                <div class="research-venue">
+                    2024 AEJMC 107th Conference, Philadelphia, PA
+                </div>
+                <div class="research-date">
+                    Dec 2023 - Feb 2024
+                </div>
+            </div>
+
+            <div class="research-item">
+                <div class="research-title">
+                    Focusing on Minority Groups: A Quantitative Study on the Attitudes of Diverse Minority Groups towards ChatGPT
+                </div>
+                <div class="research-authors">
+                    <strong>Wang, W.</strong>, Liu, Y., Lin, Z., & Ouyang, W.
+                </div>
+                <div class="research-venue">
+                    2024 AEJMC 107th Conference, Philadelphia, PA
+                </div>
+                <div class="research-date">
+                    Oct 2023 - Feb 2024
+                    <span class="research-status award">Top Paper Award</span>
+                </div>
+            </div>
+
+            <div class="research-item">
+                <div class="research-title">
+                    "Are There Really No Poor People on Social Media?" — A Study on Platform Visibility
+                </div>
+                <div class="research-authors">
+                    <strong>Wang, W.</strong>
+                </div>
+                <div class="research-venue">
+                    2024 IAMCR Conference, Christchurch, New Zealand
+                </div>
+                <div class="research-date">
+                    Aug 2023 - Feb 2024
+                </div>
+            </div>
+        </div>
+
+        <!-- Works in Progress -->
+        <div class="research-section">
+            <h2 class="section-title">Works in Progress</h2>
+            
+            <ul class="works-progress">
+                <li>Chen, Z., & <strong>Wang, W.</strong>. Beyond Political Entertainment: How Travel Videos Shape Foreign Attitude Toward China. (Manuscript in preparation)</li>
+                <li>Chen, Z., & <strong>Wang, W.</strong>. Platform Governance and Social Disruption: Causal Effects of Social Media Platform Interventions on User Communication Behaviors and Interaction Patterns. (Manuscript in preparation)</li>
+                <li><strong>Wang, W.</strong>, & Chen, Z. The Price of Visibility: A Study on Suggestive Content Strategies Among Fitness Bloggers on Weibo. (Manuscript in preparation)</li>
+                <li><strong>Wang, W.</strong>, & Chen, Z. How Does Acquisition Shape Platform Innovation? Evidence from GitHub-Microsoft Integration. (Manuscript in preparation)</li>
+                <li><strong>Wang, W.</strong>, & Chen, Z. Can Generative Artificial Intelligence Counter the Spiral of Silence? A Natural Experiment from Weibo. (Manuscript in preparation)</li>
+                <li><strong>Wang, W.</strong>, Zhou, H., Li, S., & Chen, Z. Quantifying Academic Capital: A Network Analysis of Scholarly Production and Cooperation Models in Chinese Journalism and Communication Studies. (Manuscript in preparation)</li>
+                <li><strong>Wang, W.</strong>, Zhou, H., & Li, S. Don't Be Angry With Me! An Empirical Analysis of The Interaction Process of AI Customer Service. (Manuscript in preparation)</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

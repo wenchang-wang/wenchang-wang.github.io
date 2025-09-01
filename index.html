@@ -18,12 +18,62 @@
             background-color: #f8f9fa;
         }
 
+        /* Navigation */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+
+        /* Header Banner */
         .header-banner {
             width: 100%;
-            height: 300px;
+            height: 400px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             position: relative;
             overflow: hidden;
+            margin-top: 60px;
         }
 
         .banner-image {
@@ -52,17 +102,18 @@
         }
 
         .banner-text h1 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 300;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
         .banner-text p {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             opacity: 0.9;
         }
 
+        /* Main Content */
         .main-container {
             max-width: 1200px;
             margin: -50px auto 0;
@@ -75,7 +126,7 @@
             background: white;
             border-radius: 15px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            padding: 30px;
+            padding: 40px;
             margin-bottom: 30px;
         }
 
@@ -86,62 +137,22 @@
             align-items: start;
         }
 
-        .profile-info {
-            padding-right: 20px;
-        }
-
         .profile-info h2 {
             color: #2c3e50;
             font-size: 2.2rem;
-            margin-bottom: 15px;
-            font-weight: 600;
-        }
-
-        .profile-info .title {
-            color: #7f8c8d;
-            font-size: 1.3rem;
             margin-bottom: 20px;
-            font-weight: 400;
+            font-weight: 600;
         }
 
         .profile-info .bio {
             font-size: 1.1rem;
             line-height: 1.8;
             color: #555;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
         }
 
-        .profile-info .research-interests {
-            background: #f8f9fa;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 4px solid #667eea;
-        }
-
-        .profile-info .research-interests h3 {
-            color: #2c3e50;
-            margin-bottom: 10px;
-            font-size: 1.2rem;
-        }
-
-        .profile-info .research-interests ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .profile-info .research-interests li {
-            padding: 5px 0;
-            color: #555;
-            position: relative;
-            padding-left: 20px;
-        }
-
-        .profile-info .research-interests li:before {
-            content: "•";
-            color: #667eea;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
+        .profile-info .bio p {
+            margin-bottom: 15px;
         }
 
         .profile-sidebar {
@@ -224,67 +235,189 @@
             transform: translateY(-2px);
         }
 
+        /* Education Section */
+        .education-section {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .education-grid {
+            display: grid;
+            gap: 25px;
+        }
+
+        .education-item {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 20px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .school-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: white;
+            padding: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .education-content h3 {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .education-content .degree {
+            color: #667eea;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+
+        .education-content .date-location {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .education-content .description {
+            color: #555;
+            font-size: 0.9rem;
+            margin-top: 8px;
+            font-style: italic;
+        }
+
+        /* Awards Section */
+        .awards-section {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        .awards-list {
+            list-style: none;
+        }
+
+        .award-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .award-item:last-child {
+            border-bottom: none;
+        }
+
+        .award-name {
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .award-year {
+            color: #667eea;
+            font-weight: 600;
+        }
+
         @media (max-width: 768px) {
+            .nav-menu {
+                gap: 15px;
+            }
+
             .profile-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
 
-            .profile-info {
-                padding-right: 0;
-            }
-
             .banner-text h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
             .banner-text p {
-                font-size: 1rem;
+                font-size: 1.1rem;
             }
 
             .main-container {
                 margin-top: -30px;
                 padding: 0 15px;
             }
+
+            .education-item {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .award-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Wenchang Wang</a>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="cv.html">CV</a></li>
+                <li><a href="research.html">Research</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <!-- Header Banner -->
     <div class="header-banner">
         <img src="images/banner.jpg" alt="Academic Banner" class="banner-image">
         <div class="banner-overlay">
             <div class="banner-text">
                 <h1>Wenchang Wang</h1>
-                <p>Academic Researcher & Scholar</p>
+                <p>Welcome to my page</p>
             </div>
         </div>
     </div>
 
     <!-- Main Content -->
     <div class="main-container">
+        <!-- Profile Section -->
         <div class="profile-section">
             <div class="profile-grid">
                 <!-- Left Side - Profile Information -->
                 <div class="profile-info">
-                    <h2>Wenchang Wang</h2>
-                    <p class="title">Assistant Professor / Research Scientist</p>
+                    <h2>About Me</h2>
                     
                     <div class="bio">
-                        <p>Welcome to my academic homepage! I am a passionate researcher dedicated to advancing knowledge in my field. With a strong foundation in both theoretical and applied research, I strive to contribute meaningful insights that address real-world challenges.</p>
+                        <p>I am Wenchang Wang, currently a third-year master's student at Peking University, majoring in Journalism and Communication with a minor in Economics. My advisor is Assistant Professor Chen Zhuo.</p>
                         
-                        <p>My research focuses on interdisciplinary approaches, combining cutting-edge methodologies with practical applications. I believe in the power of collaboration and knowledge sharing to drive innovation and create positive impact in academia and beyond.</p>
-                    </div>
-
-                    <div class="research-interests">
-                        <h3>Research Interests</h3>
-                        <ul>
-                            <li>Machine Learning and Artificial Intelligence</li>
-                            <li>Data Science and Analytics</li>
-                            <li>Computational Methods</li>
-                            <li>Interdisciplinary Research</li>
-                            <li>Applied Mathematics</li>
-                        </ul>
+                        <p>My research focuses on political communication, primarily using computational methods to study political phenomena in online communities. My specific research interests include:</p>
+                        
+                        <ol style="margin-left: 20px; margin-bottom: 15px;">
+                            <li>User behavior following platform policy changes</li>
+                            <li>Off-topic discussion phenomena and causes in online communities</li>
+                            <li>Advanced multimodal data analysis and processing methods</li>
+                        </ol>
+                        
+                        <p>I am currently applying for doctoral programs. My papers have been accepted at conferences including ICA, NCA, AEJMC, and IC²S².</p>
                     </div>
                 </div>
 
@@ -318,6 +451,69 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <!-- Education Section -->
+        <div class="education-section">
+            <h2 class="section-title">Education</h2>
+            <div class="education-grid">
+                <div class="education-item">
+                    <img src="images/pku-logo.png" alt="Peking University" class="school-logo">
+                    <div class="education-content">
+                        <h3><a href="https://english.pku.edu.cn" style="color: #2c3e50; text-decoration: none;">Peking University</a></h3>
+                        <div class="degree">M.A. in Journalism and Communication, HSBC Business School</div>
+                        <div class="date-location">Aug 2023 -- June 2026 | Shenzhen, Guangdong</div>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <img src="images/uni-koeln-logo.png" alt="University of Cologne" class="school-logo">
+                    <div class="education-content">
+                        <h3><a href="https://uni-koeln.de/en/" style="color: #2c3e50; text-decoration: none;">University of Cologne</a></h3>
+                        <div class="degree">Exchange Student, Faculty of Management, Economics and Social Sciences</div>
+                        <div class="date-location">Oct 2024 -- Mar 2025 | Cologne, Germany</div>
+                        <div class="description">Specialized coursework in Economics as part of Peking University Minor program</div>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <img src="images/pku-logo.png" alt="Peking University" class="school-logo">
+                    <div class="education-content">
+                        <h3><a href="https://english.pku.edu.cn" style="color: #2c3e50; text-decoration: none;">Peking University</a></h3>
+                        <div class="degree">Minor in Economics, HSBC Business School</div>
+                        <div class="date-location">Aug 2023 -- June 2026 | Shenzhen, Guangdong</div>
+                        <div class="description">Including exchange study at University of Cologne, Germany</div>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <img src="images/suda-logo.png" alt="Soochow University" class="school-logo">
+                    <div class="education-content">
+                        <h3><a href="https://eng.suda.edu.cn/" style="color: #2c3e50; text-decoration: none;">Soochow University</a></h3>
+                        <div class="degree">B.E. in Mechanical and Electronic Engineering</div>
+                        <div class="date-location">Sept 2017 -- June 2021 | Suzhou, Jiangsu</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Awards Section -->
+        <div class="awards-section">
+            <h2 class="section-title">Awards</h2>
+            <ul class="awards-list">
+                <li class="award-item">
+                    <span class="award-name">Promising Student Paper, ICA 75th Annual Conference</span>
+                    <span class="award-year">2025</span>
+                </li>
+                <li class="award-item">
+                    <span class="award-name">Award of Scientific Research, Peking University</span>
+                    <span class="award-year">2024</span>
+                </li>
+                <li class="award-item">
+                    <span class="award-name">Top Student Paper, AEJMC 107th Annual Conference</span>
+                    <span class="award-year">2024</span>
+                </li>
+            </ul>
         </div>
     </div>
 </body>
