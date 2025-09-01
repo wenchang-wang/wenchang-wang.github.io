@@ -12,7 +12,7 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Times New Roman', 'Georgia', 'Palatino', serif;
             line-height: 1.6;
             color: #333;
             background-color: #f8f9fa;
@@ -119,99 +119,7 @@
             height: 24px;
         }
 
-        .upload-section {
-            margin-top: 40px;
-            padding: 30px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            border: 2px dashed #667eea;
-        }
 
-        .upload-title {
-            text-align: center;
-            color: #2c3e50;
-            font-size: 1.3rem;
-            margin-bottom: 20px;
-        }
-
-        .upload-area {
-            text-align: center;
-            padding: 40px;
-            background: white;
-            border-radius: 10px;
-            border: 2px dashed #ddd;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .upload-area:hover {
-            border-color: #667eea;
-            background: #f8f9fa;
-        }
-
-        .upload-area.dragover {
-            border-color: #667eea;
-            background: #f0f4ff;
-        }
-
-        .upload-icon {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 15px;
-            opacity: 0.6;
-        }
-
-        .upload-text {
-            color: #666;
-            margin-bottom: 10px;
-        }
-
-        .upload-hint {
-            color: #999;
-            font-size: 0.9rem;
-        }
-
-        .file-input {
-            display: none;
-        }
-
-        .cv-preview {
-            margin-top: 30px;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            border: 1px solid #eee;
-        }
-
-        .preview-title {
-            color: #2c3e50;
-            font-size: 1.1rem;
-            margin-bottom: 15px;
-        }
-
-        .file-info {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            padding: 10px;
-            background: #f8f9fa;
-            border-radius: 5px;
-        }
-
-        .file-icon {
-            width: 20px;
-            height: 20px;
-        }
-
-        .file-name {
-            color: #2c3e50;
-            font-weight: 500;
-        }
-
-        .file-size {
-            color: #666;
-            font-size: 0.9rem;
-        }
 
         @media (max-width: 768px) {
             .nav-menu {
@@ -263,96 +171,11 @@
                     Download CV (PDF)
                 </a>
 
-                <div class="upload-section">
-                    <h3 class="upload-title">Upload New CV</h3>
-                    <p style="text-align: center; color: #666; margin-bottom: 20px;">If you have an updated version of my CV, you can upload it here.</p>
-                    
-                    <div class="upload-area" id="uploadArea">
-                        <svg class="upload-icon" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
-                        </svg>
-                        <div class="upload-text">Click to upload or drag and drop</div>
-                        <div class="upload-hint">PDF files only (max 10MB)</div>
-                        <input type="file" id="fileInput" class="file-input" accept=".pdf" max="10485760">
-                    </div>
 
-                    <div class="cv-preview" id="cvPreview" style="display: none;">
-                        <div class="preview-title">Uploaded File:</div>
-                        <div class="file-info">
-                            <svg class="file-icon" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd"/>
-                            </svg>
-                            <span class="file-name" id="fileName"></span>
-                            <span class="file-size" id="fileSize"></span>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 
-    <script>
-        // File upload functionality
-        const uploadArea = document.getElementById('uploadArea');
-        const fileInput = document.getElementById('fileInput');
-        const cvPreview = document.getElementById('cvPreview');
-        const fileName = document.getElementById('fileName');
-        const fileSize = document.getElementById('fileSize');
 
-        uploadArea.addEventListener('click', () => {
-            fileInput.click();
-        });
-
-        uploadArea.addEventListener('dragover', (e) => {
-            e.preventDefault();
-            uploadArea.classList.add('dragover');
-        });
-
-        uploadArea.addEventListener('dragleave', () => {
-            uploadArea.classList.remove('dragover');
-        });
-
-        uploadArea.addEventListener('drop', (e) => {
-            e.preventDefault();
-            uploadArea.classList.remove('dragover');
-            const files = e.dataTransfer.files;
-            if (files.length > 0) {
-                handleFile(files[0]);
-            }
-        });
-
-        fileInput.addEventListener('change', (e) => {
-            if (e.target.files.length > 0) {
-                handleFile(e.target.files[0]);
-            }
-        });
-
-        function handleFile(file) {
-            if (file.type !== 'application/pdf') {
-                alert('Please upload a PDF file.');
-                return;
-            }
-
-            if (file.size > 10 * 1024 * 1024) {
-                alert('File size must be less than 10MB.');
-                return;
-            }
-
-            fileName.textContent = file.name;
-            fileSize.textContent = formatFileSize(file.size);
-            cvPreview.style.display = 'block';
-
-            // Here you would typically upload the file to your server
-            console.log('File uploaded:', file.name);
-        }
-
-        function formatFileSize(bytes) {
-            if (bytes === 0) return '0 Bytes';
-            const k = 1024;
-            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
-            const i = Math.floor(Math.log(bytes) / Math.log(k));
-            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
-        }
-    </script>
 </body>
 </html>
