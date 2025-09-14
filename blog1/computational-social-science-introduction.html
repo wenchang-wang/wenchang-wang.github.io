@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算社会科学入门：从传统研究到数据驱动的方法 - Wenchang Wang</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 800px;
+            margin: 80px auto 0;
+            padding: 0 20px;
+        }
+
+        .article-header {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        .article-title {
+            color: #2c3e50;
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .article-meta {
+            color: #7f8c8d;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .article-date {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .article-category {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .article-tags {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .article-content {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        .article-content h2 {
+            color: #2c3e50;
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin: 30px 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .article-content h3 {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 25px 0 12px 0;
+        }
+
+        .article-content p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 15px 0 15px 30px;
+        }
+
+        .article-content li {
+            margin-bottom: 8px;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #555;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: #f1f3f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+
+        .article-content pre {
+            background: #f1f3f4;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .article-content pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .back-to-blog {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .back-to-blog a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 12px 24px;
+            border: 2px solid #667eea;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-blog a:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 15px;
+            }
+
+            .main-container {
+                padding: 0 15px;
+            }
+
+            .article-header, .article-content {
+                padding: 25px;
+            }
+
+            .article-title {
+                font-size: 1.8rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">Wenchang Wang</a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../cv.html">CV</a></li>
+                <li><a href="../research.html">Research</a></li>
+                <li><a href="../blog.html" class="active">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <div class="back-to-blog">
+            <a href="../blog.html">← 返回博客列表</a>
+        </div>
+
+        <div class="article-header">
+            <h1 class="article-title">计算社会科学入门：从传统研究到数据驱动的方法</h1>
+            <div class="article-meta">
+                <div class="article-date">
+                    <span>📅</span>
+                    <span>2024年12月15日</span>
+                </div>
+                <div class="article-category">
+                    <span>🏷️</span>
+                    <span>研究方法</span>
+                </div>
+                <div class="article-tags">
+                    <span class="tag">计算社会科学</span>
+                    <span class="tag">数据分析</span>
+                    <span class="tag">研究方法</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="article-content">
+            <p>计算社会科学作为一门新兴交叉学科，正在改变我们对社会现象的理解方式。本文将介绍计算社会科学的基本概念、主要研究方法，以及如何将传统的社会科学理论与现代计算技术相结合。</p>
+
+            <h2>什么是计算社会科学？</h2>
+            
+            <p>计算社会科学（Computational Social Science, CSS）是一个跨学科领域，它结合了计算机科学、统计学、数学和社会科学的方法来研究社会现象。这一领域的兴起主要得益于：</p>
+
+            <ul>
+                <li><strong>大数据时代的到来</strong>：社交媒体、移动设备、传感器等产生了海量的社会行为数据</li>
+                <li><strong>计算能力的提升</strong>：强大的计算资源使得处理大规模数据成为可能</li>
+                <li><strong>算法和工具的发展</strong>：机器学习、自然语言处理等技术为分析复杂社会现象提供了新工具</li>
+            </ul>
+
+            <h2>主要研究方法</h2>
+
+            <h3>1. 网络分析</h3>
+            <p>网络分析是计算社会科学的核心方法之一。通过分析社会网络的结构和动态，我们可以理解信息传播、影响力扩散、社区形成等社会现象。</p>
+
+            <blockquote>
+                "网络分析帮助我们理解社会关系的结构特征，以及这些结构如何影响个体和群体的行为。"
+            </blockquote>
+
+            <h3>2. 文本挖掘</h3>
+            <p>随着社交媒体和在线平台的普及，文本数据成为研究社会现象的重要来源。文本挖掘技术包括：</p>
+
+            <ul>
+                <li>情感分析：分析文本中的情感倾向</li>
+                <li>主题建模：发现文本中的潜在主题</li>
+                <li>语义分析：理解文本的深层含义</li>
+            </ul>
+
+            <h3>3. 机器学习方法</h3>
+            <p>机器学习为社会科学研究提供了强大的预测和分类工具。在计算社会科学中，常用的机器学习方法包括：</p>
+
+            <ul>
+                <li>监督学习：用于预测和分类任务</li>
+                <li>无监督学习：用于发现数据中的隐藏模式</li>
+                <li>深度学习：用于处理复杂的非线性关系</li>
+            </ul>
+
+            <h2>与传统社会科学的结合</h2>
+
+            <p>计算社会科学并不是要取代传统的社会科学方法，而是要与它们相结合。这种结合体现在：</p>
+
+            <ol>
+                <li><strong>理论驱动</strong>：计算工具应该服务于理论假设的验证</li>
+                <li><strong>方法互补</strong>：定量和定性方法可以相互补充</li>
+                <li><strong>伦理考量</strong>：在使用大数据时需要考虑隐私和伦理问题</li>
+            </ol>
+
+            <h2>挑战与机遇</h2>
+
+            <p>计算社会科学虽然带来了新的机遇，但也面临着一些挑战：</p>
+
+            <h3>挑战</h3>
+            <ul>
+                <li>数据质量和代表性</li>
+                <li>隐私和伦理问题</li>
+                <li>方法论的标准化</li>
+                <li>跨学科合作的复杂性</li>
+            </ul>
+
+            <h3>机遇</h3>
+            <ul>
+                <li>实时社会现象分析</li>
+                <li>大规模社会实验</li>
+                <li>政策制定的数据支持</li>
+                <li>社会问题的早期预警</li>
+            </ul>
+
+            <h2>未来展望</h2>
+
+            <p>随着技术的不断发展，计算社会科学将在以下方面继续发展：</p>
+
+            <ul>
+                <li>更精确的因果推断方法</li>
+                <li>多模态数据的融合分析</li>
+                <li>实时社会现象监测</li>
+                <li>人工智能辅助的社会研究</li>
+            </ul>
+
+            <p>计算社会科学为我们理解复杂的社会现象提供了新的视角和工具。作为研究者，我们需要在拥抱新技术的同时，保持对传统社会科学理论的尊重，并始终关注研究的伦理和社会影响。</p>
+
+            <p>希望这篇文章能够为对计算社会科学感兴趣的读者提供一些启发。如果您有任何问题或想法，欢迎与我交流讨论！</p>
+        </div>
+    </div>
+</body>
+</html>

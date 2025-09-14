@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文章标题 - Wenchang Wang</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding: 8px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: #667eea;
+            border-bottom-color: #667eea;
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 800px;
+            margin: 80px auto 0;
+            padding: 0 20px;
+        }
+
+        .article-header {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        .article-title {
+            color: #2c3e50;
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .article-meta {
+            color: #7f8c8d;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .article-date {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .article-category {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .article-tags {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .article-content {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            margin-bottom: 30px;
+        }
+
+        .article-content h2 {
+            color: #2c3e50;
+            font-size: 1.6rem;
+            font-weight: 600;
+            margin: 30px 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .article-content h3 {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 25px 0 12px 0;
+        }
+
+        .article-content p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .article-content ul, .article-content ol {
+            margin: 15px 0 15px 30px;
+        }
+
+        .article-content li {
+            margin-bottom: 8px;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+            margin: 20px 0;
+            font-style: italic;
+            color: #555;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .article-content code {
+            background: #f1f3f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 0.9em;
+        }
+
+        .article-content pre {
+            background: #f1f3f4;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .article-content pre code {
+            background: none;
+            padding: 0;
+        }
+
+        .back-to-blog {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .back-to-blog a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 12px 24px;
+            border: 2px solid #667eea;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-blog a:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 15px;
+            }
+
+            .main-container {
+                padding: 0 15px;
+            }
+
+            .article-header, .article-content {
+                padding: 25px;
+            }
+
+            .article-title {
+                font-size: 1.8rem;
+            }
+
+            .article-meta {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">Wenchang Wang</a>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../cv.html">CV</a></li>
+                <li><a href="../research.html">Research</a></li>
+                <li><a href="../blog.html" class="active">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-container">
+        <div class="back-to-blog">
+            <a href="../blog.html">← 返回博客列表</a>
+        </div>
+
+        <div class="article-header">
+            <h1 class="article-title">文章标题</h1>
+            <div class="article-meta">
+                <div class="article-date">
+                    <span>📅</span>
+                    <span>YYYY年MM月DD日</span>
+                </div>
+                <div class="article-category">
+                    <span>🏷️</span>
+                    <span>分类</span>
+                </div>
+                <div class="article-tags">
+                    <span class="tag">标签1</span>
+                    <span class="tag">标签2</span>
+                    <span class="tag">标签3</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="article-content">
+            <!-- 在这里添加您的文章内容 -->
+            <p>文章开头段落...</p>
+
+            <h2>二级标题</h2>
+            <p>内容段落...</p>
+
+            <h3>三级标题</h3>
+            <p>内容段落...</p>
+
+            <ul>
+                <li>列表项1</li>
+                <li>列表项2</li>
+                <li>列表项3</li>
+            </ul>
+
+            <blockquote>
+                引用内容...
+            </blockquote>
+
+            <p>文章结尾段落...</p>
+        </div>
+    </div>
+</body>
+</html>
