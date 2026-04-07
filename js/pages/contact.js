@@ -1,11 +1,12 @@
 /**
- * contact.js — Terminal-themed contact form with mailto: integration,
- * 3D flip card entrance, and typing animation.
+ * contact.js — Terminal-themed contact form with direct email via Formsubmit,
+ * 3D flip card entrance, and theme-adaptive terminal.
  */
 
 (function () {
   'use strict';
 
+  var ENDPOINT = 'https://formsubmit.co/ajax/wenchangwang@stu.pku.edu.cn';
   var observer = null;
 
   function setupCardAnimations() {
@@ -33,6 +34,21 @@
     cards.forEach(function (card) { observer.observe(card); });
   }
 
+  function removeStatus() {
+    var old = document.querySelector('#page-contact .terminal-status');
+    if (old) old.remove();
+  }
+
+  function addStatus(html) {
+    removeStatus();
+    var body = document.querySelector('#page-contact .terminal-body');
+    if (!body) return;
+    var div = document.createElement('div');
+    div.className = 'terminal-status';
+    div.innerHTML = html;
+    body.appendChild(div);
+  }
+
   function setupForm() {
     var form = document.getElementById('contact-form');
     var successEl = document.querySelector('#page-contact .form-success');
@@ -41,22 +57,49 @@
     form.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      var name  = document.getElementById('c-name').value.trim();
-      var email = document.getElementById('c-email').value.trim();
-      var msg   = document.getElementById('c-msg').value.trim();
+      var nameEl  = document.getElementById('c-name');
+      var emailEl = document.getElementById('c-email');
+      var msgEl   = document.getElementById('c-msg');
+      var name  = nameEl.value.trim();
+      var email = emailEl.value.trim();
+      var msg   = msgEl.value.trim();
       if (!name || !email || !msg) return;
 
-      var subject = encodeURIComponent('[Website] Message from ' + name);
-      var body = encodeURIComponent(
-        'From: ' + name + '\n' +
-        'Reply-To: ' + email + '\n\n' +
-        msg
-      );
+      var btn = form.querySelector('.terminal-submit');
+      var origHTML = btn.innerHTML;
+      btn.innerHTML = '<span class="t-prompt">$</span> sending<span class="t-dots"></span>';
+      btn.disabled = true;
+      removeStatus();
 
-      window.location.href = 'mailto:wenchangwang@stu.pku.edu.cn?subject=' + subject + '&body=' + body;
-
-      form.style.display = 'none';
-      successEl.classList.add('show');
+      fetch(ENDPOINT, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          message: msg,
+          _subject: '[Website] Message from ' + name
+        })
+      })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (data.success) {
+          form.style.display = 'none';
+          successEl.classList.add('show');
+        } else {
+          btn.innerHTML = origHTML;
+          btn.disabled = false;
+          addStatus('<span class="t-prompt t-err">&gt;&gt;</span> <span class="t-err">Error: send failed. Try again.</span>');
+        }
+      })
+      .catch(function () {
+        btn.innerHTML = origHTML;
+        btn.disabled = false;
+        addStatus('<span class="t-prompt t-err">&gt;&gt;</span> <span class="t-err">Network error. Check connection.</span>');
+      });
     });
   }
 
@@ -67,6 +110,7 @@
 
   function destroy() {
     if (observer) observer.disconnect();
+    removeStatus();
     var form = document.getElementById('contact-form');
     var successEl = document.querySelector('#page-contact .form-success');
     if (form) form.style.display = '';

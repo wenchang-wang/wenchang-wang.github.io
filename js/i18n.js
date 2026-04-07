@@ -98,7 +98,7 @@
       contact_twitter_label: 'X (Twitter)',
       contact_github_label: 'GitHub',
       contact_cmd: 'echo "Send me a message"',
-      contact_success_msg: '✓ Message prepared! Opening email client...',
+      contact_success_msg: '✓ Message sent successfully!',
     },
 
     zh: {
@@ -188,7 +188,7 @@
       contact_twitter_label: 'X (Twitter)',
       contact_github_label: 'GitHub',
       contact_cmd: 'echo "\u7ed9\u6211\u7559\u8a00"',
-      contact_success_msg: '\u2713 \u90ae\u4ef6\u5df2\u51c6\u5907\uff01\u6b63\u5728\u6253\u5f00\u90ae\u4ef6\u5ba2\u6237\u7aef\u2026',
+      contact_success_msg: '\u2713 \u6d88\u606f\u5df2\u53d1\u9001\u6210\u529f\uff01',
     }
   };
 
