@@ -1,14 +1,14 @@
 /**
- * puppets.js — Sidebar sausage mascots with physics interactions.
+ * puppets.js — Sidebar pixel-art mascots with physics interactions.
  *
- * Three minimal horizontal capsule creatures peek from the left screen edge.
- * - No arms/mouth — just a rounded sausage body + two big eyes
- * - "Neck stretch" effect: sausage extends further when mouse is nearby
+ * Three blocky pixel creatures peek from the left screen edge.
+ * - Stepped-corner pixelated body (no rounded corners)
+ * - Square eyes with pixel-style blink
+ * - "Neck stretch" effect: body extends when mouse is nearby
  * - Hover directly on one → it shyly hides behind the edge
  * - Hiding puppet bumps neighbors → spring-based collision bounce
- * - Squash/stretch deformation during movement
  * - Random blink & gentle wobble for liveliness
- * - Hidden on mobile (CSS handles display:none)
+ * - Hidden on mobile & homepage
  */
 
 (function () {
@@ -16,84 +16,92 @@
 
   var NS = 'http://www.w3.org/2000/svg';
 
-  /* ── Character palette ── */
   var DEFS = [
     { color: '#FF6B6B', wobble: 2.3 },
     { color: '#4ECDC4', wobble: 1.7 },
     { color: '#FFE66D', wobble: 2.9 }
   ];
 
-  /* ── SVG metrics (horizontal capsule) ── */
   var SW = 80, SH = 30;
-  var CAP_RX = (SH - 2) / 2;
+  var PX = 4;
+
   var EYES = [
     { cx: 56, cy: 15 },
     { cx: 68, cy: 15 }
   ];
-  var EYE_R = 5.5, PUPIL_R = 3, PUPIL_MAX = EYE_R * 0.4;
+  var SC_W = 8, SC_H = 8;
+  var PU_W = 4, PU_H = 4;
+  var PUPIL_MAX = 2;
 
-  /* ── Positioning thresholds ── */
   var PEEK_X    = -36;
   var CURIOUS_X = -14;
   var HIDE_X    = -74;
   var OFF_X     = -90;
   var GAP_Y     = 40;
 
-  /* ── Physics ── */
   var SPRING     = 0.065;
   var DAMP       = 0.78;
   var BUMP_FORCE = 12;
   var HIDE_SEC   = 2.2;
   var CURIOUS_R  = 220;
 
-  /* ── Runtime state ── */
   var worldEl, puppets = [];
   var mx = -999, my = -999;
   var rafId = null, t = 0, entered = false;
 
-  /* SVG helper */
   function sv(tag, a) {
     var e = document.createElementNS(NS, tag);
     for (var k in a) e.setAttribute(k, a[k]);
     return e;
   }
 
-  /* ── Build one sausage SVG ── */
   function makeSVG(def) {
     var svg = sv('svg', {
       viewBox: '0 0 ' + SW + ' ' + SH,
       width: SW, height: SH,
-      style: 'overflow:visible;display:block'
+      style: 'overflow:visible;display:block;image-rendering:pixelated'
     });
 
-    var bodyRect = sv('rect', {
-      x: 0, y: 1, width: SW, height: SH - 2,
-      rx: CAP_RX, ry: CAP_RX, fill: def.color
+    var bodyPath = sv('path', {
+      d: 'M8,1 H72 V5 H76 V9 H80 V21 H76 V25 H72 V29 H8 V25 H4 V21 H0 V9 H4 V5 H8 Z',
+      fill: def.color
     });
-    svg.appendChild(bodyRect);
+    svg.appendChild(bodyPath);
 
-    var pupils = [], scleras = [];
+    var shadowPath = sv('path', {
+      d: 'M72,5 H76 V9 H80 V21 H76 V25 H72 V29 H8 V25 H4 V21',
+      fill: 'rgba(0,0,0,0.12)',
+      'fill-rule': 'evenodd'
+    });
+    svg.appendChild(shadowPath);
+
+    var pupils = [], scleras = [], highlights = [];
     EYES.forEach(function (eye) {
-      var sc = sv('ellipse', {
-        cx: eye.cx, cy: eye.cy, rx: EYE_R, ry: EYE_R, fill: '#fff'
+      var sc = sv('rect', {
+        x: eye.cx - SC_W / 2, y: eye.cy - SC_H / 2,
+        width: SC_W, height: SC_H, fill: '#fff'
       });
       svg.appendChild(sc);
       scleras.push(sc);
 
-      var pu = sv('circle', { cx: eye.cx, cy: eye.cy, r: PUPIL_R, fill: '#2a2a2a' });
+      var pu = sv('rect', {
+        x: eye.cx - PU_W / 2, y: eye.cy - PU_H / 2,
+        width: PU_W, height: PU_H, fill: '#2a2a2a'
+      });
       svg.appendChild(pu);
       pupils.push(pu);
 
-      svg.appendChild(sv('circle', {
-        cx: eye.cx - 1.5, cy: eye.cy - 2, r: 1.6,
-        fill: '#fff', opacity: '0.82'
-      }));
+      var hl = sv('rect', {
+        x: eye.cx - SC_W / 2, y: eye.cy - SC_H / 2,
+        width: 3, height: 3, fill: '#fff', opacity: '0.85'
+      });
+      svg.appendChild(hl);
+      highlights.push(hl);
     });
 
-    return { svg: svg, body: bodyRect, pupils: pupils, scleras: scleras };
+    return { svg: svg, body: bodyPath, pupils: pupils, scleras: scleras, highlights: highlights };
   }
 
-  /* ── Build all three ── */
   function build() {
     worldEl = document.getElementById('puppet-world');
     if (!worldEl) return;
@@ -118,6 +126,7 @@
         body: parts.body,
         pupils: parts.pupils,
         scleras: parts.scleras,
+        highlights: parts.highlights,
         x: OFF_X, targetX: OFF_X,
         baseY: baseY, y: baseY, vy: 0,
         wobbleSpd: def.wobble,
@@ -141,7 +150,6 @@
     });
   }
 
-  /* ── Staggered entrance ── */
   function enter() {
     if (entered) return;
     entered = true;
@@ -150,7 +158,6 @@
     });
   }
 
-  /* ── Shy hide ── */
   function startHide(idx) {
     var p = puppets[idx];
     if (p.hiding) return;
@@ -168,35 +175,29 @@
     }
   }
 
-  /* ── Physics tick ── */
   function tick(dt) {
     t += dt;
 
     for (var i = 0; i < puppets.length; i++) {
       var p = puppets[i];
 
-      /* Curiosity detection (mouse nearby but not on puppet) */
       if (!p.hiding && entered) {
         var r = p.el.getBoundingClientRect();
         var cx = r.left + r.width * 0.7;
         var cy = r.top + r.height / 2;
         var dx = mx - cx, dy = my - cy;
         var dist = Math.sqrt(dx * dx + dy * dy);
-        var wasCurious = p.curious;
         p.curious = dist < CURIOUS_R && dist > 50;
         if (!p.curious && !p.hiding) p.targetX = PEEK_X;
         else if (p.curious) p.targetX = CURIOUS_X;
       }
 
-      /* Smooth X slide */
       p.x += (p.targetX - p.x) * 0.08;
 
-      /* Y spring back to base */
       p.vy += (p.baseY - p.y) * SPRING;
       p.vy *= DAMP;
       p.y += p.vy;
 
-      /* Pair-wise collision */
       for (var j = i + 1; j < puppets.length; j++) {
         var q = puppets[j];
         var sep = p.y - q.y;
@@ -209,7 +210,6 @@
         }
       }
 
-      /* Hide timer → re-peek */
       if (p.hiding) {
         p.hideTimer -= dt;
         if (p.hideTimer <= 0) {
@@ -218,7 +218,6 @@
         }
       }
 
-      /* Blink */
       p.blinkIn -= dt;
       if (p.blinkIn <= 0 && p.blinkOpen) {
         p.blinkOpen = false;
@@ -228,7 +227,6 @@
         p.blinkIn = 2.5 + Math.random() * 4;
       }
 
-      /* Eye tracking (lerped) */
       var rect = p.el.getBoundingClientRect();
       EYES.forEach(function (eye, ei) {
         var ex = rect.left + eye.cx;
@@ -244,14 +242,12 @@
     }
   }
 
-  /* ── Render ── */
   function render() {
     for (var i = 0; i < puppets.length; i++) {
       var p = puppets[i];
 
       var wob = Math.sin(t * p.wobbleSpd + p.wobblePhi) * 1.2;
 
-      /* Squash/stretch from Y velocity */
       var vAbs = Math.abs(p.vy);
       var stretchY = 1 + vAbs * 0.014;
       var squashX  = 1 / stretchY;
@@ -262,20 +258,27 @@
         'scaleX(' + squashX.toFixed(3) + ') scaleY(' + stretchY.toFixed(3) + ')';
       p.el.style.transformOrigin = 'right center';
 
-      /* Blink */
-      var sry = p.blinkOpen ? EYE_R : 0.8;
-      var pr  = p.blinkOpen ? PUPIL_R : 0.2;
-
       EYES.forEach(function (eye, ei) {
-        p.pupils[ei].setAttribute('cx', (eye.cx + p.pox[ei]).toFixed(2));
-        p.pupils[ei].setAttribute('cy', (eye.cy + p.poy[ei]).toFixed(2));
-        p.pupils[ei].setAttribute('r', pr.toFixed(2));
-        p.scleras[ei].setAttribute('ry', sry.toFixed(2));
+        var bx = eye.cx - PU_W / 2 + p.pox[ei];
+        var by = eye.cy - PU_H / 2 + p.poy[ei];
+        p.pupils[ei].setAttribute('x', bx.toFixed(1));
+        p.pupils[ei].setAttribute('y', by.toFixed(1));
+
+        if (p.blinkOpen) {
+          p.scleras[ei].setAttribute('height', SC_H);
+          p.scleras[ei].setAttribute('y', eye.cy - SC_H / 2);
+          p.pupils[ei].style.display = '';
+          p.highlights[ei].style.display = '';
+        } else {
+          p.scleras[ei].setAttribute('height', 2);
+          p.scleras[ei].setAttribute('y', eye.cy - 1);
+          p.pupils[ei].style.display = 'none';
+          p.highlights[ei].style.display = 'none';
+        }
       });
     }
   }
 
-  /* ── Loop ── */
   var prev = 0;
   function loop(ts) {
     var dt = Math.min((ts - prev) / 1000, 0.06);

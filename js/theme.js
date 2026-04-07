@@ -1,21 +1,16 @@
 /**
  * theme.js — Dark/light theme management.
- * Reads from localStorage first, falls back to system preference.
+ * Always follows system preference on load. Manual toggle works per session.
  * Icon convention: show the icon you'll switch TO (moon in light, sun in dark).
  */
 
 (function () {
   'use strict';
 
-  var STORAGE_KEY = 'theme';
   var html = document.documentElement;
 
   function getSystemTheme() {
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-
-  function getSavedTheme() {
-    return localStorage.getItem(STORAGE_KEY);
   }
 
   function applyTheme(theme) {
@@ -37,22 +32,18 @@
   function toggle() {
     var current = html.getAttribute('data-theme') || getSystemTheme();
     var next = current === 'dark' ? 'light' : 'dark';
-    localStorage.setItem(STORAGE_KEY, next);
     applyTheme(next);
   }
 
   function init() {
-    var saved = getSavedTheme();
-    applyTheme(saved || getSystemTheme());
+    applyTheme(getSystemTheme());
 
     document.querySelectorAll('.theme-toggle').forEach(function (btn) {
       btn.addEventListener('click', toggle);
     });
 
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
-      if (!getSavedTheme()) {
-        applyTheme(e.matches ? 'dark' : 'light');
-      }
+      applyTheme(e.matches ? 'dark' : 'light');
     });
   }
 

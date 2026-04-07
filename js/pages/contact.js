@@ -1,6 +1,6 @@
 /**
- * contact.js — 3D flip card entrance, form ripple effect,
- * simulated submit with particle burst success animation.
+ * contact.js — Terminal-themed contact form with mailto: integration,
+ * 3D flip card entrance, and typing animation.
  */
 
 (function () {
@@ -33,52 +33,27 @@
     cards.forEach(function (card) { observer.observe(card); });
   }
 
-  function setupRipple() {
-    var btn = document.querySelector('#page-contact .submit-btn');
-    if (!btn) return;
-    btn.addEventListener('click', function (e) {
-      var rect = btn.getBoundingClientRect();
-      var circle = document.createElement('span');
-      circle.className = 'ripple-circle';
-      circle.style.left = (e.clientX - rect.left - 10) + 'px';
-      circle.style.top = (e.clientY - rect.top - 10) + 'px';
-      btn.appendChild(circle);
-      setTimeout(function () { circle.remove(); }, 600);
-    });
-  }
-
-  function createParticleBurst(x, y) {
-    var container = document.createElement('div');
-    container.className = 'particle-burst';
-    container.style.left = x + 'px';
-    container.style.top = y + 'px';
-    var colors = ['#FF6B6B', '#4ECDC4', '#FFE66D', '#5865F2', '#eb459e', '#57f287'];
-    for (var i = 0; i < 20; i++) {
-      var p = document.createElement('div');
-      p.className = 'particle';
-      var angle = (Math.PI * 2 / 20) * i;
-      var dist = 40 + Math.random() * 60;
-      p.style.setProperty('--tx', (Math.cos(angle) * dist) + 'px');
-      p.style.setProperty('--ty', (Math.sin(angle) * dist) + 'px');
-      p.style.background = colors[i % colors.length];
-      container.appendChild(p);
-    }
-    document.body.appendChild(container);
-    setTimeout(function () { container.remove(); }, 1000);
-  }
-
   function setupForm() {
     var form = document.getElementById('contact-form');
-    var formEl = document.querySelector('#page-contact .contact-form-section');
     var successEl = document.querySelector('#page-contact .form-success');
     if (!form || !successEl) return;
 
     form.addEventListener('submit', function (e) {
       e.preventDefault();
 
-      var btn = form.querySelector('.submit-btn');
-      var rect = btn.getBoundingClientRect();
-      createParticleBurst(rect.left + rect.width / 2, rect.top + rect.height / 2);
+      var name  = document.getElementById('c-name').value.trim();
+      var email = document.getElementById('c-email').value.trim();
+      var msg   = document.getElementById('c-msg').value.trim();
+      if (!name || !email || !msg) return;
+
+      var subject = encodeURIComponent('[Website] Message from ' + name);
+      var body = encodeURIComponent(
+        'From: ' + name + '\n' +
+        'Reply-To: ' + email + '\n\n' +
+        msg
+      );
+
+      window.location.href = 'mailto:wenchangwang@stu.pku.edu.cn?subject=' + subject + '&body=' + body;
 
       form.style.display = 'none';
       successEl.classList.add('show');
@@ -87,7 +62,6 @@
 
   function init() {
     setupCardAnimations();
-    setupRipple();
     setupForm();
   }
 

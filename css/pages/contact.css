@@ -1,6 +1,6 @@
 /**
- * contact.css — Flowing gradient background, 3D flip contact cards,
- * form with ripple effect, and success particle animation.
+ * contact.css — Terminal-themed contact form with pixel aesthetic,
+ * flowing gradient background, 3D flip contact cards.
  */
 
 .contact-page {
@@ -10,7 +10,6 @@
   position: relative;
 }
 
-/* Flowing gradient background glow */
 .contact-glow {
   position: fixed;
   top: 50%;
@@ -55,7 +54,7 @@
 .contact-header h1 { margin-bottom: 8px; }
 .contact-header p { color: var(--fg-secondary); font-size: 0.9rem; }
 
-/* Contact cards */
+/* ===== Contact cards ===== */
 .contact-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -119,80 +118,176 @@
   color: var(--accent);
 }
 
-/* Contact form */
-.contact-form-section {
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 36px;
+/* ===== Terminal window ===== */
+.terminal-window {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 0;
+  overflow: hidden;
+  font-family: 'JetBrains Mono', monospace;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  image-rendering: auto;
 }
 
-.contact-form-section h2 {
-  text-align: center;
-  margin-bottom: 24px;
-  font-size: 1.2rem;
+.terminal-titlebar {
+  background: #161b22;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid #30363d;
 }
 
-.form-group {
-  margin-bottom: 18px;
+.terminal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 0;
 }
 
-.form-group label {
-  display: block;
+.terminal-dot:nth-child(1) { background: #ff5f57; }
+.terminal-dot:nth-child(2) { background: #febc2e; }
+.terminal-dot:nth-child(3) { background: #28c840; }
+
+.terminal-title {
+  margin-left: 10px;
+  font-size: 0.72rem;
+  color: #8b949e;
+  letter-spacing: 0.02em;
+}
+
+.terminal-body {
+  padding: 20px 24px 24px;
+  color: #c9d1d9;
+  font-size: 0.85rem;
+  line-height: 1.7;
+}
+
+.terminal-output {
+  margin-bottom: 16px;
+}
+
+.t-prompt {
+  color: #79c0ff;
+  font-weight: 700;
+  margin-right: 6px;
+  user-select: none;
+}
+
+.t-ok {
+  color: #7ee787;
+}
+
+/* ===== Terminal form ===== */
+.terminal-form .terminal-line {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 12px;
+  flex-wrap: nowrap;
+}
+
+.terminal-form label {
+  color: #7ee787;
   font-size: 0.82rem;
   font-weight: 600;
-  margin-bottom: 6px;
-  color: var(--fg-secondary);
+  white-space: nowrap;
+  user-select: none;
 }
 
-.form-group input,
-.form-group textarea {
-  width: 100%;
-}
-
-/* Submit button with ripple */
-.submit-btn {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  width: 100%;
-  padding: 14px 28px;
-  background: var(--accent);
-  color: #fff;
+.terminal-form input,
+.terminal-form textarea {
+  background: transparent;
   border: none;
-  border-radius: 10px;
-  font-weight: 700;
-  font-size: 0.9rem;
+  border-bottom: 1px dashed #30363d;
+  color: #e6edf3;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  padding: 4px 2px;
+  flex: 1;
+  outline: none;
+  caret-color: #7ee787;
+  transition: border-color 0.2s;
+  min-width: 0;
+}
+
+.terminal-form input:focus,
+.terminal-form textarea:focus {
+  border-bottom-color: #7ee787;
+}
+
+.terminal-form input::placeholder,
+.terminal-form textarea::placeholder {
+  color: #484f58;
+  font-style: normal;
+}
+
+.terminal-msg-line {
+  align-items: flex-start !important;
+}
+
+.terminal-form textarea {
+  resize: vertical;
+  border: 1px dashed #30363d;
+  padding: 8px;
+  margin-top: 4px;
+  border-radius: 0;
+  width: 100%;
+  display: block;
+}
+
+.terminal-msg-line {
+  flex-wrap: wrap;
+}
+
+.terminal-msg-line textarea {
+  flex-basis: 100%;
+  margin-left: 0;
+}
+
+.terminal-submit {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: 1px solid #7ee787;
+  color: #7ee787;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.82rem;
+  padding: 10px 16px;
   cursor: pointer;
-  overflow: hidden;
-  transition: background 0.2s, transform 0.1s;
+  text-align: left;
+  margin-top: 8px;
+  transition: background 0.2s, color 0.2s;
+  border-radius: 0;
 }
 
-.submit-btn:hover {
-  background: var(--accent-hover);
+.terminal-submit:hover {
+  background: rgba(126, 231, 135, 0.1);
 }
 
-.submit-btn:active {
-  transform: scale(0.98);
+.terminal-submit:active {
+  background: rgba(126, 231, 135, 0.2);
 }
 
-.submit-btn .ripple-circle {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  width: 20px;
-  height: 20px;
-  animation: ripple 0.6s ease-out forwards;
-  pointer-events: none;
+.terminal-submit .t-prompt {
+  color: #79c0ff;
 }
 
-/* Success overlay */
+/* Blinking cursor after the last terminal output line */
+.terminal-output::after {
+  content: '█';
+  animation: termBlink 1s step-end infinite;
+  color: #7ee787;
+  margin-left: 2px;
+}
+
+@keyframes termBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ===== Success overlay ===== */
 .form-success {
   display: none;
-  text-align: center;
-  padding: 40px 20px;
 }
 
 .form-success.show {
@@ -200,17 +295,11 @@
   animation: fadeIn 0.3s ease;
 }
 
-.form-success .success-icon {
-  font-size: 3rem;
-  margin-bottom: 12px;
+.form-success .success-text {
+  color: #7ee787;
 }
 
-.form-success p {
-  color: var(--fg-secondary);
-  font-size: 0.9rem;
-}
-
-/* Particle burst container */
+/* ===== Particle burst ===== */
 .particle-burst {
   position: fixed;
   pointer-events: none;
@@ -221,12 +310,13 @@
   position: absolute;
   width: 6px;
   height: 6px;
-  border-radius: 50%;
+  border-radius: 0;
   animation: particleBurst 0.8s ease-out forwards;
 }
 
 @media (max-width: 768px) {
   .contact-page { padding: 24px 16px 48px; }
-  .contact-form-section { padding: 24px 20px; }
+  .terminal-body { padding: 16px; font-size: 0.78rem; }
   .contact-cards { grid-template-columns: 1fr; }
+  .terminal-submit { font-size: 0.75rem; }
 }

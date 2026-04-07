@@ -19,8 +19,8 @@
     <meta name="twitter:title" content="Wenchang Wang | Academic Homepage">
     <meta name="twitter:description" content="Computational social science, political communication, and causal inference research.">
 
-    <!-- Favicon — puppet head SVG -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='14' fill='%23FF6B6B'/><circle cx='11' cy='14' r='5' fill='white'/><circle cx='21' cy='14' r='5' fill='white'/><circle cx='11' cy='14' r='2.8' fill='%232a2a2a'/><circle cx='21' cy='14' r='2.8' fill='%232a2a2a'/><circle cx='9.8' cy='12.5' r='1.2' fill='white'/><circle cx='19.8' cy='12.5' r='1.2' fill='white'/><path d='M12 21 Q16 24 20 21' stroke='%23d94f4f' fill='none' stroke-width='1.5' stroke-linecap='round'/></svg>">
+    <!-- Favicon — pixel computer -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' style='image-rendering:pixelated'><rect x='2' y='1' width='12' height='9' fill='%23555'/><rect x='3' y='2' width='10' height='7' fill='%23111'/><rect x='4' y='3' width='4' height='1' fill='%237ee787'/><rect x='4' y='5' width='6' height='1' fill='%2379c0ff'/><rect x='4' y='7' width='3' height='1' fill='%23ff7b72'/><rect x='6' y='10' width='4' height='2' fill='%23555'/><rect x='4' y='12' width='8' height='2' fill='%23555'/></svg>">
 
     <!-- Google Fonts: JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -41,12 +41,8 @@
     <!-- Prevent theme/lang flash -->
     <script>
       (function(){
-        var t=localStorage.getItem('theme');
-        if(t)document.documentElement.setAttribute('data-theme',t);
-        else if(window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark');
-        var l=localStorage.getItem('lang');
-        if(!l)l=(navigator.language||'').toLowerCase().startsWith('zh')?'zh':'en';
-        document.documentElement.setAttribute('data-lang',l);
+        if(window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark');
+        document.documentElement.setAttribute('data-lang',localStorage.getItem('lang')||'en');
       })();
     </script>
 
@@ -629,27 +625,36 @@
                 </div>
             </div>
 
-            <div class="contact-form-section">
-                <h2 data-i18n="contact_form_title">Send a Message</h2>
-                <form id="contact-form">
-                    <div class="form-group">
-                        <label for="c-name" data-i18n="contact_name">Your Name</label>
-                        <input type="text" id="c-name" required>
+            <div class="terminal-window">
+                <div class="terminal-titlebar">
+                    <span class="terminal-dot"></span>
+                    <span class="terminal-dot"></span>
+                    <span class="terminal-dot"></span>
+                    <span class="terminal-title">wenchang@web:~/contact</span>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-output"><span class="t-prompt">$</span> <span data-i18n="contact_cmd">echo "Send me a message"</span></div>
+                    <form id="contact-form" class="terminal-form">
+                        <div class="terminal-line">
+                            <span class="t-prompt">&gt;</span>
+                            <label for="c-name">name:</label>
+                            <input type="text" id="c-name" placeholder="your_name" required>
+                        </div>
+                        <div class="terminal-line">
+                            <span class="t-prompt">&gt;</span>
+                            <label for="c-email">email:</label>
+                            <input type="email" id="c-email" placeholder="you@domain.com" required>
+                        </div>
+                        <div class="terminal-line terminal-msg-line">
+                            <span class="t-prompt">&gt;</span>
+                            <label for="c-msg">message:</label>
+                            <textarea id="c-msg" rows="4" placeholder="Type your message here..." required></textarea>
+                        </div>
+                        <button type="submit" class="terminal-submit"><span class="t-prompt">$</span> send_message --to wenchangwang@stu.pku.edu.cn</button>
+                    </form>
+                    <div class="form-success">
+                        <div class="terminal-output"><span class="t-prompt t-ok">&gt;&gt;</span> <span data-i18n="contact_success_msg">✓ Message prepared! Opening email client...</span></div>
                     </div>
-                    <div class="form-group">
-                        <label for="c-email" data-i18n="contact_email">Your Email</label>
-                        <input type="email" id="c-email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="c-msg" data-i18n="contact_message">Message</label>
-                        <textarea id="c-msg" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn" data-i18n="contact_send">Send Message</button>
-                </form>
-                <div class="form-success">
-                    <div class="success-icon">✅</div>
-                    <h3 data-i18n="contact_success_title">Message Sent!</h3>
-                    <p data-i18n="contact_success_msg">Thank you for your message. I will reply as soon as possible.</p>
                 </div>
             </div>
         </div>

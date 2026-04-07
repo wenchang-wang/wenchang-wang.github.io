@@ -97,13 +97,8 @@
       contact_email_label: 'Email',
       contact_twitter_label: 'X (Twitter)',
       contact_github_label: 'GitHub',
-      contact_form_title: 'Send a Message',
-      contact_name: 'Your Name',
-      contact_email: 'Your Email',
-      contact_message: 'Message',
-      contact_send: 'Send Message',
-      contact_success_title: 'Message Sent!',
-      contact_success_msg: 'Thank you for your message. I will reply as soon as possible.',
+      contact_cmd: 'echo "Send me a message"',
+      contact_success_msg: '✓ Message prepared! Opening email client...',
     },
 
     zh: {
@@ -141,7 +136,7 @@
       edu_pku_name: '\u5317\u4eac\u5927\u5b66',
       edu_pku_degree: '\u65b0\u95fb\u4e0e\u4f20\u64ad\u5b66\u7855\u58eb\uff1b\u8f85\u4fee\u7ecf\u6d4e\u5b66',
       edu_pku_date: '2023\u5e748\u6708 \u2013 2026\u5e746\u6708 | \u6df1\u5733',
-      edu_pku_note: '\u5bfc\u5e08\uff1a\u9648\u5353 \u52a9\u7406\u6559\u6388',
+      edu_pku_note: '\u5bfc\u5e08\uff1a\u9648\u707c \u52a9\u7406\u6559\u6388',
       edu_koeln_name: '\u5fb7\u56fd\u79d1\u9686\u5927\u5b66',
       edu_koeln_degree: '\u7ecf\u6d4e\u5b66\u4e0e\u4fe1\u606f\u79d1\u5b66\u4ea4\u6362\u751f',
       edu_koeln_date: '2024\u5e7410\u6708 \u2013 2025\u5e743\u6708 | \u79d1\u9686\uff0c\u5fb7\u56fd',
@@ -192,20 +187,13 @@
       contact_email_label: '\u90ae\u7bb1',
       contact_twitter_label: 'X (Twitter)',
       contact_github_label: 'GitHub',
-      contact_form_title: '\u53d1\u9001\u6d88\u606f',
-      contact_name: '\u60a8\u7684\u59d3\u540d',
-      contact_email: '\u60a8\u7684\u90ae\u7bb1',
-      contact_message: '\u6d88\u606f\u5185\u5bb9',
-      contact_send: '\u53d1\u9001',
-      contact_success_title: '\u53d1\u9001\u6210\u529f\uff01',
-      contact_success_msg: '\u611f\u8c22\u60a8\u7684\u6d88\u606f\uff0c\u6211\u4f1a\u5c3d\u5feb\u56de\u590d\u3002',
+      contact_cmd: 'echo "\u7ed9\u6211\u7559\u8a00"',
+      contact_success_msg: '\u2713 \u90ae\u4ef6\u5df2\u51c6\u5907\uff01\u6b63\u5728\u6253\u5f00\u90ae\u4ef6\u5ba2\u6237\u7aef\u2026',
     }
   };
 
   function getDefaultLang() {
-    var saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) return saved;
-    return (navigator.language || '').toLowerCase().startsWith('zh') ? 'zh' : 'en';
+    return localStorage.getItem(STORAGE_KEY) || 'en';
   }
 
   function applyLang(lang) {
