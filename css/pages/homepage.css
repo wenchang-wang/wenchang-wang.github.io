@@ -1,0 +1,337 @@
+/**
+ * homepage.css — Hero section with particle canvas, char-by-char title,
+ * typewriter subtitle, about/news/education/awards layout.
+ */
+
+/* Homepage removes default page padding — hero is full-bleed */
+#page-home {
+  padding-top: 0;
+}
+
+/* Hero */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  overflow: hidden;
+  padding: 60px 24px 0;
+}
+
+#particle-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  touch-action: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-avatar {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 0 6px var(--accent-glow);
+  margin: 0 auto 24px;
+}
+
+/* Pixel-art name — two-line layout; blocks fly in */
+.hero-name {
+  margin-bottom: 18px;
+  image-rendering: pixelated;
+}
+
+.hero-name.pixel-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.pixel-line {
+  flex-shrink: 0;
+}
+
+/* Individual pixel block */
+.px-block {
+  position: absolute;
+  border-radius: 1px;
+  opacity: 0;
+  animation: pxBlockIn 0.45s cubic-bezier(0.15, 0.85, 0.35, 1) forwards;
+}
+
+.px-block.tk-0 { background: var(--tk-0); }
+.px-block.tk-1 { background: var(--tk-1); }
+.px-block.tk-2 { background: var(--tk-2); }
+.px-block.tk-3 { background: var(--tk-3); }
+.px-block.tk-4 { background: var(--tk-4); }
+.px-block.tk-5 { background: var(--tk-5); }
+
+.hero-tagline {
+  font-size: 0.95rem;
+  color: var(--fg-secondary);
+  margin-bottom: 8px;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  color: var(--fg-secondary);
+  display: inline-block;
+  border-right: 2px solid var(--accent);
+  animation: cursorBlink 0.8s step-end infinite;
+  white-space: nowrap;
+  min-height: 1.8em;
+}
+
+.hero-scroll-hint {
+  margin-top: 40px;
+  font-size: 0.75rem;
+  color: var(--fg-secondary);
+  opacity: 0.6;
+  animation: float 2.5s ease-in-out infinite;
+}
+
+.hero-scroll-hint svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+  margin: 4px auto 0;
+  fill: var(--fg-secondary);
+}
+
+/* About section */
+.about-section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 60px 24px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 48px;
+  align-items: start;
+}
+
+.about-bio p {
+  margin-bottom: 16px;
+  color: var(--fg);
+}
+
+.about-bio ol {
+  list-style: decimal;
+  margin-left: 24px;
+  margin-bottom: 16px;
+}
+
+.about-bio ol li {
+  margin-bottom: 4px;
+}
+
+.about-sidebar .profile-photo {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: var(--card-shadow);
+}
+
+.contact-quick {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contact-quick-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--fg-secondary);
+  transition: color 0.2s;
+}
+
+.contact-quick-item:hover {
+  color: var(--accent);
+}
+
+.contact-quick-item svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+/* Keywords */
+.keywords {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* News */
+.news-section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px 48px;
+}
+
+.news-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.news-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 18px;
+  background: var(--card-bg);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  font-size: 0.88rem;
+  line-height: 1.7;
+  transition: box-shadow 0.2s;
+}
+
+.news-item:hover {
+  box-shadow: var(--card-shadow-hover);
+}
+
+.news-icon {
+  flex-shrink: 0;
+  font-size: 1.2rem;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+/* Education */
+.education-section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px 48px;
+}
+
+.education-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.education-item {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  padding: 20px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.education-item:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-2px);
+}
+
+.school-logo {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 8px;
+}
+
+.edu-content h3 {
+  font-size: 1rem;
+  margin-bottom: 4px;
+}
+
+.edu-content h3 a {
+  color: var(--fg);
+  transition: color 0.2s;
+}
+
+.edu-content h3 a:hover {
+  color: var(--accent);
+}
+
+.edu-degree {
+  font-size: 0.85rem;
+  color: var(--fg-secondary);
+}
+
+.edu-meta {
+  font-size: 0.8rem;
+  color: var(--fg-secondary);
+  opacity: 0.8;
+  margin-top: 2px;
+}
+
+.edu-note {
+  font-size: 0.8rem;
+  color: var(--fg-secondary);
+  font-style: italic;
+  margin-top: 2px;
+}
+
+/* Awards */
+.awards-section {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+
+.awards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.award-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  background: var(--card-bg);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  font-size: 0.88rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.award-item:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateX(4px);
+}
+
+.award-name {
+  flex: 1;
+}
+
+.award-year {
+  font-weight: 700;
+  color: var(--accent);
+  margin-left: 16px;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .hero { min-height: 70vh; }
+  .hero-name { transform: scale(0.55); transform-origin: center top; }
+  .about-grid { grid-template-columns: 1fr; }
+  .about-sidebar { order: -1; text-align: center; }
+  .about-sidebar .profile-photo { width: 160px; margin: 0 auto 20px; }
+  .award-item { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .award-year { margin-left: 0; }
+}

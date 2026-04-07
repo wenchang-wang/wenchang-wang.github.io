@@ -1,0 +1,232 @@
+/**
+ * contact.css — Flowing gradient background, 3D flip contact cards,
+ * form with ripple effect, and success particle animation.
+ */
+
+.contact-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+  position: relative;
+}
+
+/* Flowing gradient background glow */
+.contact-glow {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    var(--accent-glow) 0%,
+    transparent 70%
+  );
+  opacity: 0.4;
+  animation: glowPulse 6s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.contact-glow:nth-child(2) {
+  width: 400px;
+  height: 400px;
+  top: 30%;
+  left: 30%;
+  background: radial-gradient(
+    circle,
+    rgba(235, 69, 158, 0.1) 0%,
+    transparent 70%
+  );
+  animation: glowPulse 8s ease-in-out infinite 2s;
+}
+
+.contact-inner {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contact-header h1 { margin-bottom: 8px; }
+.contact-header p { color: var(--fg-secondary); font-size: 0.9rem; }
+
+/* Contact cards */
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.contact-card {
+  padding: 24px 20px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-align: center;
+  opacity: 0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-card.visible {
+  animation: flipIn 0.5s ease forwards;
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.contact-card-icon {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--accent-glow);
+  border-radius: 10px;
+}
+
+.contact-card-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: var(--accent);
+}
+
+.contact-card-label {
+  font-size: 0.78rem;
+  color: var(--fg-secondary);
+  margin-bottom: 4px;
+}
+
+.contact-card-value {
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+
+.contact-card-value a {
+  color: var(--fg);
+  transition: color 0.2s;
+}
+
+.contact-card-value a:hover {
+  color: var(--accent);
+}
+
+/* Contact form */
+.contact-form-section {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px;
+}
+
+.contact-form-section h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 1.2rem;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--fg-secondary);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+}
+
+/* Submit button with ripple */
+.submit-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px 28px;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  overflow: hidden;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.submit-btn:hover {
+  background: var(--accent-hover);
+}
+
+.submit-btn:active {
+  transform: scale(0.98);
+}
+
+.submit-btn .ripple-circle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  width: 20px;
+  height: 20px;
+  animation: ripple 0.6s ease-out forwards;
+  pointer-events: none;
+}
+
+/* Success overlay */
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.form-success.show {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+.form-success .success-icon {
+  font-size: 3rem;
+  margin-bottom: 12px;
+}
+
+.form-success p {
+  color: var(--fg-secondary);
+  font-size: 0.9rem;
+}
+
+/* Particle burst container */
+.particle-burst {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.particle-burst .particle {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  animation: particleBurst 0.8s ease-out forwards;
+}
+
+@media (max-width: 768px) {
+  .contact-page { padding: 24px 16px 48px; }
+  .contact-form-section { padding: 24px 20px; }
+  .contact-cards { grid-template-columns: 1fr; }
+}

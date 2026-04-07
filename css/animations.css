@@ -1,0 +1,144 @@
+/**
+ * animations.css — All @keyframes for page transitions, entrance effects,
+ * typewriter, counting, 3D flips, particle bursts, and puppet interactions.
+ */
+
+/* Page transitions */
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pageFadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+/* Pixel block assembly — each block flies in from a random offset */
+@keyframes pxBlockIn {
+  0%   { opacity: 0; transform: translate(var(--dx, 0px), var(--dy, 0px)) scale(0.2); }
+  100% { opacity: 1; transform: translate(0, 0) scale(1); }
+}
+
+/* Typewriter cursor blink */
+@keyframes cursorBlink {
+  0%, 100% { border-right-color: var(--accent); }
+  50%      { border-right-color: transparent; }
+}
+
+/* Slide in from left (CV timeline) */
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Slide up (Blog entries) */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Scale in (Research cards) */
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* 3D flip in (Contact cards) */
+@keyframes flipIn {
+  from { opacity: 0; transform: perspective(600px) rotateX(15deg); }
+  to   { opacity: 1; transform: perspective(600px) rotateX(0deg); }
+}
+
+/* Progress bar fill */
+@keyframes progressFill {
+  from { width: 0; }
+}
+
+/* Count up — handled in JS, this is for the visual pulse */
+@keyframes countPulse {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* Puppet bounce on hover */
+@keyframes puppetBounce {
+  0%   { transform: translateY(0); }
+  30%  { transform: translateY(-14px); }
+  50%  { transform: translateY(-4px); }
+  70%  { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+/* Contact background gradient flow */
+@keyframes gradientFlow {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Radial glow pulse */
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50%      { opacity: 0.6; transform: scale(1.15); }
+}
+
+/* Ripple effect */
+@keyframes ripple {
+  0%   { transform: scale(0); opacity: 0.6; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+/* Particle explosion (contact form success) */
+@keyframes particleBurst {
+  0%   { opacity: 1; transform: translate(0, 0) scale(1); }
+  100% { opacity: 0; transform: translate(var(--tx), var(--ty)) scale(0); }
+}
+
+/* Fade in generic */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Float effect */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-6px); }
+}
+
+/* Nav underline slide */
+@keyframes underlineSlide {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* Stagger helper classes — applied via JS */
+.animate-in {
+  opacity: 0;
+}
+
+.animate-in.visible {
+  opacity: 1;
+}
+
+.slide-left.visible  { animation: slideInLeft 0.5s ease forwards; }
+.slide-up.visible    { animation: slideUp 0.5s ease forwards; }
+.scale-in.visible    { animation: scaleIn 0.4s ease forwards; }
+.flip-in.visible     { animation: flipIn 0.5s ease forwards; }
+.fade-in-anim.visible { animation: fadeIn 0.4s ease forwards; }
+
+/* Reduced motion override */
+@media (prefers-reduced-motion: reduce) {
+  .animate-in { opacity: 1; }
+
+  @keyframes pageFadeIn  { from, to { opacity: 1; transform: none; } }
+  @keyframes pageFadeOut { from, to { opacity: 1; } }
+  @keyframes pxBlockIn  { from, to { opacity: 1; transform: none; } }
+  @keyframes slideInLeft { from, to { opacity: 1; transform: none; } }
+  @keyframes slideUp     { from, to { opacity: 1; transform: none; } }
+  @keyframes scaleIn     { from, to { opacity: 1; transform: none; } }
+  @keyframes flipIn      { from, to { opacity: 1; transform: none; } }
+  @keyframes puppetBounce { from, to { transform: none; } }
+}

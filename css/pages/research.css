@@ -1,0 +1,172 @@
+/**
+ * research.css — Paper cards with stagger scaleIn animation, filter tags,
+ * hover lift effect, status badges, and works-in-progress list.
+ */
+
+.research-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+}
+
+.research-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.research-header h1 { margin-bottom: 8px; }
+.research-header p { color: var(--fg-secondary); font-size: 0.9rem; }
+
+/* Filter tags */
+.filter-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 36px;
+}
+
+.filter-tag {
+  padding: 6px 16px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--fg-secondary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-tag:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.filter-tag.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: var(--accent);
+}
+
+/* Paper cards */
+.paper-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.paper-card {
+  padding: 22px 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  opacity: 0;
+}
+
+.paper-card.visible {
+  animation: scaleIn 0.4s ease forwards;
+}
+
+.paper-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.paper-card.hidden {
+  display: none;
+}
+
+.paper-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.paper-authors {
+  font-size: 0.82rem;
+  color: var(--fg-secondary);
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+
+.paper-venue {
+  font-size: 0.82rem;
+  color: var(--fg-secondary);
+  font-style: italic;
+  margin-bottom: 8px;
+}
+
+.paper-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.paper-date {
+  font-size: 0.78rem;
+  color: var(--fg-secondary);
+}
+
+.paper-status {
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  border-radius: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.paper-status.accepted {
+  background: rgba(87, 242, 135, 0.15);
+  color: #2ea043;
+}
+
+.paper-status.revise {
+  background: rgba(255, 166, 0, 0.15);
+  color: #d29922;
+}
+
+.paper-status.award {
+  background: rgba(255, 215, 0, 0.15);
+  color: #b8860b;
+}
+
+[data-theme="dark"] .paper-status.accepted { color: #57f287; }
+[data-theme="dark"] .paper-status.revise { color: #ffa600; }
+[data-theme="dark"] .paper-status.award { color: #ffd700; }
+
+/* Works in progress */
+.wip-section {
+  margin-top: 48px;
+}
+
+.wip-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.wip-item {
+  padding: 16px 20px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  border-left: 3px solid var(--accent);
+  transition: box-shadow 0.2s;
+}
+
+.wip-item:hover {
+  box-shadow: var(--card-shadow-hover);
+}
+
+@media (max-width: 768px) {
+  .research-page { padding: 24px 16px 48px; }
+  .paper-card { padding: 16px 18px; }
+}

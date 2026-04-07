@@ -1,0 +1,143 @@
+/**
+ * blog.css — Blog list with vertical line decoration, slideUp entrance,
+ * countUp stats bar, and hover effects.
+ */
+
+.blog-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 24px 60px;
+}
+
+.blog-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.blog-header h1 { margin-bottom: 8px; }
+.blog-header p { color: var(--fg-secondary); font-size: 0.9rem; }
+
+/* Stats bar */
+.blog-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 40px;
+  padding: 20px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--fg-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Blog list */
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.blog-item {
+  position: relative;
+  padding: 24px 24px 24px 28px;
+  border-bottom: 1px solid var(--border);
+  opacity: 0;
+  transition: background 0.2s;
+}
+
+.blog-item.visible {
+  animation: slideUp 0.5s ease forwards;
+}
+
+.blog-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12px;
+  bottom: 12px;
+  width: 3px;
+  background: var(--border);
+  border-radius: 2px;
+  transition: background 0.25s ease;
+}
+
+.blog-item:hover {
+  background: var(--bg-secondary);
+}
+
+.blog-item:hover::before {
+  background: var(--accent);
+}
+
+.blog-item:hover .blog-title a {
+  color: var(--accent);
+}
+
+.blog-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.blog-title a {
+  color: var(--fg);
+  transition: color 0.2s;
+}
+
+.blog-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 0.78rem;
+  color: var(--fg-secondary);
+  margin-bottom: 10px;
+}
+
+.blog-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.blog-excerpt {
+  font-size: 0.85rem;
+  color: var(--fg-secondary);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+
+.blog-read-more {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+.blog-read-more:hover {
+  transform: translateX(4px);
+}
+
+@media (max-width: 768px) {
+  .blog-page { padding: 24px 16px 48px; }
+  .blog-stats { gap: 24px; }
+  .stat-number { font-size: 1.5rem; }
+}

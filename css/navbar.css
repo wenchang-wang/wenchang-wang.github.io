@@ -1,0 +1,257 @@
+/**
+ * navbar.css — Fixed 60px navigation bar with language/theme toggles,
+ * active-link underline, responsive hamburger, plus the sidebar puppet world.
+ */
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  z-index: 1000;
+}
+
+.navbar-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--navbar-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--navbar-border);
+}
+
+.nav-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--fg);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.nav-logo:hover { color: var(--accent); }
+
+/* Nav links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-links a {
+  position: relative;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--fg-secondary);
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 14px;
+  right: 14px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 1px;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-links a:hover { color: var(--fg); }
+.nav-links a.active { color: var(--accent); }
+.nav-links a.active::after { transform: scaleX(1); }
+
+/* Right controls */
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Language toggle */
+.lang-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.lang-toggle .lang-option {
+  position: relative;
+  z-index: 1;
+  padding: 4px 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--fg-secondary);
+  transition: color 0.25s ease;
+  user-select: none;
+}
+
+.lang-toggle .lang-option.active { color: #fff; }
+
+.lang-toggle .lang-slider {
+  position: absolute;
+  top: 2px;
+  bottom: 2px;
+  width: calc(50% - 2px);
+  background: var(--accent);
+  border-radius: 16px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.lang-toggle[data-lang="en"] .lang-slider { transform: translateX(2px); }
+.lang-toggle[data-lang="zh"] .lang-slider { transform: translateX(calc(100% + 2px)); }
+
+/* Theme toggle */
+.theme-toggle {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+}
+
+.theme-toggle:hover {
+  background: var(--accent-glow);
+  border-color: var(--accent);
+  transform: rotate(15deg);
+}
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+  color: var(--fg-secondary);
+  fill: currentColor;
+  stroke: currentColor;
+  transition: color 0.2s;
+}
+
+.theme-toggle:hover svg { color: var(--accent); }
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  width: 36px;
+  height: 36px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--fg);
+  border-radius: 1px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Mobile drawer */
+.mobile-drawer { display: none; }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+
+  .mobile-drawer {
+    display: block;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg);
+    z-index: 999;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 32px 24px;
+    overflow-y: auto;
+  }
+
+  .mobile-drawer.open { transform: translateX(0); }
+
+  .mobile-drawer a {
+    display: block;
+    padding: 16px 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--fg);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mobile-drawer a.active { color: var(--accent); }
+
+  .mobile-drawer .mobile-controls {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+  }
+}
+
+/* ===== PUPPET WORLD (sidebar mascots) ===== */
+#puppet-world {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1001;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.puppet-wrap {
+  position: absolute;
+  pointer-events: auto;
+  cursor: pointer;
+  will-change: transform, left, top;
+  filter: drop-shadow(2px 3px 6px rgba(0, 0, 0, 0.1));
+  transition: filter 0.2s;
+}
+
+.puppet-wrap:hover {
+  filter: drop-shadow(2px 3px 10px rgba(0, 0, 0, 0.18));
+}
+
+@media (max-width: 768px) {
+  #puppet-world { display: none; }
+}

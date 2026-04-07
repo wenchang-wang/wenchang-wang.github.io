@@ -1,0 +1,73 @@
+/**
+ * theme.css — Light/dark color tokens managed via CSS custom properties.
+ * Default is light; [data-theme="dark"] activates dark palette.
+ * System preference respected via prefers-color-scheme in JS.
+ */
+
+:root {
+  --bg: #fafbfc;
+  --bg-secondary: #f0f2f5;
+  --fg: #1a1a2e;
+  --fg-secondary: #586069;
+  --accent: #5865F2;
+  --accent-hover: #4752C4;
+  --accent-glow: rgba(88, 101, 242, 0.15);
+  --border: #e1e4e8;
+  --card-bg: #ffffff;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.1);
+  --navbar-bg: rgba(255, 255, 255, 0.82);
+  --navbar-border: rgba(0, 0, 0, 0.06);
+  --input-bg: #ffffff;
+  --chip-bg: rgba(88, 101, 242, 0.08);
+  --code-bg: #f0f2f5;
+  --timeline-line: #e1e4e8;
+  --particle-color: rgba(88, 101, 242, 0.5);
+  --particle-line: rgba(88, 101, 242, 0.12);
+  --gradient-1: #5865F2;
+  --gradient-2: #eb459e;
+  --gradient-3: #57f287;
+  --puppet-shadow: rgba(0, 0, 0, 0.08);
+
+  /* Syntax-token palette (light — GitHub style) */
+  --tk-0: #cf222e;  --tk-0-bg: rgba(207,34,46,0.07);
+  --tk-1: #0550ae;  --tk-1-bg: rgba(5,80,174,0.07);
+  --tk-2: #8250df;  --tk-2-bg: rgba(130,80,223,0.08);
+  --tk-3: #116329;  --tk-3-bg: rgba(17,99,41,0.07);
+  --tk-4: #953800;  --tk-4-bg: rgba(149,56,0,0.07);
+  --tk-5: #0a3069;  --tk-5-bg: rgba(10,48,105,0.07);
+}
+
+[data-theme="dark"] {
+  --bg: #0d1117;
+  --bg-secondary: #161b22;
+  --fg: #e6edf3;
+  --fg-secondary: #8b949e;
+  --accent: #7c8aff;
+  --accent-hover: #9ba5ff;
+  --accent-glow: rgba(124, 138, 255, 0.2);
+  --border: #30363d;
+  --card-bg: #161b22;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --navbar-bg: rgba(13, 17, 23, 0.82);
+  --navbar-border: rgba(255, 255, 255, 0.06);
+  --input-bg: #0d1117;
+  --chip-bg: rgba(124, 138, 255, 0.12);
+  --code-bg: #1c2128;
+  --timeline-line: #30363d;
+  --particle-color: rgba(124, 138, 255, 0.5);
+  --particle-line: rgba(124, 138, 255, 0.15);
+  --gradient-1: #7c8aff;
+  --gradient-2: #f47fff;
+  --gradient-3: #7dffaa;
+  --puppet-shadow: rgba(0, 0, 0, 0.3);
+
+  /* Syntax-token palette (dark — GitHub Dark style) */
+  --tk-0: #ff7b72;  --tk-0-bg: rgba(255,123,114,0.12);
+  --tk-1: #79c0ff;  --tk-1-bg: rgba(121,192,255,0.12);
+  --tk-2: #d2a8ff;  --tk-2-bg: rgba(210,168,255,0.12);
+  --tk-3: #7ee787;  --tk-3-bg: rgba(126,231,135,0.12);
+  --tk-4: #ffa657;  --tk-4-bg: rgba(255,166,87,0.12);
+  --tk-5: #a5d6ff;  --tk-5-bg: rgba(165,214,255,0.12);
+}
