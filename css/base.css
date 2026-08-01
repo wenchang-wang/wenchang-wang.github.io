@@ -1,6 +1,5 @@
 /**
- * base.css — Global reset, typography, layout primitives, and utility classes.
- * Uses JetBrains Mono as primary font loaded via Google Fonts.
+ * base.css — Global IDE Typography, Code Elements, Line Numbers & Layout Primitives.
  */
 
 *, *::before, *::after {
@@ -16,32 +15,34 @@ html {
 }
 
 body {
-  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Source Code Pro', 'Consolas', monospace;
-  font-size: 1rem;
-  line-height: 1.8;
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Source Code Pro', 'Menlo', monospace;
+  font-size: 0.95rem;
+  line-height: 1.7;
   color: var(--fg);
   background-color: var(--bg);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.25s ease, color 0.25s ease;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-bottom: 32px; /* Space for bottom statusbar */
 }
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: 'JetBrains Mono', monospace;
   font-weight: 700;
   letter-spacing: -0.02em;
   line-height: 1.3;
   color: var(--fg);
 }
 
-h1 { font-size: 2.4rem; }
-h2 { font-size: 1.6rem; }
-h3 { font-size: 1.2rem; }
+h1 { font-size: 2.2rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.15rem; }
 
 a {
   color: var(--accent);
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 a:hover {
@@ -67,63 +68,35 @@ button {
   color: inherit;
 }
 
-input, textarea {
-  font-family: inherit;
-  font-size: inherit;
-  color: inherit;
-  border: 1px solid var(--border);
-  background: var(--input-bg);
-  border-radius: 8px;
-  padding: 10px 14px;
-  outline: none;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-input:focus, textarea:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-glow);
-}
-
-textarea {
-  resize: vertical;
-  min-height: 120px;
-}
-
-::selection {
-  background: var(--accent);
-  color: #fff;
-}
-
+/* Scrollbar IDE style */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
+  height: 10px;
 }
-
 ::-webkit-scrollbar-track {
   background: var(--bg-secondary);
 }
-
 ::-webkit-scrollbar-thumb {
   background: var(--border);
   border-radius: 4px;
 }
-
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--fg-secondary);
+  background: var(--fg-subtle);
 }
 
-/* Layout */
+/* Layout Container */
 .container {
-  max-width: 960px;
+  max-width: 1040px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
-/* Page sections (SPA routing) */
+/* Page Section (SPA Routing) */
 .page {
   display: none;
   opacity: 0;
-  min-height: calc(100vh - 60px);
-  padding-top: 80px;
+  min-height: calc(100vh - 100px);
+  padding-top: 72px;
   padding-bottom: 60px;
 }
 
@@ -132,74 +105,161 @@ textarea {
 }
 
 .page.fade-in {
-  animation: pageFadeIn 0.3s ease forwards;
+  animation: pageFadeIn 0.25s ease forwards;
 }
 
 .page.fade-out {
-  animation: pageFadeOut 0.2s ease forwards;
+  animation: pageFadeOut 0.18s ease forwards;
 }
 
-/* Section titles */
+/* IDE Section Headers with Comment prefix */
 .section-title {
-  font-size: 1.4rem;
+  font-size: 1.35rem;
+  font-family: 'JetBrains Mono', monospace;
   margin-bottom: 24px;
-  padding-bottom: 12px;
-  border-bottom: 2px solid var(--border);
-  position: relative;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed var(--border);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--syn-keyword);
+}
+
+.section-title::before {
+  content: '//';
+  color: var(--syn-comment);
+  font-weight: 400;
 }
 
 .section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -2px;
-  left: 0;
-  width: 60px;
-  height: 2px;
-  background: var(--accent);
+  content: '{';
+  color: var(--fg-subtle);
+  font-weight: 400;
+  margin-left: auto;
 }
 
-/* Keyword chips */
+/* Line Number Wrapper */
+.code-card {
+  position: relative;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  overflow: hidden;
+}
+
+.code-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-cyan);
+  box-shadow: var(--card-shadow-hover);
+}
+
+/* Code Syntax Elements */
+.syn-kw { color: var(--syn-keyword); font-weight: 600; }
+.syn-str { color: var(--syn-string); }
+.syn-fn { color: var(--syn-fn); }
+.syn-num { color: var(--syn-num); }
+.syn-cm { color: var(--syn-comment); font-style: italic; }
+.syn-prop { color: var(--syn-prop); }
+
+/* Keyword Chips / Tags */
 .chip {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.75rem;
-  font-weight: 500;
-  background: var(--chip-bg);
-  color: var(--accent);
-  border: 1px solid var(--accent-glow);
-  margin: 4px 4px 4px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  font-family: 'JetBrains Mono', monospace;
+  background: var(--bg-secondary);
+  color: var(--fg-muted);
+  border: 1px solid var(--border-subtle);
+  margin: 3px 4px 3px 0;
   transition: all 0.2s ease;
 }
 
+.chip::before {
+  content: '#';
+  color: var(--accent-cyan);
+}
+
 .chip:hover {
-  background: var(--accent);
-  color: #fff;
+  background: var(--accent-glow);
+  color: var(--accent);
+  border-color: var(--accent);
 }
 
-/* Strong emphasis */
-strong {
-  font-weight: 700;
-  color: var(--fg);
+/* VS Code Status Bar (Fixed at bottom) */
+.statusbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background: var(--statusbar-bg);
+  color: var(--statusbar-fg);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  z-index: 1000;
+  border-top: 1px solid var(--border);
 }
 
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
-
-  html {
-    scroll-behavior: auto;
-  }
+.statusbar-left, .statusbar-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
-/* Mobile base */
+.statusbar-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.statusbar-item .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-green);
+  box-shadow: 0 0 6px var(--accent-green);
+}
+
+/* Animations */
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pageFadeOut {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(-4px); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  display: inline-block;
+  width: 8px;
+  height: 1.1em;
+  background: var(--syn-prop);
+  vertical-align: middle;
+  margin-left: 2px;
+  animation: blink 1s step-end infinite;
+}
+
+/* Mobile Responsive Adjustments */
 @media (max-width: 768px) {
   html { font-size: 14px; }
-  h1 { font-size: 1.8rem; }
+  h1 { font-size: 1.7rem; }
   h2 { font-size: 1.3rem; }
-  .page { padding-top: 70px; }
+  .page { padding-top: 65px; }
+  .statusbar-right { display: none; }
 }

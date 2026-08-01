@@ -1,10 +1,6 @@
 /**
- * particles.js — Pixel-style hero canvas.
- *
- *  1. Small colored square blocks drifting, bouncing away from cursor
- *  2. Five snake creatures wander, seek & eat blocks, grow colored tails
- *  3. The snake nearest to the cursor follows it (desktop mouse / mobile touch)
- *  4. Theme-adaptive token colors
+ * particles.js — Professional HD Pixel Art SVG Soul & Rock Instrument Engine
+ * (专业级高清 SVG 8-Bit 像素萨克斯、电吉他、黑胶唱片、麦克风与音符 Canvas 引擎)
  */
 
 (function () {
@@ -13,89 +9,126 @@
   var canvas, ctx, W, H, dpr;
   var animId = null, running = false;
 
-  /* ── palette ── */
-  function pal() {
-    var dk = document.documentElement.getAttribute('data-theme') === 'dark';
-    return dk
-      ? ['#ff7b72', '#79c0ff', '#d2a8ff', '#7ee787', '#ffa657', '#a5d6ff']
-      : ['#cf222e', '#0550ae', '#8250df', '#116329', '#953800', '#0a3069'];
+  var floatingItems = [];
+  var shockwaves = [];
+  var NUM_ITEMS = 55;
+
+  var mx = -9999, my = -9999, mActive = false;
+
+  /* ──────────────────────────────────────────
+     HIGH-DEFINITION 8-BIT PIXEL ART SVG DATA URIS
+     ────────────────────────────────────────── */
+
+  /* 1. HD Pixel Saxophone SVG (🎷 萨克斯) */
+  var SVG_SAX = 'data:image/svg+xml;utf8,' + encodeURIComponent(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" style="image-rendering:pixelated">
+      <path fill="#000000" d="M16 2h6v2h-2v2h2v4h-2v2h2v4h-2v2h-2v2h-2v2h-2v2h-2v2h-4v-2h-2v-4h2v-4h2v2h2v-2h2v-2h2V6h-2V2z"/>
+      <path fill="#fbbf24" d="M18 4h2v2h-2zm-2 4h4v2h-4zm-2 4h4v2h-4zm-2 4h4v2h-4zm-2 4h4v2h-4zm-2 4h2v2h-2z"/>
+      <path fill="#f59e0b" d="M12 22h4v2h-4zm-4-4h4v2h-4zm-4-4h4v2h-4z"/>
+      <circle cx="8" cy="8" r="4" fill="#fbbf24" stroke="#000" stroke-width="1.5"/>
+      <rect x="18" y="8" width="2" height="2" fill="#ffffff"/>
+      <rect x="18" y="12" width="2" height="2" fill="#ffffff"/>
+    </svg>
+  `);
+
+  /* 2. HD Pixel Fender Electric Guitar SVG (🎸 芬达电吉他) */
+  var SVG_GUITAR = 'data:image/svg+xml;utf8,' + encodeURIComponent(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" style="image-rendering:pixelated">
+      <path fill="#000000" d="M2 2h4v4h2v2h2v2h2v2h2v2h2v2h2v-4h2v-2h2v6h2v6h-2v2h-2v2h-4v-2h-2v-2h-2v-2h-2v-2h-2v-2h-2V6h-2V2z"/>
+      <!-- Body Crimson -->
+      <path fill="#ef4444" d="M18 16h6v4h-2v2h-2v2h-4v-2h-2v-2h2v-4z"/>
+      <path fill="#dc2626" d="M22 12h4v4h-4zm2-6h2v4h-2z"/>
+      <!-- Neck Maple -->
+      <path fill="#d97706" d="M6 6h8v2H6zm-2-2h4v2H4z"/>
+      <!-- Pickguard White -->
+      <path fill="#ffffff" d="M18 18h4v3h-2v1h-2z"/>
+      <rect x="20" y="17" width="3" height="1" fill="#000000"/>
+    </svg>
+  `);
+
+  /* 3. HD Pixel Vinyl Record SVG (📻 黑胶唱片) */
+  var SVG_VINYL = 'data:image/svg+xml;utf8,' + encodeURIComponent(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" style="image-rendering:pixelated">
+      <circle cx="16" cy="16" r="14" fill="#0f172a" stroke="#000000" stroke-width="2"/>
+      <circle cx="16" cy="16" r="11" fill="none" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+      <circle cx="16" cy="16" r="8" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
+      <circle cx="16" cy="16" r="5" fill="#c084fc" stroke="#000000" stroke-width="1"/>
+      <circle cx="16" cy="16" r="1.5" fill="#000000"/>
+    </svg>
+  `);
+
+  /* 4. HD Pixel Vintage Microphone SVG (🎙️ 复古麦克风) */
+  var SVG_MIC = 'data:image/svg+xml;utf8,' + encodeURIComponent(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" style="image-rendering:pixelated">
+      <rect x="11" y="3" width="10" height="12" rx="4" fill="#e2e8f0" stroke="#000000" stroke-width="2"/>
+      <line x1="11" y1="7" x2="21" y2="7" stroke="#000000" stroke-width="1.5"/>
+      <line x1="11" y1="11" x2="21" y2="11" stroke="#000000" stroke-width="1.5"/>
+      <path fill="none" stroke="#64748b" stroke-width="2" d="M8 12a8 8 0 0 0 16 0"/>
+      <rect x="15" y="20" width="2" height="6" fill="#475569"/>
+      <rect x="10" y="26" width="12" height="3" rx="1" fill="#1e293b" stroke="#000000" stroke-width="1.5"/>
+    </svg>
+  `);
+
+  /* 5. HD Pixel Single Music Note SVG ♪ */
+  var SVG_NOTE1 = 'data:image/svg+xml;utf8,' + encodeURIComponent(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="image-rendering:pixelated">
+      <path fill="#38bdf8" d="M12 2h8v4h-6v10a4 4 0 1 1-4-4h2V2z" stroke="#000000" stroke-width="1.5"/>
+    </svg>
+  `);
+
+  /* 6. HD Pixel Double Music Note SVG ♫ */
+  var SVG_NOTE2 = 'data:image/svg+xml;utf8,' + encodeURIComponent(`
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style="image-rendering:pixelated">
+      <path fill="#4ade80" d="M4 4h16v4H10v8a3 3 0 1 1-3-3h3V8H4z" stroke="#000000" stroke-width="1.5"/>
+      <circle cx="17" cy="17" r="3" fill="#4ade80" stroke="#000000" stroke-width="1.5"/>
+    </svg>
+  `);
+
+  var loadedImages = [];
+
+  function loadSVGImages(callback) {
+    var sources = [SVG_SAX, SVG_GUITAR, SVG_VINYL, SVG_MIC, SVG_NOTE1, SVG_NOTE2];
+    var count = 0;
+    loadedImages = [];
+
+    sources.forEach(function (src, idx) {
+      var img = new Image();
+      img.onload = function () {
+        count++;
+        if (count === sources.length && callback) callback();
+      };
+      img.src = src;
+      loadedImages.push(img);
+    });
   }
 
-  /* ════════════════════════════════════════
-     PARTICLES
-     ════════════════════════════════════════ */
-  var P_N = 65;
-  var P_SZ = [4, 5, 6, 7];
-  var particles = [];
+  function getPalette() {
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    return {
+      bg: isDark ? '#060810' : '#fafbfc',
+      gold: isDark ? '#fbbf24' : '#d97706',
+      gridColor: isDark ? 'rgba(255, 255, 255, 0.025)' : 'rgba(0, 0, 0, 0.025)'
+    };
+  }
 
-  function mkP() {
-    var c = pal();
+  function createFloatingItem() {
+    if (loadedImages.length === 0) return null;
+    var imgIdx = Math.floor(Math.random() * loadedImages.length);
+    var img = loadedImages[imgIdx];
+    var sizes = [34, 38, 42, 46];
+    var size = sizes[Math.floor(Math.random() * sizes.length)];
+
     return {
       x: Math.random() * (W || 800),
-      y: Math.random() * (H || 600),
-      vx: (Math.random() - 0.5) * 0.35,
-      vy: (Math.random() - 0.5) * 0.35,
-      sz: P_SZ[(Math.random() * P_SZ.length) | 0],
-      color: c[(Math.random() * c.length) | 0],
-      alpha: 0.28 + Math.random() * 0.38,
-      alive: true, respawn: 0
+      y: H + Math.random() * 200,
+      vy: -0.6 - Math.random() * 0.9,
+      vx: (Math.random() - 0.5) * 0.4,
+      img: img,
+      size: size,
+      alpha: 0.55 + Math.random() * 0.4
     };
   }
 
-  /* ════════════════════════════════════════
-     SNAKES — 5 creatures
-     ════════════════════════════════════════ */
-  var S_DEFS = [
-    { color: '#FF6B6B', spd: 1.15 },
-    { color: '#4ECDC4', spd: 1.0  },
-    { color: '#FFE66D', spd: 1.25 },
-    { color: '#FF9F43', spd: 0.95 },
-    { color: '#A29BFE', spd: 1.1  }
-  ];
-  var S_INIT   = 8;
-  var S_MAX    = 22;
-  var S_HEAD   = 10;
-  var S_SEG    = 7;
-  var S_EAT_R  = 15;
-  var S_FOLLOW = 0.28;
-  var snakes   = [];
-  var snakeGo  = false;
-
-  function mkSnake(def, idx) {
-    var x0 = -50 - idx * 60;
-    var y0 = (H || 500) * (0.18 + idx * 0.16);
-    var segs = [];
-    for (var i = 0; i < S_INIT; i++)
-      segs.push({ x: x0 - i * 9, y: y0, color: def.color });
-    return {
-      hx: x0, hy: y0, segs: segs,
-      ang: 0, tAng: Math.random() * 6.28,
-      spd: def.spd + (Math.random() - 0.5) * 0.15,
-      base: def.color, hColor: def.color,
-      flash: 0, wt: 1 + Math.random() * 2,
-      entered: false
-    };
-  }
-
-  /* ════════════════════════════════════════
-     MOUSE / TOUCH
-     ════════════════════════════════════════ */
-  var mx = -9e3, my = -9e3, mActive = false;
-  var REPEL_R = 110, REPEL_F = 3.8;
-
-  function nearestSnakeIdx() {
-    var best = -1, bd = Infinity;
-    for (var i = 0; i < snakes.length; i++) {
-      var dx = snakes[i].hx - mx, dy = snakes[i].hy - my;
-      var d2 = dx * dx + dy * dy;
-      if (d2 < bd) { bd = d2; best = i; }
-    }
-    return best;
-  }
-
-  /* ════════════════════════════════════════
-     SETUP
-     ════════════════════════════════════════ */
   function resize() {
     canvas = document.getElementById('particle-canvas');
     if (!canvas) return;
@@ -103,218 +136,165 @@
     dpr = window.devicePixelRatio || 1;
     var r = canvas.parentElement.getBoundingClientRect();
     W = r.width; H = r.height;
-    canvas.width  = W * dpr;
+    canvas.width = W * dpr;
     canvas.height = H * dpr;
-    canvas.style.width  = W + 'px';
+    canvas.style.width = W + 'px';
     canvas.style.height = H + 'px';
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    seed();
   }
 
   function seed() {
-    particles = [];
-    for (var i = 0; i < P_N; i++) particles.push(mkP());
-    snakes = [];
-    for (var j = 0; j < S_DEFS.length; j++) snakes.push(mkSnake(S_DEFS[j], j));
-    snakeGo = false;
-    setTimeout(function () { snakeGo = true; }, 800);
-  }
-
-  /* ════════════════════════════════════════
-     UPDATE
-     ════════════════════════════════════════ */
-  function tickParticles() {
-    for (var i = 0; i < particles.length; i++) {
-      var p = particles[i];
-      if (!p.alive) {
-        p.respawn -= 1 / 60;
-        if (p.respawn <= 0) {
-          var n = mkP(); p.x = n.x; p.y = n.y;
-          p.vx = n.vx; p.vy = n.vy; p.sz = n.sz;
-          p.color = n.color; p.alpha = n.alpha; p.alive = true;
-        }
-        continue;
+    floatingItems = [];
+    shockwaves = [];
+    for (var i = 0; i < NUM_ITEMS; i++) {
+      var item = createFloatingItem();
+      if (item) {
+        item.y = Math.random() * H;
+        floatingItems.push(item);
       }
-      var dx = p.x - mx, dy = p.y - my;
-      var d = Math.sqrt(dx * dx + dy * dy);
-      if (d < REPEL_R && d > 1) {
-        var f = (REPEL_R - d) / REPEL_R * REPEL_F;
-        p.vx += (dx / d) * f;
-        p.vy += (dy / d) * f;
-      }
-      p.vx *= 0.955; p.vy *= 0.955;
-      if (Math.abs(p.vx) < 0.03) p.vx += (Math.random() - 0.5) * 0.06;
-      if (Math.abs(p.vy) < 0.03) p.vy += (Math.random() - 0.5) * 0.06;
-      p.x += p.vx; p.y += p.vy;
-      if (p.x < 0) { p.x = 0; p.vx *= -0.7; }
-      if (p.x > W) { p.x = W; p.vx *= -0.7; }
-      if (p.y < 0) { p.y = 0; p.vy *= -0.7; }
-      if (p.y > H) { p.y = H; p.vy *= -0.7; }
     }
   }
 
-  function tickSnakes() {
-    if (!snakeGo) return;
-    var follower = mActive ? nearestSnakeIdx() : -1;
+  function spawnBurst(x, y) {
+    var pal = getPalette();
+    shockwaves.push({
+      x: x, y: y,
+      r: 4, maxR: 130,
+      color: pal.gold, life: 1.0
+    });
 
-    for (var s = 0; s < snakes.length; s++) {
-      var k = snakes[s];
-
-      /* entrance */
-      if (!k.entered) { k.tAng = 0; if (k.hx > 80) k.entered = true; }
-
-      if (s === follower && k.entered) {
-        /* ── follow cursor ── */
-        k.tAng = Math.atan2(my - k.hy, mx - k.hx);
-      } else if (k.entered) {
-        /* ── wander + seek food ── */
-        k.wt -= 1 / 60;
-        if (k.wt <= 0) {
-          k.tAng += (Math.random() - 0.5) * 2.2;
-          k.wt = 1.5 + Math.random() * 3;
-        }
-        var bestD = 160, bestP = null;
-        for (var i = 0; i < particles.length; i++) {
-          if (!particles[i].alive) continue;
-          var pdx = particles[i].x - k.hx, pdy = particles[i].y - k.hy;
-          var pd = Math.sqrt(pdx * pdx + pdy * pdy);
-          if (pd < bestD) { bestD = pd; bestP = particles[i]; }
-        }
-        if (bestP) k.tAng = Math.atan2(bestP.y - k.hy, bestP.x - k.hx);
+    for (var n = 0; n < 6; n++) {
+      var item = createFloatingItem();
+      if (item) {
+        item.x = x + (Math.random() - 0.5) * 60;
+        item.y = y + (Math.random() - 0.5) * 60;
+        item.vy = -1.5 - Math.random() * 1.8;
+        floatingItems.push(item);
       }
-
-      /* edge avoidance */
-      var m = 50;
-      if (k.hx < m) k.tAng = 0;
-      else if (k.hx > W - m) k.tAng = Math.PI;
-      if (k.hy < m) k.tAng = Math.PI * 0.5;
-      else if (k.hy > H - m) k.tAng = -Math.PI * 0.5;
-
-      /* smooth turn — follower turns faster */
-      var turnRate = (s === follower) ? 0.10 : 0.055;
-      var da = k.tAng - k.ang;
-      while (da > Math.PI) da -= 6.2832;
-      while (da < -Math.PI) da += 6.2832;
-      k.ang += da * turnRate;
-
-      /* move */
-      var speed = (s === follower) ? k.spd * 1.35 : k.spd;
-      k.hx += Math.cos(k.ang) * speed;
-      k.hy += Math.sin(k.ang) * speed;
-
-      /* segments follow */
-      var ldr = { x: k.hx, y: k.hy };
-      for (var j = 0; j < k.segs.length; j++) {
-        var sg = k.segs[j];
-        var ff = Math.max(0.10, S_FOLLOW - j * 0.012);
-        sg.x += (ldr.x - sg.x) * ff;
-        sg.y += (ldr.y - sg.y) * ff;
-        ldr = sg;
-      }
-
-      /* eat */
-      for (var i = 0; i < particles.length; i++) {
-        var pp = particles[i];
-        if (!pp.alive) continue;
-        var ex = pp.x - k.hx, ey = pp.y - k.hy;
-        if (ex * ex + ey * ey < S_EAT_R * S_EAT_R) {
-          pp.alive = false;
-          pp.respawn = 2.5 + Math.random() * 2;
-          if (k.segs.length < S_MAX) {
-            var tail = k.segs[k.segs.length - 1];
-            k.segs.push({ x: tail.x, y: tail.y, color: pp.color });
-          }
-          k.flash = 0.35; k.hColor = pp.color;
-          break;
-        }
-      }
-      if (k.flash > 0) k.flash -= 1 / 60; else k.hColor = k.base;
     }
   }
 
-  /* ════════════════════════════════════════
-     DRAW
-     ════════════════════════════════════════ */
+  function tick() {
+    for (var i = floatingItems.length - 1; i >= 0; i--) {
+      var it = floatingItems[i];
+      it.x += it.vx;
+      it.y += it.vy;
+
+      /* Cursor Fluid Magnetism */
+      if (mActive) {
+        var dx = mx - it.x;
+        var dy = my - it.y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < 220 && dist > 1) {
+          var force = (220 - dist) / 220 * 0.35;
+          it.vx += (dx / dist) * force * 0.1;
+          it.vy += (dy / dist) * force * 0.1;
+        }
+      }
+
+      it.vx *= 0.98;
+
+      /* Reset when drifting off top */
+      if (it.y < -80) {
+        var newItem = createFloatingItem();
+        if (newItem) floatingItems[i] = newItem;
+      }
+    }
+
+    /* Shockwaves */
+    for (var s = shockwaves.length - 1; s >= 0; s--) {
+      var sw = shockwaves[s];
+      sw.r += 5.5;
+      sw.life = 1 - (sw.r / sw.maxR);
+      if (sw.r >= sw.maxR) shockwaves.splice(s, 1);
+    }
+  }
+
   function draw() {
     if (!ctx) return;
     ctx.clearRect(0, 0, W, H);
+    var pal = getPalette();
 
-    for (var i = 0; i < particles.length; i++) {
-      var p = particles[i];
-      if (!p.alive) continue;
-      ctx.globalAlpha = p.alpha;
-      ctx.fillStyle = p.color;
-      ctx.fillRect(Math.round(p.x - p.sz / 2), Math.round(p.y - p.sz / 2), p.sz, p.sz);
+    /* 1. Background Grid Lines */
+    ctx.strokeStyle = pal.gridColor;
+    ctx.lineWidth = 1;
+    for (var x = 0; x < W; x += 36) {
+      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
+    }
+    for (var y = 0; y < H; y += 36) {
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+    }
+
+    /* 2. Draw Shockwaves */
+    for (var s = 0; s < shockwaves.length; s++) {
+      var sw = shockwaves[s];
+      ctx.strokeStyle = sw.color;
+      ctx.lineWidth = 2;
+      ctx.globalAlpha = Math.max(0, sw.life * 0.7);
+      ctx.strokeRect(sw.x - sw.r, sw.y - sw.r, sw.r * 2, sw.r * 2);
     }
     ctx.globalAlpha = 1;
 
-    for (var s = 0; s < snakes.length; s++) {
-      var k = snakes[s];
-      for (var j = k.segs.length - 1; j >= 0; j--) {
-        var sg = k.segs[j];
-        ctx.globalAlpha = 0.32 + (1 - j / k.segs.length) * 0.58;
-        ctx.fillStyle = sg.color;
-        ctx.fillRect(Math.round(sg.x - S_SEG / 2), Math.round(sg.y - S_SEG / 2), S_SEG, S_SEG);
-      }
-      ctx.globalAlpha = 1;
-      ctx.fillStyle = k.hColor;
-      var hh = S_HEAD / 2;
-      ctx.fillRect(Math.round(k.hx - hh), Math.round(k.hy - hh), S_HEAD, S_HEAD);
+    /* 3. Draw Floating HD Pre-Rendered Pixel Art SVG Icons */
+    for (var i = 0; i < floatingItems.length; i++) {
+      var it = floatingItems[i];
+      if (!it.img) continue;
 
-      var ca = Math.cos(k.ang), sa = Math.sin(k.ang);
-      var perp = 3, fwd = 2.2;
-      var px1 = -sa * perp, py1 = ca * perp;
-      var fx = ca * fwd, fy = sa * fwd;
-      ctx.fillStyle = '#fff';
-      ctx.fillRect(Math.round(k.hx + px1 + fx - 1.5), Math.round(k.hy + py1 + fy - 1.5), 3, 3);
-      ctx.fillRect(Math.round(k.hx - px1 + fx - 1.5), Math.round(k.hy - py1 + fy - 1.5), 3, 3);
-      ctx.fillStyle = '#1a1a1a';
-      ctx.fillRect(Math.round(k.hx + px1 + fx * 1.5 - 0.5), Math.round(k.hy + py1 + fy * 1.5 - 0.5), 2, 2);
-      ctx.fillRect(Math.round(k.hx - px1 + fx * 1.5 - 0.5), Math.round(k.hy - py1 + fy * 1.5 - 0.5), 2, 2);
+      ctx.globalAlpha = it.alpha;
+      ctx.drawImage(it.img, it.x - it.size / 2, it.y - it.size / 2, it.size, it.size);
     }
+    ctx.globalAlpha = 1;
   }
 
-  /* ════════════════════════════════════════
-     LOOP & EVENTS
-     ════════════════════════════════════════ */
   function loop() {
     if (!running) return;
-    tickParticles(); tickSnakes(); draw();
+    tick(); draw();
     animId = requestAnimationFrame(loop);
   }
 
-  function canvasXY(clientX, clientY) {
+  function onMove(e) {
     if (!canvas) return;
     var r = canvas.getBoundingClientRect();
-    mx = clientX - r.left; my = clientY - r.top;
+    mx = e.clientX - r.left;
+    my = e.clientY - r.top;
+    mActive = true;
   }
 
-  function onMove(e)  { canvasXY(e.clientX, e.clientY); mActive = true; }
-  function onLeave()  { mx = -9e3; my = -9e3; mActive = false; }
-  function onTouchS(e) { var t = e.touches[0]; canvasXY(t.clientX, t.clientY); mActive = true; }
-  function onTouchM(e) { var t = e.touches[0]; canvasXY(t.clientX, t.clientY); }
-  function onTouchE()  { mActive = false; mx = -9e3; my = -9e3; }
+  function onLeave() {
+    mActive = false;
+  }
+
+  function onClick(e) {
+    if (!canvas) return;
+    var r = canvas.getBoundingClientRect();
+    spawnBurst(e.clientX - r.left, e.clientY - r.top);
+  }
 
   function start() {
     resize(); if (!canvas) return;
-    seed(); running = true; loop();
+    running = true;
+
+    loadSVGImages(function () {
+      seed();
+      loop();
+    });
+
+    window.addEventListener('resize', resize);
     document.addEventListener('mousemove', onMove, { passive: true });
     document.addEventListener('mouseleave', onLeave);
-    document.addEventListener('touchstart', onTouchS, { passive: true });
-    document.addEventListener('touchmove',  onTouchM, { passive: true });
-    document.addEventListener('touchend',   onTouchE);
-    window.addEventListener('resize', resize);
+    canvas.addEventListener('click', onClick);
   }
 
   function stop() {
     running = false;
     if (animId) cancelAnimationFrame(animId);
+    window.removeEventListener('resize', resize);
     document.removeEventListener('mousemove', onMove);
     document.removeEventListener('mouseleave', onLeave);
-    document.removeEventListener('touchstart', onTouchS);
-    document.removeEventListener('touchmove',  onTouchM);
-    document.removeEventListener('touchend',   onTouchE);
-    window.removeEventListener('resize', resize);
+    if (canvas) canvas.removeEventListener('click', onClick);
   }
 
-  window.Particles = { start: start, stop: stop };
+  window.Particles = { start: start, stop: stop, burst: spawnBurst };
 })();

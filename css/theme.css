@@ -1,73 +1,126 @@
 /**
- * theme.css — Light/dark color tokens managed via CSS custom properties.
- * Default is light; [data-theme="dark"] activates dark palette.
- * System preference respected via prefers-color-scheme in JS.
+ * theme.css — IDE & Cyber Academic Palette
+ * Light (GitHub Light / Monokai Light) & Dark (VS Code Dark+ / Monokai Cyber)
  */
 
 :root {
-  --bg: #fafbfc;
-  --bg-secondary: #f0f2f5;
-  --fg: #1a1a2e;
-  --fg-secondary: #586069;
-  --accent: #5865F2;
-  --accent-hover: #4752C4;
-  --accent-glow: rgba(88, 101, 242, 0.15);
-  --border: #e1e4e8;
-  --card-bg: #ffffff;
-  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.1);
-  --navbar-bg: rgba(255, 255, 255, 0.82);
-  --navbar-border: rgba(0, 0, 0, 0.06);
-  --input-bg: #ffffff;
-  --chip-bg: rgba(88, 101, 242, 0.08);
-  --code-bg: #f0f2f5;
-  --timeline-line: #e1e4e8;
-  --particle-color: rgba(88, 101, 242, 0.5);
-  --particle-line: rgba(88, 101, 242, 0.12);
-  --gradient-1: #5865F2;
-  --gradient-2: #eb459e;
-  --gradient-3: #57f287;
-  --puppet-shadow: rgba(0, 0, 0, 0.08);
+  /* Core Backgrounds & Foregrounds */
+  --bg: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --bg-tertiary: #e2e8f0;
+  --fg: #0f172a;
+  --fg-muted: #475569;
+  --fg-subtle: #64748b;
 
-  /* Syntax-token palette (light — GitHub style) */
-  --tk-0: #cf222e;  --tk-0-bg: rgba(207,34,46,0.07);
-  --tk-1: #0550ae;  --tk-1-bg: rgba(5,80,174,0.07);
-  --tk-2: #8250df;  --tk-2-bg: rgba(130,80,223,0.08);
-  --tk-3: #116329;  --tk-3-bg: rgba(17,99,41,0.07);
-  --tk-4: #953800;  --tk-4-bg: rgba(149,56,0,0.07);
-  --tk-5: #0a3069;  --tk-5-bg: rgba(10,48,105,0.07);
+  /* Primary Accent & Glow */
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-glow: rgba(37, 99, 235, 0.15);
+  --accent-cyan: #0284c7;
+  --accent-green: #16a34a;
+  --accent-purple: #9333ea;
+  --accent-orange: #ea580c;
+
+  /* IDE Structure Elements */
+  --border: #cbd5e1;
+  --border-subtle: #e2e8f0;
+  --card-bg: #ffffff;
+  --card-shadow: 0 4px 14px rgba(15, 23, 42, 0.05), 0 1px 3px rgba(15, 23, 42, 0.08);
+  --card-shadow-hover: 0 12px 28px rgba(37, 99, 235, 0.12), 0 4px 10px rgba(15, 23, 42, 0.08);
+
+  /* IDE Tab Bar */
+  --tab-bar-bg: #e2e8f0;
+  --tab-bg: #f1f5f9;
+  --tab-active-bg: #ffffff;
+  --tab-active-border: #2563eb;
+
+  /* Terminal Window */
+  --terminal-header-bg: #1e293b;
+  --terminal-bg: #0f172a;
+  --terminal-fg: #f8fafc;
+  --terminal-prompt: #38bdf8;
+
+  /* Line Numbers & Guides */
+  --line-num-color: #94a3b8;
+  --indent-guide: rgba(203, 213, 225, 0.6);
+
+  /* Status Bar */
+  --statusbar-bg: #0f172a;
+  --statusbar-fg: #94a3b8;
+  --statusbar-accent: #38bdf8;
+
+  /* Particle & Canvas */
+  --node-color: #2563eb;
+  --node-beam: rgba(37, 99, 235, 0.25);
+  --node-pulse: #0284c7;
+
+  /* Syntax Tokens (Monokai Light) */
+  --syn-keyword: #d97706;
+  --syn-string: #16a34a;
+  --syn-fn: #2563eb;
+  --syn-num: #9333ea;
+  --syn-comment: #64748b;
+  --syn-tag: #dc2626;
+  --syn-prop: #0284c7;
 }
 
 [data-theme="dark"] {
-  --bg: #0d1117;
-  --bg-secondary: #161b22;
-  --fg: #e6edf3;
-  --fg-secondary: #8b949e;
-  --accent: #7c8aff;
-  --accent-hover: #9ba5ff;
-  --accent-glow: rgba(124, 138, 255, 0.2);
-  --border: #30363d;
-  --card-bg: #161b22;
-  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-  --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.4);
-  --navbar-bg: rgba(13, 17, 23, 0.82);
-  --navbar-border: rgba(255, 255, 255, 0.06);
-  --input-bg: #0d1117;
-  --chip-bg: rgba(124, 138, 255, 0.12);
-  --code-bg: #1c2128;
-  --timeline-line: #30363d;
-  --particle-color: rgba(124, 138, 255, 0.5);
-  --particle-line: rgba(124, 138, 255, 0.15);
-  --gradient-1: #7c8aff;
-  --gradient-2: #f47fff;
-  --gradient-3: #7dffaa;
-  --puppet-shadow: rgba(0, 0, 0, 0.3);
+  /* Core Backgrounds & Foregrounds */
+  --bg: #0b0f17;
+  --bg-secondary: #111827;
+  --bg-tertiary: #1f2937;
+  --fg: #f3f4f6;
+  --fg-muted: #9ca3af;
+  --fg-subtle: #6b7280;
 
-  /* Syntax-token palette (dark — GitHub Dark style) */
-  --tk-0: #ff7b72;  --tk-0-bg: rgba(255,123,114,0.12);
-  --tk-1: #79c0ff;  --tk-1-bg: rgba(121,192,255,0.12);
-  --tk-2: #d2a8ff;  --tk-2-bg: rgba(210,168,255,0.12);
-  --tk-3: #7ee787;  --tk-3-bg: rgba(126,231,135,0.12);
-  --tk-4: #ffa657;  --tk-4-bg: rgba(255,166,87,0.12);
-  --tk-5: #a5d6ff;  --tk-5-bg: rgba(165,214,255,0.12);
+  /* Primary Accent & Glow */
+  --accent: #3b82f6;
+  --accent-hover: #60a5fa;
+  --accent-glow: rgba(59, 130, 246, 0.25);
+  --accent-cyan: #38bdf8;
+  --accent-green: #4ade80;
+  --accent-purple: #c084fc;
+  --accent-orange: #fb923c;
+
+  /* IDE Structure Elements */
+  --border: #1f2937;
+  --border-subtle: #374151;
+  --card-bg: #111827;
+  --card-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --card-shadow-hover: 0 12px 32px rgba(59, 130, 246, 0.2);
+
+  /* IDE Tab Bar */
+  --tab-bar-bg: #030712;
+  --tab-bg: #111827;
+  --tab-active-bg: #1f2937;
+  --tab-active-border: #38bdf8;
+
+  /* Terminal Window */
+  --terminal-header-bg: #111827;
+  --terminal-bg: #030712;
+  --terminal-fg: #f3f4f6;
+  --terminal-prompt: #4ade80;
+
+  /* Line Numbers & Guides */
+  --line-num-color: #4b5563;
+  --indent-guide: rgba(55, 65, 81, 0.6);
+
+  /* Status Bar */
+  --statusbar-bg: #030712;
+  --statusbar-fg: #9ca3af;
+  --statusbar-accent: #38bdf8;
+
+  /* Particle & Canvas */
+  --node-color: #38bdf8;
+  --node-beam: rgba(56, 189, 248, 0.3);
+  --node-pulse: #4ade80;
+
+  /* Syntax Tokens (VS Code Dark Plus) */
+  --syn-keyword: #c084fc;
+  --syn-string: #4ade80;
+  --syn-fn: #60a5fa;
+  --syn-num: #fb923c;
+  --syn-comment: #6b7280;
+  --syn-tag: #f87171;
+  --syn-prop: #38bdf8;
 }
