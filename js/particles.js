@@ -1,6 +1,6 @@
 /**
  * particles.js — Professional HD Pixel Art SVG Soul & Rock Instrument Engine
- * (专业级高清 SVG 8-Bit 像素萨克斯、电吉他、黑胶唱片、麦克风与音符 Canvas 引擎)
+ * (专业级高清 SVG 8-Bit 像素乐器与音符 Canvas 引擎 — 重力自顶向下平滑飘落)
  */
 
 (function () {
@@ -11,7 +11,7 @@
 
   var floatingItems = [];
   var shockwaves = [];
-  var NUM_ITEMS = 55;
+  var NUM_ITEMS = 60;
 
   var mx = -9999, my = -9999, mActive = false;
 
@@ -34,7 +34,7 @@
   /* 2. HD Pixel Fender Electric Guitar SVG (🎸 芬达电吉他) */
   var SVG_GUITAR = 'data:image/svg+xml;utf8,' + encodeURIComponent(`
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" style="image-rendering:pixelated">
-      <path fill="#000000" d="M2 2h4v4h2v2h2v2h2v2h2v2h2v2h2v-4h2v-2h2v6h2v6h-2v2h-2v2h-4v-2h-2v-2h-2v-2h-2v-2h-2v-2h-2V6h-2V2z"/>
+      <path fill="#000000" d="M2 2h4v4h2v2h2v2h2v2h2v2h2v2h2v-4h2v-2h2v6h2v6h-2v2h-2v2h-4v-2h-2v-2h-2v-2h-2v-2h-2V6h-2V2z"/>
       <!-- Body Crimson -->
       <path fill="#ef4444" d="M18 16h6v4h-2v2h-2v2h-4v-2h-2v-2h2v-4z"/>
       <path fill="#dc2626" d="M22 12h4v4h-4zm2-6h2v4h-2z"/>
@@ -111,7 +111,7 @@
     };
   }
 
-  function createFloatingItem() {
+  function createFloatingItem(startY) {
     if (loadedImages.length === 0) return null;
     var imgIdx = Math.floor(Math.random() * loadedImages.length);
     var img = loadedImages[imgIdx];
@@ -120,12 +120,14 @@
 
     return {
       x: Math.random() * (W || 800),
-      y: H + Math.random() * 200,
-      vy: -0.6 - Math.random() * 0.9,
+      y: (startY !== undefined) ? startY : (-60 - Math.random() * 200), /* 从上方出生 */
+      vy: 0.7 + Math.random() * 1.0,                                   /* 正向重力速度：自顶向下下落 */
       vx: (Math.random() - 0.5) * 0.4,
       img: img,
       size: size,
-      alpha: 0.55 + Math.random() * 0.4
+      alpha: 0.55 + Math.random() * 0.4,
+      rot: Math.random() * Math.PI * 2,
+      rotSpeed: (Math.random() - 0.5) * 0.01
     };
   }
 
@@ -149,11 +151,9 @@
     floatingItems = [];
     shockwaves = [];
     for (var i = 0; i < NUM_ITEMS; i++) {
-      var item = createFloatingItem();
-      if (item) {
-        item.y = Math.random() * H;
-        floatingItems.push(item);
-      }
+      /* 初始随机铺满屏幕高度 */
+      var item = createFloatingItem(Math.random() * H);
+      if (item) floatingItems.push(item);
     }
   }
 
@@ -166,11 +166,11 @@
     });
 
     for (var n = 0; n < 6; n++) {
-      var item = createFloatingItem();
+      var item = createFloatingItem(y + (Math.random() - 0.5) * 40);
       if (item) {
         item.x = x + (Math.random() - 0.5) * 60;
-        item.y = y + (Math.random() - 0.5) * 60;
-        item.vy = -1.5 - Math.random() * 1.8;
+        item.vy = -1.8 - Math.random() * 1.5; /* 爆发时短暂向上冲，随后被重力拉回下落 */
+        item.vx = (Math.random() - 0.5) * 2.5;
         floatingItems.push(item);
       }
     }
@@ -181,6 +181,12 @@
       var it = floatingItems[i];
       it.x += it.vx;
       it.y += it.vy;
+      it.rot += it.rotSpeed;
+
+      /* 重力平滑下落加速度 (Natural Gravity Drag) */
+      if (it.vy < 1.4) {
+        it.vy += 0.015;
+      }
 
       /* Cursor Fluid Magnetism */
       if (mActive) {
@@ -190,14 +196,14 @@
         if (dist < 220 && dist > 1) {
           var force = (220 - dist) / 220 * 0.35;
           it.vx += (dx / dist) * force * 0.1;
-          it.vy += (dy / dist) * force * 0.1;
+          it.vy += (dy / dist) * force * 0.05;
         }
       }
 
       it.vx *= 0.98;
 
-      /* Reset when drifting off top */
-      if (it.y < -80) {
+      /* 掉落出底部时，从顶部重力重生 (Fall past bottom -> reset to top) */
+      if (it.y > H + 80) {
         var newItem = createFloatingItem();
         if (newItem) floatingItems[i] = newItem;
       }
@@ -242,8 +248,12 @@
       var it = floatingItems[i];
       if (!it.img) continue;
 
+      ctx.save();
+      ctx.translate(it.x, it.y);
+      ctx.rotate(it.rot);
       ctx.globalAlpha = it.alpha;
-      ctx.drawImage(it.img, it.x - it.size / 2, it.y - it.size / 2, it.size, it.size);
+      ctx.drawImage(it.img, -it.size / 2, -it.size / 2, it.size, it.size);
+      ctx.restore();
     }
     ctx.globalAlpha = 1;
   }

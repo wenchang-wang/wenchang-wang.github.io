@@ -52,11 +52,11 @@
         <a href="#home" class="nav-logo">Wenchang Wang</a>
 
         <div class="nav-links">
-            <a href="#home" class="active"><span class="file-icon">📄</span>home.ts<span class="close-tab">×</span></a>
-            <a href="#cv"><span class="file-icon">📄</span>cv.md<span class="close-tab">×</span></a>
-            <a href="#research"><span class="file-icon">📄</span>research.json<span class="close-tab">×</span></a>
-            <a href="#blog"><span class="file-icon">🐍</span>blog.py<span class="close-tab">×</span></a>
-            <a href="#contact"><span class="file-icon">⚡</span>contact.sh<span class="close-tab">×</span></a>
+            <a href="#home" class="active"><span class="file-icon">📄</span><span data-i18n="nav_home">home.ts</span><span class="close-tab">×</span></a>
+            <a href="#cv"><span class="file-icon">📄</span><span data-i18n="nav_cv">cv.md</span><span class="close-tab">×</span></a>
+            <a href="#research"><span class="file-icon">📄</span><span data-i18n="nav_research">research.json</span><span class="close-tab">×</span></a>
+            <a href="#blog"><span class="file-icon">🐍</span><span data-i18n="nav_blog">blog.py</span><span class="close-tab">×</span></a>
+            <a href="#contact"><span class="file-icon">⚡</span><span data-i18n="nav_contact">contact.sh</span><span class="close-tab">×</span></a>
         </div>
 
         <div class="nav-controls">
@@ -108,26 +108,26 @@
 
         <!-- Scroll down hint button -->
         <a href="#about-content" class="hero-scroll-btn" onclick="event.preventDefault(); document.getElementById('about-content').scrollIntoView({behavior:'smooth'});">
-            <span>🎮 PRESS ↓ OR SCROLL TO EXPLORE</span>
+            <span data-i18n="scroll_explore">🎮 PRESS ↓ OR SCROLL TO EXPLORE</span>
         </a>
     </div>
 
     <!-- Main Content Section Below Hero -->
     <div id="about-content" class="container main-content-section">
-        <h2 class="section-title">About Me</h2>
+        <h2 class="section-title" data-i18n="about_title">About Me</h2>
         <div class="about-grid">
             <div class="about-bio">
-                <p>I am <strong>Wenchang Wang</strong>, currently a master's student at Peking University, majoring in Journalism and Communication with a minor in Economics. I will start my Ph.D. in Media, Technology, and Society (MTS) at <strong>Northwestern University</strong> in Fall 2026, where I will work with <a href="https://agneshorvat.soc.northwestern.edu/" target="_blank">Associate Professor Emoke-Agnes Horvat</a>.</p>
+                <p data-i18n-html="about_p1">I am <strong>Wenchang Wang</strong>, currently a master's student at Peking University, majoring in Journalism and Communication with a minor in Economics. I will start my Ph.D. in Media, Technology, and Society (MTS) at <strong>Northwestern University</strong> in Fall 2026, where I will work with <a href="https://agneshorvat.soc.northwestern.edu/" target="_blank">Associate Professor Emoke-Agnes Horvat</a>.</p>
 
-                <p>My research focuses on <strong>political communication</strong>, primarily using <strong>computational methods</strong> to study political phenomena in <strong>online communities</strong>. My specific research interests include:</p>
+                <p data-i18n-html="about_p2">My research focuses on <strong>political communication</strong>, primarily using <strong>computational methods</strong> to study political phenomena in <strong>online communities</strong>. My specific research interests include:</p>
 
                 <ol>
-                    <li>User behavior following <strong>platform policy changes</strong></li>
-                    <li><strong>Off-topic discussion</strong> phenomena and causes in online communities</li>
-                    <li>Advanced <strong>multimodal data analysis</strong> and processing methods</li>
+                    <li data-i18n-html="about_li1">User behavior following <strong>platform policy changes</strong></li>
+                    <li data-i18n-html="about_li2"><strong>Off-topic discussion</strong> phenomena and causes in online communities</li>
+                    <li data-i18n-html="about_li3">Advanced <strong>multimodal data analysis</strong> and processing methods</li>
                 </ol>
 
-                <p>My research centers on <strong>computational social science</strong> and <strong>causal inference</strong>, with a goal of bridging classic communication theories and modern computational approaches in digital environments. My papers have been accepted at conferences including <strong><em>ICA</em></strong>, <strong><em>NCA</em></strong>, <strong><em>AEJMC</em></strong>, and <strong><em>IC²S²</em></strong>. My work has received recognition including the <strong>Top Student Paper</strong> at <strong>AEJMC</strong>, the <strong>Promising Student Paper</strong> at <strong>ICA</strong>, and the <strong>Best Faculty Paper Award</strong> (<strong>ICCA Division</strong>) at the <strong>ICA 76th Annual Conference</strong> in 2026.</p>
+                <p data-i18n-html="about_p3">My research centers on <strong>computational social science</strong> and <strong>causal inference</strong>, with a goal of bridging classic communication theories and modern computational approaches in digital environments. My papers have been accepted at conferences including <strong><em>ICA</em></strong>, <strong><em>NCA</em></strong>, <strong><em>AEJMC</em></strong>, and <strong><em>IC²S²</em></strong>. My work has received recognition including the <strong>Top Student Paper</strong> at <strong>AEJMC</strong>, the <strong>Promising Student Paper</strong> at <strong>ICA</strong>, and the <strong>Best Faculty Paper Award</strong> (<strong>ICCA Division</strong>) at the <strong>ICA 76th Annual Conference</strong> in 2026.</p>
 
                 <div class="keywords" style="margin-top:20px;">
                     <span class="chip">Computational Social Science</span>
@@ -164,55 +164,56 @@
 
         <!-- Latest Updates Stream -->
         <div class="news-section" style="margin-top:40px;">
-            <h2 class="section-title">Latest Updates</h2>
+            <h2 class="section-title" data-i18n="news_title">Latest Updates</h2>
             <div class="news-list">
                 <div class="news-item">
                     <span class="news-icon">🎉</span>
-                    <span>I have decided to join <strong>Northwestern University</strong> this fall to start my Ph.D. journey at the School of Communication, working with <a href="https://agneshorvat.soc.northwestern.edu/" target="_blank">Assoc. Prof. Emoke-Agnes Horvat</a>.</span>
+                    <span data-i18n-html="news_1">I have decided to join <strong>Northwestern University</strong> this fall to start my Ph.D. journey at the School of Communication, working with <a href="https://agneshorvat.soc.northwestern.edu/" target="_blank">Assoc. Prof. Emoke-Agnes Horvat</a>.</span>
                 </div>
                 <div class="news-item">
                     <span class="news-icon">📄</span>
-                    <span>Two of my papers were accepted by <strong>ICA 2026</strong>, including the <strong>Best Faculty Paper Award</strong> at ICCA Division!</span>
+                    <span data-i18n-html="news_2">Two of my papers were accepted by <strong>ICA 2026</strong>, including the <strong>Best Faculty Paper Award</strong> at ICCA Division!</span>
                 </div>
             </div>
         </div>
 
         <!-- Education Grid -->
         <div class="education-section" style="margin-top:40px;">
-            <h2 class="section-title">Education</h2>
+            <h2 class="section-title" data-i18n="edu_title">Education</h2>
             <div class="education-grid">
                 <div class="education-item">
                     <img src="images/nu-logo.png" alt="Northwestern University" class="school-logo">
                     <div class="edu-content">
-                        <h3><a href="https://mts.northwestern.edu/" target="_blank">Northwestern University</a></h3>
-                        <div class="edu-degree">Ph.D. in Media, Technology, and Society (MTS) (Admitted)</div>
-                        <div class="edu-meta">Fall 2026 (Expected) | Evanston, IL, USA</div>
-                        <div class="edu-note">Advisor: Associate Professor Emoke-Agnes Horvat</div>
+                        <h3><a href="https://mts.northwestern.edu/" target="_blank" data-i18n="edu_nu_name">Northwestern University</a></h3>
+                        <div class="edu-degree" data-i18n="edu_nu_degree">Ph.D. in Media, Technology, and Society (MTS) (Admitted)</div>
+                        <div class="edu-meta" data-i18n="edu_nu_date">Fall 2026 (Expected) | Evanston, IL, USA</div>
+                        <div class="edu-note" data-i18n="edu_nu_note">Advisor: Associate Professor Emoke-Agnes Horvat</div>
                     </div>
                 </div>
                 <div class="education-item">
                     <img src="images/pku-logo.png" alt="Peking University" class="school-logo">
                     <div class="edu-content">
-                        <h3><a href="https://english.pku.edu.cn" target="_blank">Peking University</a></h3>
-                        <div class="edu-degree">M.A. in Journalism and Communication; Minor in Economics</div>
-                        <div class="edu-meta">Aug 2023 – June 2026 | Shenzhen, Guangdong</div>
-                        <div class="edu-note">Advisor: Assistant Professor Zhuo Chen</div>
+                        <h3><a href="https://english.pku.edu.cn" target="_blank" data-i18n="edu_pku_name">Peking University</a></h3>
+                        <div class="edu-degree" data-i18n="edu_pku_degree">M.A. in Journalism and Communication; Minor in Economics</div>
+                        <div class="edu-meta" data-i18n="edu_pku_date">Aug 2023 – June 2026 | Shenzhen, Guangdong</div>
+                        <div class="edu-note" data-i18n="edu_pku_note">Advisor: Assistant Professor Zhuo Chen</div>
                     </div>
                 </div>
                 <div class="education-item">
                     <img src="images/uni-koeln-logo.png" alt="University of Cologne" class="school-logo">
                     <div class="edu-content">
-                        <h3><a href="https://uni-koeln.de/en/" target="_blank">University of Cologne</a></h3>
-                        <div class="edu-degree">Exchange Student in Economics and Information Science</div>
-                        <div class="edu-meta">Oct 2024 – Mar 2025 | Cologne, Germany</div>
+                        <h3><a href="https://uni-koeln.de/en/" target="_blank" data-i18n="edu_koeln_name">University of Cologne</a></h3>
+                        <div class="edu-degree" data-i18n="edu_koeln_degree">Exchange Student in Economics and Information Science</div>
+                        <div class="edu-meta" data-i18n="edu_koeln_date">Oct 2024 – Mar 2025 | Cologne, Germany</div>
+                        <div class="edu-note" data-i18n="edu_koeln_note">Exchange coursework during graduate study at Peking University</div>
                     </div>
                 </div>
                 <div class="education-item">
                     <img src="images/suda-logo.png" alt="Soochow University" class="school-logo">
                     <div class="edu-content">
-                        <h3><a href="https://eng.suda.edu.cn/" target="_blank">Soochow University</a></h3>
-                        <div class="edu-degree">B.E. in Mechanical and Electronic Engineering</div>
-                        <div class="edu-meta">Sept 2017 – June 2021 | Suzhou, Jiangsu</div>
+                        <h3><a href="https://eng.suda.edu.cn/" target="_blank" data-i18n="edu_suda_name">Soochow University</a></h3>
+                        <div class="edu-degree" data-i18n="edu_suda_degree">B.E. in Mechanical and Electronic Engineering</div>
+                        <div class="edu-meta" data-i18n="edu_suda_date">Sept 2017 – June 2021 | Suzhou, Jiangsu</div>
                     </div>
                 </div>
             </div>
@@ -227,12 +228,12 @@
 <!-- ============================================================ -->
 <section id="page-cv" class="page">
     <div class="container cv-page">
-        <h2 class="section-title">Curriculum Vitae</h2>
+        <h2 class="section-title" data-i18n="cv_title">Curriculum Vitae</h2>
         
         <div class="cv-download-card">
-            <h3 style="margin-bottom:12px;">Download Complete Curriculum Vitae</h3>
-            <p style="color:var(--fg-muted);margin-bottom:20px;">PDF document containing complete academic achievements, publications, and background.</p>
-            <a href="files/cv.pdf" class="download-button" download>
+            <h3 style="margin-bottom:12px;" data-i18n="cv_download_heading">Download Complete Curriculum Vitae</h3>
+            <p style="color:var(--fg-muted);margin-bottom:20px;" data-i18n="cv_download_desc">PDF document containing complete academic achievements, publications, and background.</p>
+            <a href="files/cv.pdf" class="download-button" download data-i18n="cv_download">
                 <svg class="download-icon" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/>
                 </svg>
@@ -248,7 +249,7 @@
 <!-- ============================================================ -->
 <section id="page-research" class="page">
     <div class="container research-page">
-        <h2 class="section-title">Selected Publications & Conferences</h2>
+        <h2 class="section-title" data-i18n="research_title">Selected Publications & Conferences</h2>
         
         <div class="paper-list">
             <div class="paper-card">
@@ -293,7 +294,7 @@
 <!-- ============================================================ -->
 <section id="page-blog" class="page">
     <div class="container blog-page">
-        <h2 class="section-title">Academic Blog & Notes</h2>
+        <h2 class="section-title" data-i18n="blog_title">Academic Blog & Notes</h2>
         <div class="paper-card">
             <h3 class="paper-title"><a href="blog1/ic2s2-online-poster.html">IC²S² Online Poster: Exposure & Engagement</a></h3>
             <div class="paper-venue">// Posted on July 15, 2025 | Conference Notes</div>
@@ -308,7 +309,7 @@
 <!-- ============================================================ -->
 <section id="page-contact" class="page">
     <div class="container contact-page">
-        <h2 class="section-title">Contact & Communication</h2>
+        <h2 class="section-title" data-i18n="contact_title">Contact & Communication</h2>
         <div class="arcade-card" style="max-width:650px;margin:0 auto;">
             <div class="arcade-header">
                 <div><span class="arcade-badge">CONTACT</span> WENCHANG WANG</div>
