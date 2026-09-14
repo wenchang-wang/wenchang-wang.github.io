@@ -6,7 +6,7 @@
 (function () {
   'use strict';
 
-  var ENDPOINT = 'https://formsubmit.co/ajax/wenchangwang@stu.pku.edu.cn';
+  var ENDPOINT = 'https://formsubmit.co/ajax/wenchangwang2031@u.northwestern.edu';
   var observer = null;
 
   function setupCardAnimations() {

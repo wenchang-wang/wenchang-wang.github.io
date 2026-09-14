@@ -26,24 +26,25 @@
 
       /* Homepage — About */
       about_title: 'About Me',
-      about_p1: 'I am <strong>Wenchang Wang</strong>, currently a master\'s student at Peking University, majoring in Journalism and Communication with a minor in Economics. I will start my Ph.D. in Media, Technology, and Society (MTS) at <strong>Northwestern University</strong> in Fall 2026, where I will work with <a href="https://agneshorvat.soc.northwestern.edu/" target="_blank">Associate Professor Emoke-Agnes Horvat</a>.',
-      about_p2: 'My research focuses on <strong>political communication</strong>, primarily using <strong>computational methods</strong> to study political phenomena in <strong>online communities</strong>. My specific research interests include:',
-      about_li1: 'User behavior following <strong>platform policy changes</strong>',
-      about_li2: '<strong>Off-topic discussion</strong> phenomena and causes in online communities',
-      about_li3: 'Advanced <strong>multimodal data analysis</strong> and processing methods',
-      about_p3: 'My research centers on <strong>computational social science</strong> and <strong>causal inference</strong>, with a goal of bridging classic communication theories and modern computational approaches in digital environments. My papers have been accepted at conferences including <strong><em>ICA</em></strong>, <strong><em>NCA</em></strong>, <strong><em>AEJMC</em></strong>, and <strong><em>IC²S²</em></strong>. My work has received recognition including the <strong>Top Student Paper</strong> at <strong>AEJMC</strong>, the <strong>Promising Student Paper</strong> at <strong>ICA</strong>, and the <strong>Best Faculty Paper Award</strong> (<strong>ICCA Division</strong>) at the <strong>ICA 76th Annual Conference</strong> in 2026.',
+      about_p1: 'I am <strong>Wenchang Wang</strong>, a Ph.D. student in Media, Technology, and Society (MTS) at <strong>Northwestern University</strong>, advised by <a href="https://agneshorvat.soc.northwestern.edu/" target="_blank">Associate Professor Ágnes Horvát</a>.',
+      about_p2: 'My research interests center on using <strong>computational methods</strong> and <strong>causal inference</strong> to study how people interact with <strong>online platforms</strong>. Specifically, my research focuses on:',
+      about_li1: 'How <strong>policy changes</strong> (e.g., platform policy changes and macro-political environments) and <strong>technological changes</strong> (e.g., the emergence of large language models) affect human behavior',
+      about_li2: 'Methods for measuring <strong>multimodal information</strong> (e.g., text and images) on online platforms',
+      about_li3: 'How to conduct <strong>less-biased causal inference</strong> with large-scale datasets',
+      about_p3: 'My papers have appeared at conferences including <strong><em>CSCW</em></strong>, <strong><em>ICA</em></strong>, <strong><em>AEJMC</em></strong>, and <strong><em>IC²S²</em></strong>. I have received the <strong>Top Student Paper</strong> award at <strong>AEJMC</strong>, as well as the <strong>Promising Student Paper</strong> and the <strong>Best Faculty Paper Award</strong> at <strong>ICA</strong>.',
 
       /* Homepage — News */
       news_title: 'Latest Updates',
-      news_1: 'I have decided to join <strong>Northwestern University</strong> this fall to start my Ph.D. journey at the School of Communication, working with <a href="https://agneshorvat.soc.northwestern.edu/" target="_blank">Assoc. Prof. Emoke-Agnes Horvat</a>.',
+      news_1: 'I have decided to join <strong>Northwestern University</strong> this fall to start my Ph.D. journey at the School of Communication, working with <a href="https://agneshorvat.soc.northwestern.edu/" target="_blank">Associate Professor Ágnes Horvát</a>.',
       news_2: 'Two of my papers were accepted by <strong>ICA 2026</strong>, including the <strong>Best Faculty Paper Award</strong> at ICCA Division!',
+      news_3: 'I will present two posters with my collaborators at <strong>CSCW 2026</strong>, discussing how large language models influence knowledge production and collaboration.',
 
       /* Homepage — Education */
       edu_title: 'Education',
       edu_nu_name: 'Northwestern University',
-      edu_nu_degree: 'Ph.D. in Media, Technology, and Society (MTS) (Admitted)',
-      edu_nu_date: 'Fall 2026 (Expected) | Evanston, IL, USA',
-      edu_nu_note: 'Advisor: Associate Professor Emoke-Agnes Horvat',
+      edu_nu_degree: 'Ph.D. in Media, Technology, and Society (MTS)',
+      edu_nu_date: '2026-2031 (Expected) | Evanston, IL, USA',
+      edu_nu_note: 'Advisor: <a href="https://agneshorvat.soc.northwestern.edu/" target="_blank">Associate Professor Ágnes Horvát</a>',
       edu_pku_name: 'Peking University',
       edu_pku_degree: 'M.A. in Journalism and Communication; Minor in Economics',
       edu_pku_date: 'Aug 2023 – June 2026 | Shenzhen, Guangdong',
@@ -87,24 +88,25 @@
 
       /* Homepage — About */
       about_title: '关于我',
-      about_p1: '我是<strong>王文长</strong>，目前是北京大学新闻与传播学院的硕士研究生，辅修经济学。我将于 2026 年秋季在<strong>美国西北大学</strong>开始媒体、技术与社会（MTS）博士研究，师从 <a href="https://agneshorvat.soc.northwestern.edu/" target="_blank">Emoke-Agnes Horvat 副教授</a>。',
-      about_p2: '我的研究聚焦于<strong>政治传播</strong>，主要使用<strong>计算方法</strong>研究<strong>网络社区</strong>中的政治现象。具体研究兴趣包括：',
-      about_li1: '<strong>平台政策变动</strong>后的用户行为',
-      about_li2: '网络社区中的<strong>跟帖话题偏离</strong>现象及原因',
-      about_li3: '先进的<strong>多模态数据分析</strong>与处理方法',
-      about_p3: '我的研究以<strong>计算社会科学</strong>和<strong>因果推断</strong>为核心，致力于在数字环境中连接经典传播理论与现代计算方法。我的论文已被 <strong><em>ICA</em></strong>、<strong><em>NCA</em></strong>、<strong><em>AEJMC</em></strong> 和 <strong><em>IC²S²</em></strong> 等会议录用。我的研究获得了多项荣誉，包括 <strong>AEJMC</strong> 的 <strong>Top Student Paper</strong>、<strong>ICA</strong> 的 <strong>Promising Student Paper</strong>，以及 2026 年 <strong>ICA 第76届年会</strong>的 <strong>Best Faculty Paper Award</strong>（<strong>ICCA Division</strong>）。',
+      about_p1: '我是<strong>王文长</strong>，目前是美国<strong>西北大学</strong>媒体、技术与社会（MTS）博士生，导师是<a href="https://agneshorvat.soc.northwestern.edu/" target="_blank">Ágnes Horvát 副教授</a>。',
+      about_p2: '我的研究兴趣主要是使用<strong>计算方法</strong>和<strong>因果推断</strong>研究人们与<strong>在线平台</strong>的互动。具体而言，我的研究领域包括：',
+      about_li1: '<strong>政策变化</strong>（例如平台政策变化和宏观政治环境）与<strong>技术变化</strong>（例如大语言模型的出现）对人类行为产生的影响',
+      about_li2: '对在线平台中<strong>多种模态信息</strong>（例如文本和图片）的测量方法',
+      about_li3: '如何在大型数据集上进行<strong>更少偏误的因果推断</strong>',
+      about_p3: '我的文章发表于<strong><em>CSCW</em></strong>、<strong><em>ICA</em></strong>、<strong><em>AEJMC</em></strong>、<strong><em>IC²S²</em></strong>等会议。我已经获得了<strong>AEJMC</strong>的<strong>Top Student Paper</strong>，以及<strong>ICA</strong>的<strong>Promising Student Paper</strong>和<strong>Best Faculty Paper Award</strong>。',
 
       /* Homepage — News */
       news_title: '最新动态',
-      news_1: '我已决定今年秋季加入<strong>美国西北大学</strong>传播学院，开启博士研究生之旅，师从 <a href="https://agneshorvat.soc.northwestern.edu/" target="_blank">Emoke-Agnes Horvat 副教授</a>。',
+      news_1: '我已决定今年秋季加入<strong>美国西北大学</strong>传播学院，开启博士研究生之旅，师从 <a href="https://agneshorvat.soc.northwestern.edu/" target="_blank">Ágnes Horvát 副教授</a>。',
       news_2: '我的两篇论文被 <strong>ICA 2026</strong> 录用，并荣获 ICCA 分部的 <strong>Best Faculty Paper Award</strong>！',
+      news_3: '我将与合作者在今年的<strong>CSCW 2026</strong>上展示两篇 poster，讨论大语言模型如何影响人们的知识生产与合作。',
 
       /* Homepage — Education */
       edu_title: '教育背景',
       edu_nu_name: '美国西北大学',
-      edu_nu_degree: '媒体、技术与社会（MTS）博士（已录取）',
-      edu_nu_date: '2026年秋季（预期）| 伊文斯顿，美国',
-      edu_nu_note: '导师：Emoke-Agnes Horvat 副教授',
+      edu_nu_degree: '媒体、技术与社会（MTS）博士',
+      edu_nu_date: '2026-2031（预期）| 伊文斯顿，美国',
+      edu_nu_note: '导师：<a href="https://agneshorvat.soc.northwestern.edu/" target="_blank">Ágnes Horvát 副教授</a>',
       edu_pku_name: '北京大学',
       edu_pku_degree: '新闻与传播学硕士；辅修经济学',
       edu_pku_date: '2023年8月 – 2026年6月 | 深圳',
