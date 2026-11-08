@@ -60,11 +60,15 @@
       /* CV */
       cv_title: 'Curriculum Vitae',
       cv_download_heading: 'Download Complete Curriculum Vitae',
-      cv_download_desc: 'PDF document containing complete academic achievements, publications, and background.',
+      cv_download_desc: 'Updated November 2026. PDF document containing complete academic achievements, publications, and background.',
       cv_download: 'Download CV (PDF)',
 
       /* Research */
-      research_title: 'Selected Publications & Conferences',
+      research_title: 'Research & Publications',
+      research_preprints: 'Preprints',
+      research_journals: 'Journal Articles',
+      research_proceedings: 'Peer-Reviewed Conference Proceedings',
+      research_conferences: 'Award-Winning Conference Papers',
 
       /* Blog */
       blog_title: 'Academic Blog & Notes',
@@ -122,11 +126,15 @@
       /* CV */
       cv_title: '个人简历',
       cv_download_heading: '下载完整简历文档',
-      cv_download_desc: '包含完整学术成果、发表论文及科研履历的 PDF 文件。',
+      cv_download_desc: '2026年11月更新。包含完整学术成果、发表论文及科研履历的 PDF 文件。',
       cv_download: '下载简历 (PDF)',
 
       /* Research */
-      research_title: '学术发表与会议论文',
+      research_title: '研究与学术成果',
+      research_preprints: '预印本',
+      research_journals: '期刊论文',
+      research_proceedings: '同行评审会议论文集',
+      research_conferences: '获奖会议论文',
 
       /* Blog */
       blog_title: '学术博客与手记',

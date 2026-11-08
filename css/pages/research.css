@@ -6,6 +6,19 @@
   margin-bottom: 40px;
 }
 
+.research-category-title {
+  margin: 0 0 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1rem;
+  color: var(--syn-keyword);
+}
+
+.research-category-title::before {
+  content: '// ';
+  color: var(--syn-comment);
+  font-weight: 400;
+}
+
 .paper-list {
   display: flex;
   flex-direction: column;
@@ -13,6 +26,8 @@
 }
 
 .paper-card {
+  width: 100%;
+  min-width: 0;
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -59,11 +74,36 @@
   border: 1px solid rgba(22, 163, 74, 0.3);
 }
 
+.paper-badge.preprint {
+  background: rgba(124, 58, 237, 0.12);
+  color: var(--syn-keyword);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+}
+
+.paper-badge.journal {
+  background: rgba(22, 163, 74, 0.12);
+  color: var(--syn-string);
+  border: 1px solid rgba(22, 163, 74, 0.3);
+}
+
+.paper-badge.proceeding {
+  background: rgba(37, 99, 235, 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+}
+
+.paper-badge.award {
+  background: rgba(234, 88, 12, 0.12);
+  color: var(--syn-num);
+  border: 1px solid rgba(234, 88, 12, 0.3);
+}
+
 .paper-title {
   font-size: 1.15rem;
   line-height: 1.4;
   margin-bottom: 8px;
   color: var(--fg);
+  overflow-wrap: anywhere;
 }
 
 .paper-authors {
@@ -82,6 +122,7 @@
   color: var(--syn-comment);
   font-style: italic;
   margin-bottom: 14px;
+  overflow-wrap: anywhere;
 }
 
 .paper-actions {
