@@ -1,53 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
-    <title>Computational Social Science Introduction - Wenchang Wang</title>
-    <link rel="stylesheet" href="../styles/main.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="计算社会科学入门：基本概念、主要研究方法，以及如何把传统社会科学理论与计算技术结合。">
+<meta name="author" content="Wenchang Wang">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://wenchang-wang.github.io/blog1/computational-social-science-introduction.html">
+<meta property="og:title" content="计算社会科学入门">
+<meta property="og:description" content="计算社会科学入门：基本概念、主要研究方法，以及如何把传统社会科学理论与计算技术结合。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wenchang-wang.github.io/blog1/computational-social-science-introduction.html">
+<meta property="og:image" content="https://wenchang-wang.github.io/images/profile.JPG">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'><rect width='8' height='8' rx='1' fill='%232a2522'/><path fill='%23f3c13a' d='M4 1h1v5H4zM5 1h1v1H5zM6 2h1v2H6zM2 5h2v1H2zM2 6h3v1H2z'/></svg>">
+<title>计算社会科学入门 · Wenchang Wang</title>
+<meta name="title-en" content="计算社会科学入门 · Wenchang Wang">
+<meta name="title-zh" content="计算社会科学入门 · 王文长">
+<script>(function(){var r=document.documentElement,t,l;try{t=localStorage.getItem('theme');l=localStorage.getItem('lang');}catch(e){}r.setAttribute('data-theme',t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));r.setAttribute('data-lang',l||((navigator.language||'').indexOf('zh')===0?'zh':'en'));})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../site.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="../index.html" class="nav-logo">Wenchang Wang</a>
-            <ul class="nav-menu">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../cv.html">CV</a></li>
-                <li><a href="../research.html">Research</a></li>
-                <li><a href="../blog.html" class="active">Blog</a></li>
-            </ul>
-            <button class="theme-toggle" data-theme-toggle type="button">theme: auto</button>
-        </div>
-    </nav>
 
-    <!-- Main Content -->
-    <div class="main-container">
-        <div class="back-to-blog">
-            <a href="../blog.html">← 返回博客列表</a>
-        </div>
+<nav><div class="in">
+  <a class="brand" href="../index.html">W.WANG</a>
+  <div class="right">
+    <div class="links">
+      <a href="../index.html"><span class="en">About</span><span class="zh">首页</span></a>
+      <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      <a href="../cv.html"><span class="en">CV</span><span class="zh">简历</span></a>
+      <a class="on" href="../blog.html"><span class="en">Blog</span><span class="zh">博客</span></a>
+    </div>
+    <div class="ctrls">
+      <button class="ctl" data-act="lang" aria-label="Switch language / 切换语言"><span class="opt" data-v="en">EN</span><span class="sep">/</span><span class="opt" data-v="zh">中</span></button>
+      <button class="ctl" data-act="theme" aria-label="Toggle dark mode / 切换深色模式">
+        <svg class="i-sun" viewBox="0 0 8 8" shape-rendering="crispEdges" fill="currentColor"><rect x="3" y="0" width="2" height="1"/><rect x="3" y="7" width="2" height="1"/><rect x="0" y="3" width="1" height="2"/><rect x="7" y="3" width="1" height="2"/><rect x="1" y="1" width="1" height="1"/><rect x="6" y="1" width="1" height="1"/><rect x="1" y="6" width="1" height="1"/><rect x="6" y="6" width="1" height="1"/><rect x="2" y="2" width="4" height="4"/></svg>
+        <svg class="i-moon" viewBox="0 0 8 8" shape-rendering="crispEdges" fill="currentColor"><rect x="2" y="0" width="3" height="1"/><rect x="1" y="1" width="2" height="1"/><rect x="0" y="2" width="2" height="4"/><rect x="1" y="6" width="2" height="1"/><rect x="2" y="7" width="4" height="1"/><rect x="5" y="6" width="2" height="1"/><rect x="2" y="1" width="1" height="6"/><rect x="3" y="6" width="2" height="1"/></svg>
+      </button>
+    </div>
+  </div>
+</div></nav>
 
-        <div class="article-header">
-            <h1 class="article-title">计算社会科学入门：从传统研究到数据驱动的方法</h1>
-            <div class="article-meta">
-                <div class="article-date">
-                    <span>📅</span>
-                    <span>2024年12月15日</span>
-                </div>
-                <div class="article-category">
-                    <span>🏷️</span>
-                    <span>研究方法</span>
-                </div>
-                <div class="article-tags">
-                    <span class="tag">计算社会科学</span>
-                    <span class="tag">数据分析</span>
-                    <span class="tag">研究方法</span>
-                </div>
-            </div>
-        </div>
+<div class="stage short"><canvas></canvas></div>
 
-        <div class="article-content">
+<main class="article">
+  <a class="back" href="../blog.html"><span class="en">← BACK TO BLOG</span><span class="zh">← 返回博客</span></a>
+  <div class="head">
+    <div class="kicker">2024.12.15 · 研究方法</div>
+    <h1>计算社会科学入门：从传统研究到数据驱动的方法</h1>
+    <div class="tags"><span>计算社会科学</span><span>数据分析</span><span>研究方法</span></div>
+  </div>
+
+  <div class="prose">
+
             <p>计算社会科学作为一门新兴交叉学科，正在改变我们对社会现象的理解方式。本文将介绍计算社会科学的基本概念、主要研究方法，以及如何将传统的社会科学理论与现代计算技术相结合。</p>
 
             <h2>什么是计算社会科学？</h2>
@@ -131,8 +139,14 @@
             <p>计算社会科学为我们理解复杂的社会现象提供了新的视角和工具。作为研究者，我们需要在拥抱新技术的同时，保持对传统社会科学理论的尊重，并始终关注研究的伦理和社会影响。</p>
 
             <p>希望这篇文章能够为对计算社会科学感兴趣的读者提供一些启发。如果您有任何问题或想法，欢迎与我交流讨论！</p>
-        </div>
-    </div>
-    <script src="../scripts/main.js" defer></script>
+        
+  </div>
+</main>
+
+<footer>
+  <div class="contact"><a href="mailto:wenchangwang2031@u.northwestern.edu">EMAIL</a><a href="https://github.com/dovejira">GITHUB</a><a href="https://x.com/divejira">X</a></div>
+  <div><span class="en">MADE WITH <span class="note">♪</span> IN EVANSTON</span><span class="zh">© 2026 王文长 · 伊文斯顿 <span class="note">♪</span></span></div>
+</footer>
+<script src="../site.js"></script>
 </body>
 </html>

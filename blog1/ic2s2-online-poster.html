@@ -1,225 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
-    <title>IC2S2 Online Poster - Wenchang Wang</title>
-    <link rel="stylesheet" href="../styles/main.css">
-    <style>
-        .poster-container {
-            background: var(--bg-elev);
-            border: 1px solid var(--border);
-            border-radius: 16px;
-            box-shadow: var(--shadow);
-            overflow: hidden;
-            margin: 20px 0;
-        }
-
-        .poster-header {
-            background: linear-gradient(135deg, #0f2748 0%, #183a63 100%);
-            color: #fff;
-            padding: 36px 26px;
-            text-align: center;
-            position: relative;
-        }
-
-        .poster-header::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.2), transparent 50%);
-            opacity: 0.5;
-        }
-
-        .poster-header-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .poster-title {
-            font-size: clamp(1.7rem, 4vw, 2.6rem);
-            font-weight: 780;
-            line-height: 1.15;
-            margin-bottom: 16px;
-        }
-
-        .poster-author {
-            font-size: 1.6rem;
-            margin-bottom: 8px;
-        }
-
-        .poster-institution {
-            font-size: 1.15rem;
-            opacity: 0.9;
-        }
-
-        .poster-conference {
-            margin-top: 6px;
-            font-family: var(--font-mono);
-            opacity: 0.9;
-        }
-
-        .poster-content {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-            padding: 24px;
-        }
-
-        .poster-section {
-            background: var(--bg-soft);
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 20px;
-        }
-
-        .poster-section-title {
-            font-size: 1.35rem;
-            font-weight: 700;
-            color: var(--text);
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 8px;
-            margin-bottom: 12px;
-        }
-
-        .poster-text {
-            color: var(--text-muted);
-        }
-
-        .poster-text ul {
-            margin: 12px 0;
-            padding-left: 20px;
-        }
-
-        .highlight-box {
-            margin: 14px 0;
-            padding: 14px;
-            border-radius: 10px;
-            border: 1px solid var(--border);
-            background: var(--bg-elev);
-        }
-
-        .highlight-box h4 {
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        .table-container {
-            overflow-x: auto;
-            margin: 14px 0;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            overflow: hidden;
-            background: var(--bg-elev);
-        }
-
-        th, td {
-            padding: 10px 12px;
-            border-bottom: 1px solid var(--border);
-            text-align: left;
-            color: var(--text-muted);
-        }
-
-        th {
-            background: var(--primary-soft);
-            color: var(--text);
-            font-weight: 700;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 12px;
-            margin: 14px 0;
-        }
-
-        .stat-item {
-            background: var(--primary-soft);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            text-align: center;
-            padding: 14px;
-        }
-
-        .stat-number {
-            color: var(--text);
-            font-size: 1.5rem;
-            font-weight: 760;
-            font-family: var(--font-mono);
-        }
-
-        .stat-label {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-        }
-
-        .poster-footer {
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            background: var(--bg-soft);
-            margin: 0 24px 24px;
-            padding: 10px 14px;
-            text-align: center;
-        }
-
-        .poster-footer p {
-            color: var(--text-muted);
-            margin: 0;
-            font-size: 0.9rem;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Interactive online poster from IC2S2 2025: how fitness influencers on Weibo use body exposure as a visibility strategy, and how it affects likes and comments.">
+<meta name="author" content="Wenchang Wang">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://wenchang-wang.github.io/blog1/ic2s2-online-poster.html">
+<meta property="og:title" content="IC²S² Online Poster">
+<meta property="og:description" content="Interactive online poster from IC2S2 2025: how fitness influencers on Weibo use body exposure as a visibility strategy, and how it affects likes and comments.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wenchang-wang.github.io/blog1/ic2s2-online-poster.html">
+<meta property="og:image" content="https://wenchang-wang.github.io/images/profile.JPG">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'><rect width='8' height='8' rx='1' fill='%232a2522'/><path fill='%23f3c13a' d='M4 1h1v5H4zM5 1h1v1H5zM6 2h1v2H6zM2 5h2v1H2zM2 6h3v1H2z'/></svg>">
+<title>IC²S² Online Poster · Wenchang Wang</title>
+<meta name="title-en" content="IC²S² Online Poster · Wenchang Wang">
+<meta name="title-zh" content="IC²S² Online Poster · 王文长">
+<script>(function(){var r=document.documentElement,t,l;try{t=localStorage.getItem('theme');l=localStorage.getItem('lang');}catch(e){}r.setAttribute('data-theme',t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));r.setAttribute('data-lang',l||((navigator.language||'').indexOf('zh')===0?'zh':'en'));})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../site.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="../index.html" class="nav-logo">Wenchang Wang</a>
-            <ul class="nav-menu">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../research.html">Research</a></li>
-                <li><a href="../blog.html">Blog</a></li>
-                <li><a href="../cv.html">CV</a></li>
-            </ul>
-            <button class="theme-toggle" data-theme-toggle type="button">theme: auto</button>
-        </div>
-    </nav>
 
-    <!-- Main Content -->
-    <div class="main-content">
-        <div class="page-description">
-            <h1>IC2S2 Online Poster</h1>
-            <p>Interactive online poster presented at the 2025 IC2S2 Conference</p>
-        </div>
+<nav><div class="in">
+  <a class="brand" href="../index.html">W.WANG</a>
+  <div class="right">
+    <div class="links">
+      <a href="../index.html"><span class="en">About</span><span class="zh">首页</span></a>
+      <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      <a href="../cv.html"><span class="en">CV</span><span class="zh">简历</span></a>
+      <a class="on" href="../blog.html"><span class="en">Blog</span><span class="zh">博客</span></a>
+    </div>
+    <div class="ctrls">
+      <button class="ctl" data-act="lang" aria-label="Switch language / 切换语言"><span class="opt" data-v="en">EN</span><span class="sep">/</span><span class="opt" data-v="zh">中</span></button>
+      <button class="ctl" data-act="theme" aria-label="Toggle dark mode / 切换深色模式">
+        <svg class="i-sun" viewBox="0 0 8 8" shape-rendering="crispEdges" fill="currentColor"><rect x="3" y="0" width="2" height="1"/><rect x="3" y="7" width="2" height="1"/><rect x="0" y="3" width="1" height="2"/><rect x="7" y="3" width="1" height="2"/><rect x="1" y="1" width="1" height="1"/><rect x="6" y="1" width="1" height="1"/><rect x="1" y="6" width="1" height="1"/><rect x="6" y="6" width="1" height="1"/><rect x="2" y="2" width="4" height="4"/></svg>
+        <svg class="i-moon" viewBox="0 0 8 8" shape-rendering="crispEdges" fill="currentColor"><rect x="2" y="0" width="3" height="1"/><rect x="1" y="1" width="2" height="1"/><rect x="0" y="2" width="2" height="4"/><rect x="1" y="6" width="2" height="1"/><rect x="2" y="7" width="4" height="1"/><rect x="5" y="6" width="2" height="1"/><rect x="2" y="1" width="1" height="6"/><rect x="3" y="6" width="2" height="1"/></svg>
+      </button>
+    </div>
+  </div>
+</div></nav>
 
-        <div class="poster-container">
-            <!-- Poster Header -->
-            <div class="poster-header">
-                <div class="poster-header-content">
-                    <h1 class="poster-title">Exposure and Engagement: Analyzing the Impact of Visual Strategies by Fitness Influencers on Social Media</h1>
-                    <h2 class="poster-author">Wenchang Wang</h2>
-                    <p class="poster-institution">Peking University HSBC Business School</p>
-                    <p class="poster-conference">IC2S2 Poster Panel • July, 2025</p>
-                </div>
-            </div>
+<div class="stage short"><canvas></canvas></div>
 
-            <!-- Poster Content -->
-            <div class="poster-content">
+<main class="article">
+  <a class="back" href="../blog.html"><span class="en">← BACK TO BLOG</span><span class="zh">← 返回博客</span></a>
+  <div class="head">
+    <div class="kicker">JUL 2025 · IC²S² POSTER</div>
+    <h1>Exposure and Engagement: Analyzing the Impact of Visual Strategies by Fitness Influencers on Social Media</h1>
+    <p class="sub">Wenchang Wang · Peking University HSBC Business School · IC²S² Poster Panel, July 2025</p>
+    <div class="tags"><span>IC²S² 2025</span><span>COMPUTER VISION</span><span>HEALTH COMMUNICATION</span></div>
+  </div>
+
+  <div class="prose">
+
                 <!-- Introduction & Background -->
-                <div class="poster-section">
-                    <h3 class="poster-section-title">Introduction & Background</h3>
-                    <div class="poster-text">
+                <div class="sec">
+                    <h2>Introduction & Background</h2>
+                    <div class="body">
                         <p><strong>Research Context:</strong></p>
                         <p>Fitness influencers have significantly transformed public health behaviors through social media platforms. They share workout videos and promote healthy lifestyles, creating substantial impact on audience health choices.</p>
                         
                         <p>However, the inherent nature of fitness videos often requires skin exposure to properly demonstrate exercise movements. This creates a complex dynamic where educational content can easily shift towards soft-porn content (Ahrens et al., 2022).</p>
                         
-                        <div class="highlight-box">
+                        <div class="callout">
                             <h4>Theoretical Framework:</h4>
                             <p><strong>Media Events Theory:</strong> Dayan and Katz (1992) delineate media events as "history televised live," where broadcasting affords audiences collective and real-time viewing experiences, forging shared visibility within society.</p>
                             <p><strong>Visibility & Power:</strong> The live broadcasting of media events is often intertwined with power structures. Through social platform systems, influencers engage in commercial exploitation of their own value (Uldam, 2018).</p>
@@ -229,9 +76,9 @@
                 </div>
 
                 <!-- Literature Review -->
-                <div class="poster-section">
-                    <h3 class="poster-section-title">Literature Review</h3>
-                    <div class="poster-text">
+                <div class="sec">
+                    <h2>Literature Review</h2>
+                    <div class="body">
                         <p><strong>Previous Visual Studies Limitations:</strong></p>
                         <ul>
                             <li><strong>Manual Classification:</strong> Small samples and slow processing speed (Ahrens, 2022)</li>
@@ -250,10 +97,10 @@
                 </div>
 
                 <!-- Research Questions & Hypotheses -->
-                <div class="poster-section">
-                    <h3 class="poster-section-title">Research Questions & Hypotheses</h3>
-                    <div class="poster-text">
-                        <div class="highlight-box">
+                <div class="sec">
+                    <h2>Research Questions & Hypotheses</h2>
+                    <div class="body">
+                        <div class="callout">
                             <h4>RQ1: Visual Presentation Strategies</h4>
                             <p><strong>Question:</strong> Are there systematic differences in the utilization of body exposure strategies between male and female fitness content creators?</p>
                             <p><strong>Context:</strong></p>
@@ -263,7 +110,7 @@
                             </ul>
                         </div>
 
-                        <div class="highlight-box">
+                        <div class="callout">
                             <h4>RQ2: Interaction Feedback Mechanisms</h4>
                             <p><strong>Question:</strong> Is there a significant association between the degree of body exposure in content and user engagement metrics (likes and comments)?</p>
                             <p><strong>Engagement Triggers:</strong></p>
@@ -275,7 +122,7 @@
                             </ul>
                         </div>
 
-                        <div class="highlight-box">
+                        <div class="callout">
                             <h4>RQ3: Operational Strategy Evolution</h4>
                             <p><strong>Question:</strong> Does the blogger's follower base size influence their adoption of body exposure strategies?</p>
                             <p><strong>Strategic Considerations:</strong></p>
@@ -289,9 +136,9 @@
                 </div>
 
                 <!-- Methodology & Innovation -->
-                <div class="poster-section">
-                    <h3 class="poster-section-title">Methodology & Innovation</h3>
-                    <div class="poster-text">
+                <div class="sec">
+                    <h2>Methodology & Innovation</h2>
+                    <div class="body">
                         <p><strong>Data Collection Strategy:</strong></p>
                         <p><strong>Platform Selection:</strong> Weibo chosen for analysis due to:</p>
                         <ul>
@@ -300,26 +147,26 @@
                             <li>More lenient censorship policies compared to other platforms</li>
                         </ul>
 
-                        <div class="stats-grid">
-                            <div class="stat-item">
-                                <div class="stat-number">50</div>
-                                <div class="stat-label">Fitness Influencers</div>
+                        <div class="stats">
+                            <div class="stat">
+                                <b>50</b>
+                                <span>Fitness Influencers</span>
                             </div>
-                            <div class="stat-item">
-                                <div class="stat-number">99,046</div>
-                                <div class="stat-label">Images Analyzed</div>
+                            <div class="stat">
+                                <b>99,046</b>
+                                <span>Images Analyzed</span>
                             </div>
-                            <div class="stat-item">
-                                <div class="stat-number">25,989</div>
-                                <div class="stat-label">Weibo Posts</div>
+                            <div class="stat">
+                                <b>25,989</b>
+                                <span>Weibo Posts</span>
                             </div>
-                            <div class="stat-item">
-                                <div class="stat-number">2020-2024</div>
-                                <div class="stat-label">Time Window</div>
+                            <div class="stat">
+                                <b>2020-2024</b>
+                                <span>Time Window</span>
                             </div>
                         </div>
 
-                        <div class="highlight-box">
+                        <div class="callout">
                             <h4>Computer Vision Model Development</h4>
                             <p><strong>Base Model:</strong> Google Vision Transformer fine-tuned for specific classification tasks</p>
                             <p><strong>Binary Skin Exposure Detection:</strong></p>
@@ -335,7 +182,7 @@
                             </ul>
                         </div>
 
-                        <div class="table-container">
+                        <div class="table">
                             <table>
                                 <thead>
                                     <tr>
@@ -367,12 +214,12 @@
                 </div>
 
                 <!-- Results & Analysis -->
-                <div class="poster-section">
-                    <h3 class="poster-section-title">Results & Analysis</h3>
-                    <div class="poster-text">
-                        <div class="highlight-box">
+                <div class="sec">
+                    <h2>Results & Analysis</h2>
+                    <div class="body">
+                        <div class="callout">
                             <h4>Content Distribution Findings</h4>
-                            <div class="table-container">
+                            <div class="table">
                                 <table>
                                     <thead>
                                         <tr>
@@ -406,12 +253,12 @@
 
                         <p><strong>Key Findings:</strong></p>
                         <ul>
-                            <li>Soft porn images significantly <strong style="color: #dc143c;">reduce comment numbers</strong></li>
+                            <li>Soft porn images significantly <strong class="neg">reduce comment numbers</strong></li>
                             <li>Threshold effect for likes - quantity matters more than mere presence</li>
                             <li>Mann-Whitney U tests confirmed significant engagement differences (p<0.001)</li>
                         </ul>
 
-                        <div class="highlight-box">
+                        <div class="callout">
                             <h4>Strategic Evolution Pattern</h4>
                             <p>Early stage influencers use body exposure as visibility competition strategy, but as influence grows and advertising revenue becomes important, high-quality interactions (comments) become more valuable than pure engagement numbers (likes).</p>
                         </div>
@@ -419,15 +266,15 @@
                 </div>
 
                 <!-- Conclusions -->
-                <div class="poster-section">
-                    <h3 class="poster-section-title">Conclusions</h3>
-                    <div class="poster-text">
+                <div class="sec">
+                    <h2>Conclusions</h2>
+                    <div class="body">
                         <p><strong>Three-Level Analysis Summary:</strong></p>
                         <p><strong>1. Image-Level:</strong> Universal presence of suggestive content across all fitness influencer accounts, with unexpected gender patterns.</p>
                         <p><strong>2. Post-Level:</strong> Clear trade-off between engagement quantity (likes) and quality (comments) based on content strategy.</p>
                         <p><strong>3. Account-Level:</strong> Strategic evolution from visibility-seeking through exposure to quality engagement focus as influence grows.</p>
                         
-                        <div class="highlight-box">
+                        <div class="callout">
                             <h4>Theoretical Implications</h4>
                             <p>The study reveals how visibility management in health communication involves complex strategic calculations balancing immediate attention capture with long-term brand sustainability.</p>
                         </div>
@@ -435,9 +282,9 @@
                 </div>
 
                 <!-- Contributions -->
-                <div class="poster-section">
-                    <h3 class="poster-section-title">Contributions</h3>
-                    <div class="poster-text">
+                <div class="sec">
+                    <h2>Contributions</h2>
+                    <div class="body">
                         <p><strong>Methodological Innovation:</strong></p>
                         <ul>
                             <li>Computer vision model for health communication research</li>
@@ -463,9 +310,9 @@
                 </div>
 
                 <!-- Limitations & Future Research -->
-                <div class="poster-section">
-                    <h3 class="poster-section-title">Limitations & Future Research</h3>
-                    <div class="poster-text">
+                <div class="sec">
+                    <h2>Limitations & Future Research</h2>
+                    <div class="body">
                         <p><strong>Study Limitations:</strong></p>
                         <ul>
                             <li>Weibo's content management mechanism limits historical data access for some accounts</li>
@@ -481,7 +328,7 @@
                             <li>Policy intervention effectiveness assessment</li>
                         </ul>
 
-                        <div class="highlight-box">
+                        <div class="callout">
                             <h4>References</h4>
                             <p><small>
                                 Ahrens, J., et al. (2022). International Journal of Environmental Research and Public Health, 19(11), 6845.<br>
@@ -493,16 +340,14 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            
+  </div>
+</main>
 
-            <!-- Poster Footer -->
-            <div class="poster-footer">
-                <p>Contact Information: Wenchang Wang • Peking University HSBC Business School • IC2S2 Conference Poster Panel • July 2025</p>
-            </div>
-        </div>
-    </div>
-    <script src="../scripts/main.js" defer></script>
+<footer>
+  <div class="contact"><a href="mailto:wenchangwang2031@u.northwestern.edu">EMAIL</a><a href="https://github.com/dovejira">GITHUB</a><a href="https://x.com/divejira">X</a></div>
+  <div><span class="en">MADE WITH <span class="note">♪</span> IN EVANSTON</span><span class="zh">© 2026 王文长 · 伊文斯顿 <span class="note">♪</span></span></div>
+</footer>
+<script src="../site.js"></script>
 </body>
 </html>
-
-

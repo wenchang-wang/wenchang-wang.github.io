@@ -1,75 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
-    <title>文章标题 - Wenchang Wang</title>
-    <link rel="stylesheet" href="../styles/main.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="文章摘要（一两句话，用于搜索引擎和分享卡片）。">
+<meta name="author" content="Wenchang Wang">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://wenchang-wang.github.io/blog1/article-template.html">
+<meta property="og:title" content="文章标题">
+<meta property="og:description" content="文章摘要（一两句话，用于搜索引擎和分享卡片）。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://wenchang-wang.github.io/blog1/article-template.html">
+<meta property="og:image" content="https://wenchang-wang.github.io/images/profile.JPG">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'><rect width='8' height='8' rx='1' fill='%232a2522'/><path fill='%23f3c13a' d='M4 1h1v5H4zM5 1h1v1H5zM6 2h1v2H6zM2 5h2v1H2zM2 6h3v1H2z'/></svg>">
+<title>文章标题 · Wenchang Wang</title>
+<meta name="title-en" content="文章标题 · Wenchang Wang">
+<meta name="title-zh" content="文章标题 · 王文长">
+<script>(function(){var r=document.documentElement,t,l;try{t=localStorage.getItem('theme');l=localStorage.getItem('lang');}catch(e){}r.setAttribute('data-theme',t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));r.setAttribute('data-lang',l||((navigator.language||'').indexOf('zh')===0?'zh':'en'));})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../site.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="../index.html" class="nav-logo">Wenchang Wang</a>
-            <ul class="nav-menu">
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../cv.html">CV</a></li>
-                <li><a href="../research.html">Research</a></li>
-                <li><a href="../blog.html" class="active">Blog</a></li>
-            </ul>
-            <button class="theme-toggle" data-theme-toggle type="button">theme: auto</button>
-        </div>
-    </nav>
 
-    <!-- Main Content -->
-    <div class="main-container">
-        <div class="back-to-blog">
-            <a href="../blog.html">← 返回博客列表</a>
-        </div>
-
-        <div class="article-header">
-            <h1 class="article-title">文章标题</h1>
-            <div class="article-meta">
-                <div class="article-date">
-                    <span>📅</span>
-                    <span>YYYY年MM月DD日</span>
-                </div>
-                <div class="article-category">
-                    <span>🏷️</span>
-                    <span>分类</span>
-                </div>
-                <div class="article-tags">
-                    <span class="tag">标签1</span>
-                    <span class="tag">标签2</span>
-                    <span class="tag">标签3</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="article-content">
-            <!-- 在这里添加您的文章内容 -->
-            <p>文章开头段落...</p>
-
-            <h2>二级标题</h2>
-            <p>内容段落...</p>
-
-            <h3>三级标题</h3>
-            <p>内容段落...</p>
-
-            <ul>
-                <li>列表项1</li>
-                <li>列表项2</li>
-                <li>列表项3</li>
-            </ul>
-
-            <blockquote>
-                引用内容...
-            </blockquote>
-
-            <p>文章结尾段落...</p>
-        </div>
+<nav><div class="in">
+  <a class="brand" href="../index.html">W.WANG</a>
+  <div class="right">
+    <div class="links">
+      <a href="../index.html"><span class="en">About</span><span class="zh">首页</span></a>
+      <a href="../research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      <a href="../cv.html"><span class="en">CV</span><span class="zh">简历</span></a>
+      <a class="on" href="../blog.html"><span class="en">Blog</span><span class="zh">博客</span></a>
     </div>
-    <script src="../scripts/main.js" defer></script>
+    <div class="ctrls">
+      <button class="ctl" data-act="lang" aria-label="Switch language / 切换语言"><span class="opt" data-v="en">EN</span><span class="sep">/</span><span class="opt" data-v="zh">中</span></button>
+      <button class="ctl" data-act="theme" aria-label="Toggle dark mode / 切换深色模式">
+        <svg class="i-sun" viewBox="0 0 8 8" shape-rendering="crispEdges" fill="currentColor"><rect x="3" y="0" width="2" height="1"/><rect x="3" y="7" width="2" height="1"/><rect x="0" y="3" width="1" height="2"/><rect x="7" y="3" width="1" height="2"/><rect x="1" y="1" width="1" height="1"/><rect x="6" y="1" width="1" height="1"/><rect x="1" y="6" width="1" height="1"/><rect x="6" y="6" width="1" height="1"/><rect x="2" y="2" width="4" height="4"/></svg>
+        <svg class="i-moon" viewBox="0 0 8 8" shape-rendering="crispEdges" fill="currentColor"><rect x="2" y="0" width="3" height="1"/><rect x="1" y="1" width="2" height="1"/><rect x="0" y="2" width="2" height="4"/><rect x="1" y="6" width="2" height="1"/><rect x="2" y="7" width="4" height="1"/><rect x="5" y="6" width="2" height="1"/><rect x="2" y="1" width="1" height="6"/><rect x="3" y="6" width="2" height="1"/></svg>
+      </button>
+    </div>
+  </div>
+</div></nav>
+
+<div class="stage short"><canvas></canvas></div>
+
+<main class="article">
+  <a class="back" href="../blog.html"><span class="en">← BACK TO BLOG</span><span class="zh">← 返回博客</span></a>
+  <div class="head">
+    <div class="kicker">YYYY.MM.DD · 分类</div>
+    <h1>文章标题</h1>
+    <p class="sub">副标题（可选，不需要就删掉这一行）</p>
+    <div class="tags"><span>标签1</span><span>标签2</span></div>
+  </div>
+
+  <div class="prose">
+    <!-- 正文从这里开始。用 <h2> 作章节标题，<h3> 作小节标题。 -->
+    <p>文章开头段落...</p>
+
+    <h2>二级标题</h2>
+    <p>内容段落...</p>
+
+    <h3>三级标题</h3>
+    <p>内容段落...</p>
+
+    <ul>
+      <li>列表项 1</li>
+      <li>列表项 2</li>
+    </ul>
+
+    <blockquote>引用内容...</blockquote>
+
+    <!-- 可选组件：
+    <div class="callout"><h4>小标题</h4><p>重点内容</p></div>
+    <div class="stats"><div class="stat"><b>99,046</b><span>Images</span></div></div>
+    <div class="table"><table><thead><tr><th>列</th></tr></thead><tbody><tr><td>值</td></tr></tbody></table></div>
+    <div class="sec"><h2>卡片式章节</h2><div class="body"><p>...</p></div></div>
+    -->
+  </div>
+</main>
+
+<footer>
+  <div class="contact"><a href="mailto:wenchangwang2031@u.northwestern.edu">EMAIL</a><a href="https://github.com/dovejira">GITHUB</a><a href="https://x.com/divejira">X</a></div>
+  <div><span class="en">MADE WITH <span class="note">♪</span> IN EVANSTON</span><span class="zh">© 2026 王文长 · 伊文斯顿 <span class="note">♪</span></span></div>
+</footer>
+<script src="../site.js"></script>
 </body>
 </html>

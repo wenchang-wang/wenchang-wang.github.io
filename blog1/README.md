@@ -1,109 +1,48 @@
-# 博客系统使用说明
+# 博客使用说明
 
-## 文件结构
+所有文章共用网站根目录的 `../site.css` 和 `../site.js`，自动带有导航栏、中英文切换、深色模式和音符动画。不需要在文章里写样式。
 
-```
-blog/
-├── README.md                                    # 使用说明
-├── article-template.html                        # 文章模板
-├── computational-social-science-introduction.html  # 示例文章
-└── [其他文章文件...]
-```
+## 添加新文章
 
-## 如何添加新博客文章
-
-### 方法一：使用模板（推荐）
-
-1. **复制模板文件**
+1. 复制模板：
    ```bash
-   cp article-template.html 新文章文件名.html
+   cp article-template.html my-new-article.html
    ```
+   文件名用英文和连字符，例如 `my-new-article.html`。
 
-2. **修改文章内容**
-   - 更新 `<title>` 标签中的文章标题
-   - 修改文章标题、日期、分类和标签
-   - 在 `<div class="article-content">` 中添加文章内容
+2. 修改 `<head>`：
+   - `<title>`、`title-en`、`title-zh`、`og:title`：文章标题
+   - `description` 和 `og:description`：一两句话的摘要
+   - `canonical` 和 `og:url`：改成 `https://wenchang-wang.github.io/blog1/my-new-article.html`
+   - 把 `<meta name="robots" content="noindex">` 改成 `index, follow`（模板默认不被搜索引擎收录）
 
-3. **更新博客列表**
-   - 打开 `../blog.html` 文件
-   - 在 `<ul class="blog-list">` 中添加新的文章条目
+3. 修改文章头部 `<div class="head">`：
+   - `.kicker`：日期和分类，例如 `2026.11.09 · 研究方法`
+   - `<h1>`：标题；`.sub`：副标题（可选）
+   - `.tags`：标签
 
-### 方法二：手动创建
+4. 在 `<div class="prose">` 里写正文。
 
-1. **创建新的HTML文件**
-   - 文件名建议使用英文，用连字符分隔
-   - 例如：`my-new-article.html`
+5. 在 `../blog.html` 的 `<div class="pubs">` 里加一张 `<a class="post">` 卡片（照抄已有的那张），并把文章加入 `../sitemap.xml`。
 
-2. **复制基础结构**
-   - 从现有文章或模板复制HTML结构
-   - 确保包含导航栏和返回链接
+## 正文格式
 
-3. **添加文章内容**
-   - 按照模板格式添加标题、元数据和内容
+- 章节标题用 `<h2>`，小节用 `<h3>`（`<h1>` 已用于文章标题）
+- 段落 `<p>`，列表 `<ul>` / `<ol>`，引用 `<blockquote>`，代码 `<code>` / `<pre>`
+- 图片放在 `../images/`，用 `<img src="../images/xxx.png" alt="说明">`
 
-## 文章元数据说明
+## 可选组件
 
-### 必需信息
-- **文章标题**：在 `<h1 class="article-title">` 中
-- **发布日期**：在 `<div class="article-date">` 中
-- **文章分类**：在 `<div class="article-category">` 中
+```html
+<div class="callout"><h4>小标题</h4><p>重点内容</p></div>
 
-### 可选信息
-- **标签**：在 `<div class="article-tags">` 中添加
-- **文章摘要**：在博客列表页面显示
+<div class="stats">
+  <div class="stat"><b>99,046</b><span>Images</span></div>
+</div>
 
-## 内容格式建议
+<div class="table"><table>...</table></div>
 
-### 标题层级
-- 使用 `<h2>` 作为主要章节标题
-- 使用 `<h3>` 作为子章节标题
-- 避免使用 `<h1>`（已用于文章标题）
+<div class="sec"><h2>卡片式章节</h2><div class="body"><p>...</p></div></div>
+```
 
-### 文本格式
-- 段落使用 `<p>` 标签
-- 强调使用 `<strong>` 或 `<em>`
-- 代码使用 `<code>` 或 `<pre>` 标签
-
-### 列表
-- 无序列表使用 `<ul>`
-- 有序列表使用 `<ol>`
-- 列表项使用 `<li>`
-
-### 引用
-- 使用 `<blockquote>` 标签
-
-## 样式自定义
-
-所有样式都内嵌在HTML文件中，您可以根据需要修改：
-
-- **颜色主题**：修改CSS变量
-- **字体大小**：调整相应的font-size属性
-- **布局**：修改容器宽度和间距
-
-## 注意事项
-
-1. **文件命名**：使用英文文件名，避免空格和特殊字符
-2. **图片引用**：将图片放在 `../images/` 目录下
-3. **链接路径**：确保所有内部链接使用相对路径
-4. **移动端适配**：样式已包含响应式设计
-5. **SEO优化**：确保每篇文章有独特的title和meta描述
-
-## 示例：添加新文章
-
-假设要添加一篇名为"我的新研究"的文章：
-
-1. **创建文件**：`my-new-research.html`
-2. **复制模板**：`cp article-template.html my-new-research.html`
-3. **修改内容**：
-   - 标题：我的新研究
-   - 日期：2024年12月20日
-   - 分类：研究分享
-   - 标签：研究、学术、新发现
-4. **更新blog.html**：在博客列表中添加新条目
-
-## 维护建议
-
-- 定期备份博客文件
-- 保持文章格式的一致性
-- 及时更新博客列表页面
-- 检查所有链接的有效性
+`ic2s2-online-poster.html` 是使用这些组件的完整例子。
