@@ -1,471 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Wenchang Wang</title>
-    <meta name="description" content="Wenchang Wang's academic homepage. Computational social science research on online platform interactions, causal inference, platform governance, multimodal information, and big data.">
-    <meta name="keywords" content="Wenchang Wang, computational social science, CSCW, causal inference, platform governance, online communities, big data, Northwestern University">
-    <meta name="author" content="Wenchang Wang">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <meta name="google-site-verification" content="WvTAvZltbymLLojRvWwH9hoEk_uY6mAYoGmtwHRdXQQ" />
-    <link rel="canonical" href="https://wenchang-wang.github.io/">
-    <meta property="og:title" content="Wenchang Wang | Academic Homepage">
-    <meta property="og:description" content="Research on computational social science, online platform interactions, and causal inference.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://wenchang-wang.github.io/">
-    <meta property="og:image" content="https://wenchang-wang.github.io/images/profile.JPG">
-    <meta name="twitter:card" content="summary">
-
-    <!-- JSON-LD Structured Data for Google Indexing & Scholar -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Wenchang Wang",
-      "alternateName": "王文长",
-      "url": "https://wenchang-wang.github.io/",
-      "image": "https://wenchang-wang.github.io/images/profile.JPG",
-      "jobTitle": "Ph.D. Student in Media, Technology, and Society",
-      "worksFor": {
-        "@type": "CollegeOrUniversity",
-        "name": "Northwestern University"
-      },
-      "alumniOf": [
-        {
-          "@type": "CollegeOrUniversity",
-          "name": "Peking University"
-        },
-        {
-          "@type": "CollegeOrUniversity",
-          "name": "University of Cologne"
-        },
-        {
-          "@type": "CollegeOrUniversity",
-          "name": "Soochow University"
-        }
-      ],
-      "sameAs": [
-        "https://github.com/dovejira",
-        "https://x.com/divejira"
-      ],
-      "knowsAbout": [
-        "Computational Social Science",
-        "CSCW",
-        "Causal Inference",
-        "Platform Governance",
-        "Online Communities",
-        "Big Data"
-      ]
-    }
-    </script>
-
-    <!-- Favicon — pixel computer -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' style='image-rendering:pixelated'><rect x='2' y='1' width='12' height='9' fill='%23555'/><rect x='3' y='2' width='10' height='7' fill='%23111'/><rect x='4' y='3' width='4' height='1' fill='%237ee787'/><rect x='4' y='7' width='6' height='1' fill='%2379c0ff'/><rect x='4' y='7' width='3' height='1' fill='%23ff7b72'/><rect x='6' y='10' width='4' height='2' fill='%23555'/><rect x='4' y='12' width='8' height='2' fill='%23555'/></svg>">
-
-    <!-- Google Fonts: JetBrains Mono -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="css/theme.css">
-    <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/pages/homepage.css">
-    <link rel="stylesheet" href="css/pages/cv.css">
-    <link rel="stylesheet" href="css/pages/research.css">
-    <link rel="stylesheet" href="css/pages/blog.css">
-    <link rel="stylesheet" href="css/pages/contact.css">
-
-    <!-- Prevent theme/lang flash -->
-    <script>
-      (function(){
-        if(window.matchMedia('(prefers-color-scheme:dark)').matches)document.documentElement.setAttribute('data-theme','dark');
-        document.documentElement.setAttribute('data-lang',localStorage.getItem('lang')||'en');
-      })();
-    </script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="Wenchang Wang, 王文长, computational social science, large language models, causal inference, platform governance, CSCW, Northwestern University">
+<meta name="description" content="Wenchang Wang (王文长) — Ph.D. student at Northwestern University studying how policy and technology changes reshape online behavior, how LLMs are reshaping computational social science, and computational social science methods.">
+<meta name="author" content="Wenchang Wang">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://wenchang-wang.github.io/">
+<meta property="og:title" content="Wenchang Wang">
+<meta property="og:description" content="Wenchang Wang (王文长) — Ph.D. student at Northwestern University studying how policy and technology changes reshape online behavior, how LLMs are reshaping computational social science, and computational social science methods.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wenchang-wang.github.io/">
+<meta property="og:image" content="https://wenchang-wang.github.io/images/profile.JPG">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'><rect width='8' height='8' rx='1' fill='%232a2522'/><path fill='%23f3c13a' d='M4 1h1v5H4zM5 1h1v1H5zM6 2h1v2H6zM2 5h2v1H2zM2 6h3v1H2z'/></svg>">
+<meta name="google-site-verification" content="WvTAvZltbymLLojRvWwH9hoEk_uY6mAYoGmtwHRdXQQ" />
+<script>(function(){var m={cv:'cv.html',research:'research.html',blog:'blog.html'},h=location.hash.slice(1);if(m[h])location.replace(m[h]);})();</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Wenchang Wang",
+  "alternateName": "王文长",
+  "url": "https://wenchang-wang.github.io/",
+  "image": "https://wenchang-wang.github.io/images/profile.JPG",
+  "email": "mailto:wenchangwang2031@u.northwestern.edu",
+  "jobTitle": "Ph.D. Student in Media, Technology, and Society",
+  "worksFor": { "@type": "CollegeOrUniversity", "name": "Northwestern University" },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "Peking University" },
+    { "@type": "CollegeOrUniversity", "name": "University of Cologne" },
+    { "@type": "CollegeOrUniversity", "name": "Soochow University" }
+  ],
+  "sameAs": ["https://github.com/dovejira", "https://x.com/divejira"],
+  "knowsAbout": ["Computational Social Science", "Large Language Models", "Causal Inference", "Platform Governance", "CSCW", "Online Behavior"]
+}
+</script>
+<title>Wenchang Wang</title>
+<meta name="title-en" content="Wenchang Wang">
+<meta name="title-zh" content="王文长 Wenchang Wang">
+<script>(function(){var r=document.documentElement,t,l;try{t=localStorage.getItem('theme');l=localStorage.getItem('lang');}catch(e){}r.setAttribute('data-theme',t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));r.setAttribute('data-lang',l||((navigator.language||'').indexOf('zh')===0?'zh':'en'));})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
 </head>
-<body>
+<body class="intro-on">
 
-<!-- ===== NAVBAR (IDE File Tabs Header) ===== -->
-<nav class="navbar">
-    <div class="nav-container">
-        <a href="#home" class="nav-logo">Wenchang Wang</a>
-
-        <div class="nav-links">
-            <a href="#home" class="active"><span class="file-icon">📄</span><span data-i18n="nav_home">home.ts</span><span class="close-tab">×</span></a>
-            <a href="#cv"><span class="file-icon">📄</span><span data-i18n="nav_cv">cv.md</span><span class="close-tab">×</span></a>
-            <a href="#research"><span class="file-icon">📄</span><span data-i18n="nav_research">research.json</span><span class="close-tab">×</span></a>
-            <a href="#blog"><span class="file-icon">🐍</span><span data-i18n="nav_blog">blog.py</span><span class="close-tab">×</span></a>
-            <a href="#contact"><span class="file-icon">⚡</span><span data-i18n="nav_contact">contact.sh</span><span class="close-tab">×</span></a>
-        </div>
-
-        <div class="nav-controls">
-            <!-- Language toggle -->
-            <div class="lang-toggle" data-lang="en" role="button" tabindex="0" aria-label="Toggle language">
-                <span class="lang-option active" data-value="en">EN</span>
-                <span class="lang-option" data-value="zh">中</span>
-            </div>
-
-            <!-- Theme toggle -->
-            <button class="theme-toggle" type="button" aria-label="Toggle theme">
-                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-                </svg>
-                <svg class="icon-moon" viewBox="0 0 24 24" fill="currentColor" style="display:none">
-                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
-                </svg>
-            </button>
-
-            <!-- Hamburger (mobile) -->
-            <button class="hamburger" type="button" aria-label="Menu">
-                <span></span><span></span><span></span>
-            </button>
-        </div>
+<div id="intro" aria-hidden="true">
+  <canvas></canvas>
+  <div class="box">
+    <div class="top">
+      <div class="eq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="notes"></div>
     </div>
-</nav>
-
-<!-- Puppet world — sidebar mascots -->
-<div id="puppet-world"></div>
-
-<!-- Mobile drawer -->
-<div class="mobile-drawer">
-    <a href="#home">📄 home.ts</a>
-    <a href="#cv">📄 cv.md</a>
-    <a href="#research">📄 research.json</a>
-    <a href="#blog">🐍 blog.py</a>
-    <a href="#contact">⚡ contact.sh</a>
+    <div class="logo"><span class="tx"></span><span class="c"></span></div>
+    <div class="bar"><b></b></div>
+    <div class="pct">LOADING 0%</div>
+    <div class="enter">▶ CLICK TO ENTER</div>
+  </div>
+  <div class="tip"></div>
 </div>
 
-
-<!-- ============================================================ -->
-<!-- PAGE: HOME                                                    -->
-<!-- ============================================================ -->
-<section id="page-home" class="page">
-
-    <!-- 100vh Fullscreen Pure Soul Music & Jazz Instrument Pixel Drift Hero Section -->
-    <div class="hero">
-        <canvas id="particle-canvas"></canvas>
-
-        <!-- Scroll down hint button -->
-        <a href="#about-content" class="hero-scroll-btn" onclick="event.preventDefault(); document.getElementById('about-content').scrollIntoView({behavior:'smooth'});">
-            <span data-i18n="scroll_explore">🎮 PRESS ↓ OR SCROLL TO EXPLORE</span>
-        </a>
+<nav><div class="in">
+  <a class="brand" href="index.html">W.WANG</a>
+  <div class="right">
+    <div class="links">
+      <a class="on" href="index.html"><span class="en">About</span><span class="zh">首页</span></a>
+      <a href="research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      <a href="cv.html"><span class="en">CV</span><span class="zh">简历</span></a>
+      <a href="blog.html"><span class="en">Blog</span><span class="zh">博客</span></a>
     </div>
-
-    <!-- Main Content Section Below Hero -->
-    <div id="about-content" class="container main-content-section">
-        <h2 class="section-title" data-i18n="about_title">About Me</h2>
-        <div class="about-grid">
-            <div class="about-bio">
-                <p data-i18n-html="about_p1">I am <strong>Wenchang Wang</strong>, a Ph.D. student in Media, Technology, and Society (MTS) at <strong>Northwestern University</strong>, advised by <a href="https://agneshorvat.soc.northwestern.edu/" target="_blank">Associate Professor Ágnes Horvát</a>.</p>
-
-                <p data-i18n-html="about_p2">My research interests center on using <strong>computational methods</strong> and <strong>causal inference</strong> to study how people interact with <strong>online platforms</strong>. Specifically, my research focuses on:</p>
-
-                <ol>
-                    <li data-i18n-html="about_li1">How <strong>policy changes</strong> (e.g., platform policy changes and macro-political environments) and <strong>technological changes</strong> (e.g., the emergence of large language models) affect human behavior</li>
-                    <li data-i18n-html="about_li2">Methods for measuring <strong>multimodal information</strong> (e.g., text and images) on online platforms</li>
-                    <li data-i18n-html="about_li3">How to conduct <strong>less-biased causal inference</strong> with large-scale datasets</li>
-                </ol>
-
-                <p data-i18n-html="about_p3">My papers have appeared at conferences including <strong><em>CSCW</em></strong>, <strong><em>ICA</em></strong>, <strong><em>AEJMC</em></strong>, and <strong><em>IC²S²</em></strong>. I have received the <strong>Top Student Paper</strong> award at <strong>AEJMC</strong>, as well as the <strong>Promising Student Paper</strong> and the <strong>Best Faculty Paper Award</strong> at <strong>ICA</strong>.</p>
-
-                <div class="keywords" style="margin-top:20px;">
-                    <span class="chip">Computational Social Science</span>
-                    <span class="chip">CSCW</span>
-                    <span class="chip">Causal Inference</span>
-                    <span class="chip">Platform Governance</span>
-                    <span class="chip">Online Communities</span>
-                    <span class="chip">Big Data</span>
-                </div>
-            </div>
-
-            <div class="about-sidebar">
-                <div class="profile-card">
-                    <img src="images/profile.JPG" alt="Wenchang Wang" class="profile-photo">
-                    <h3 style="font-size:1.1rem;margin-bottom:4px;">Wenchang Wang</h3>
-                    <p style="font-size:0.8rem;color:var(--fg-muted);margin-bottom:14px;">CSS & Political Comm</p>
-                    <div class="contact-quick">
-                        <a href="mailto:wenchangwang2031@u.northwestern.edu" class="contact-quick-item">
-                            <svg viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/></svg>
-                            <span>wenchangwang2031@u.northwestern.edu</span>
-                        </a>
-                        <a href="https://x.com/divejira" target="_blank" class="contact-quick-item">
-                            <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                            <span>@divejira</span>
-                        </a>
-                        <a href="https://github.com/dovejira" target="_blank" class="contact-quick-item">
-                            <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clip-rule="evenodd"/></svg>
-                            <span>@dovejira</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Latest Updates Stream -->
-        <div class="news-section" style="margin-top:40px;">
-            <h2 class="section-title" data-i18n="news_title">Latest Updates</h2>
-            <div class="news-list">
-                <div class="news-item">
-                    <span class="news-icon">🎉</span>
-                    <span data-i18n-html="news_1">I have decided to join <strong>Northwestern University</strong> this fall to start my Ph.D. journey at the School of Communication, working with <a href="https://agneshorvat.soc.northwestern.edu/" target="_blank">Associate Professor Ágnes Horvát</a>.</span>
-                </div>
-                <div class="news-item">
-                    <span class="news-icon">📄</span>
-                    <span data-i18n-html="news_2">Two of my papers were accepted by <strong>ICA 2026</strong>, including the <strong>Best Faculty Paper Award</strong> at ICCA Division!</span>
-                </div>
-                <div class="news-item">
-                    <span class="news-icon">🎓</span>
-                    <span data-i18n-html="news_3">I will present two posters with my collaborators at <strong>CSCW 2026</strong>, discussing how large language models influence knowledge production and collaboration.</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Education Grid -->
-        <div class="education-section" style="margin-top:40px;">
-            <h2 class="section-title" data-i18n="edu_title">Education</h2>
-            <div class="education-grid">
-                <div class="education-item">
-                    <img src="images/nu-logo.png" alt="Northwestern University" class="school-logo">
-                    <div class="edu-content">
-                        <h3><a href="https://mts.northwestern.edu/" target="_blank" data-i18n="edu_nu_name">Northwestern University</a></h3>
-                        <div class="edu-degree" data-i18n="edu_nu_degree">Ph.D. in Media, Technology, and Society (MTS)</div>
-                        <div class="edu-meta" data-i18n="edu_nu_date">2026-2031 (Expected) | Evanston, IL, USA</div>
-                        <div class="edu-note" data-i18n-html="edu_nu_note">Advisor: <a href="https://agneshorvat.soc.northwestern.edu/" target="_blank">Associate Professor Ágnes Horvát</a></div>
-                    </div>
-                </div>
-                <div class="education-item">
-                    <img src="images/pku-logo.png" alt="Peking University" class="school-logo">
-                    <div class="edu-content">
-                        <h3><a href="https://english.pku.edu.cn" target="_blank" data-i18n="edu_pku_name">Peking University</a></h3>
-                        <div class="edu-degree" data-i18n="edu_pku_degree">M.A. in Journalism and Communication; Minor in Economics</div>
-                        <div class="edu-meta" data-i18n="edu_pku_date">Aug 2023 – June 2026 | Shenzhen, Guangdong</div>
-                        <div class="edu-note" data-i18n="edu_pku_note">Advisor: Assistant Professor Zhuo Chen</div>
-                    </div>
-                </div>
-                <div class="education-item">
-                    <img src="images/uni-koeln-logo.png" alt="University of Cologne" class="school-logo">
-                    <div class="edu-content">
-                        <h3><a href="https://uni-koeln.de/en/" target="_blank" data-i18n="edu_koeln_name">University of Cologne</a></h3>
-                        <div class="edu-degree" data-i18n="edu_koeln_degree">Exchange Student in Economics and Information Science</div>
-                        <div class="edu-meta" data-i18n="edu_koeln_date">Oct 2024 – Mar 2025 | Cologne, Germany</div>
-                        <div class="edu-note" data-i18n="edu_koeln_note">Exchange coursework during graduate study at Peking University</div>
-                    </div>
-                </div>
-                <div class="education-item">
-                    <img src="images/suda-logo.png" alt="Soochow University" class="school-logo">
-                    <div class="edu-content">
-                        <h3><a href="https://eng.suda.edu.cn/" target="_blank" data-i18n="edu_suda_name">Soochow University</a></h3>
-                        <div class="edu-degree" data-i18n="edu_suda_degree">B.E. in Mechanical and Electronic Engineering</div>
-                        <div class="edu-meta" data-i18n="edu_suda_date">Sept 2017 – June 2021 | Suzhou, Jiangsu</div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="ctrls">
+      <button class="ctl" data-act="lang" aria-label="Switch language / 切换语言"><span class="opt" data-v="en">EN</span><span class="sep">/</span><span class="opt" data-v="zh">中</span></button>
+      <button class="ctl" data-act="theme" aria-label="Toggle dark mode / 切换深色模式">
+        <svg class="i-sun" viewBox="0 0 8 8" shape-rendering="crispEdges" fill="currentColor"><rect x="3" y="0" width="2" height="1"/><rect x="3" y="7" width="2" height="1"/><rect x="0" y="3" width="1" height="2"/><rect x="7" y="3" width="1" height="2"/><rect x="1" y="1" width="1" height="1"/><rect x="6" y="1" width="1" height="1"/><rect x="1" y="6" width="1" height="1"/><rect x="6" y="6" width="1" height="1"/><rect x="2" y="2" width="4" height="4"/></svg>
+        <svg class="i-moon" viewBox="0 0 8 8" shape-rendering="crispEdges" fill="currentColor"><rect x="2" y="0" width="3" height="1"/><rect x="1" y="1" width="2" height="1"/><rect x="0" y="2" width="2" height="4"/><rect x="1" y="6" width="2" height="1"/><rect x="2" y="7" width="4" height="1"/><rect x="5" y="6" width="2" height="1"/><rect x="2" y="1" width="1" height="6"/><rect x="3" y="6" width="2" height="1"/></svg>
+      </button>
     </div>
+  </div>
+</div></nav>
 
-</section>
+<div class="stage"><canvas></canvas></div>
 
-
-<!-- ============================================================ -->
-<!-- PAGE: CV                                                      -->
-<!-- ============================================================ -->
-<section id="page-cv" class="page">
-    <div class="container cv-page">
-        <h2 class="section-title" data-i18n="cv_title">Curriculum Vitae</h2>
-        
-        <div class="cv-download-card">
-            <h3 style="margin-bottom:12px;" data-i18n="cv_download_heading">Download Complete Curriculum Vitae</h3>
-            <p style="color:var(--fg-muted);margin-bottom:20px;" data-i18n="cv_download_desc">Updated November 2026. PDF document containing complete academic achievements, publications, and background.</p>
-            <a href="files/cv.pdf?v=2026-11-08" class="download-button" download="Wenchang_Wang_CV_2026.pdf" data-i18n="cv_download">
-                <svg class="download-icon" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/>
-                </svg>
-                Download CV (PDF)
-            </a>
-        </div>
+<main>
+  <div class="hero">
+    <img src="images/profile.JPG" alt="Wenchang Wang">
+    <div>
+      <div class="kicker"><span class="en">&gt; HELLO, I'M</span><span class="zh">&gt; 你好，我是</span></div>
+      <h1><span class="en">Wenchang Wang<span class="cn">王文长</span></span><span class="zh">王文长<span class="cn">Wenchang Wang</span></span></h1>
+      <p class="role"><span class="en">Ph.D. Student, Media, Technology &amp; Society · Northwestern University</span><span class="zh">美国西北大学 · 媒体、技术与社会（MTS）博士生</span></p>
+      <p class="lede">
+        <span class="en">I study how people interact with online platforms — and how policy shifts and new tech like LLMs change that — with computational methods and causal inference.</span>
+        <span class="zh">我用计算方法和因果推断，研究人们如何与在线平台互动，以及政策变化和大语言模型等新技术如何改变这种互动。</span>
+      </p>
+      <div class="btns">
+        <a class="btn main" href="files/cv.pdf"><span class="en">Download CV</span><span class="zh">下载简历</span></a>
+        <a class="btn" href="mailto:wenchangwang2031@u.northwestern.edu"><span class="en">Email</span><span class="zh">邮箱</span></a>
+        <a class="btn" href="https://github.com/dovejira">GitHub</a>
+        <a class="btn" href="https://x.com/divejira">X</a>
+      </div>
     </div>
-</section>
+  </div>
 
-
-<!-- ============================================================ -->
-<!-- PAGE: RESEARCH                                                -->
-<!-- ============================================================ -->
-<section id="page-research" class="page">
-    <div class="container research-page">
-        <h2 class="section-title" data-i18n="research_title">Research & Publications</h2>
-
-        <div class="research-section">
-            <h3 class="research-category-title" data-i18n="research_preprints">Preprints</h3>
-            <div class="paper-list">
-                <article class="paper-card">
-                    <span class="paper-badge preprint">arXiv · 1st Author</span>
-                    <h3 class="paper-title">Same Sentence, Different Construct: Identity-Swapped Rationales Reveal Measurement Non-Invariance in LLM Hate Speech Classifiers</h3>
-                    <div class="paper-authors"><strong>Wang, W.</strong>, &amp; Song, Y. (2026)</div>
-                    <div class="paper-venue">// arXiv:2611.02491</div>
-                    <div class="paper-actions">
-                        <a href="https://arxiv.org/abs/2611.02491" target="_blank" rel="noopener noreferrer" class="action-btn">[arXiv]</a>
-                    </div>
-                </article>
-
-                <article class="paper-card">
-                    <span class="paper-badge preprint">arXiv · 1st Author</span>
-                    <h3 class="paper-title">When the Text Is Silent: Memory Shortcuts and the Validity of LLM Annotation under Evidence Insufficiency</h3>
-                    <div class="paper-authors"><strong>Wang, W.</strong>, &amp; Song, Y. (2026)</div>
-                    <div class="paper-venue">// arXiv:2611.02273</div>
-                    <div class="paper-actions">
-                        <a href="https://arxiv.org/abs/2611.02273" target="_blank" rel="noopener noreferrer" class="action-btn">[arXiv]</a>
-                    </div>
-                </article>
-
-                <article class="paper-card">
-                    <span class="paper-badge preprint">arXiv · 1st Author</span>
-                    <h3 class="paper-title">The Hidden Costs of Gatekeeping in Open Science: Quasi-Experimental Evidence from arXiv's Endorsement Policy Tightening</h3>
-                    <div class="paper-authors"><strong>Wang, W.</strong> (2026)</div>
-                    <div class="paper-venue">// arXiv:2610.33980</div>
-                    <div class="paper-actions">
-                        <a href="https://arxiv.org/abs/2610.33980" target="_blank" rel="noopener noreferrer" class="action-btn">[arXiv]</a>
-                    </div>
-                </article>
-            </div>
-        </div>
-
-        <div class="research-section">
-            <h3 class="research-category-title" data-i18n="research_journals">Journal Articles</h3>
-            <div class="paper-list">
-                <article class="paper-card">
-                    <span class="paper-badge journal">HCR · 1st Author</span>
-                    <h3 class="paper-title">Platform ownership change and user response</h3>
-                    <div class="paper-authors"><strong>Wang, W.</strong>, &amp; Chen, Z.</div>
-                    <div class="paper-venue">// Human Communication Research · Conditional accept</div>
-                </article>
-
-                <article class="paper-card">
-                    <span class="paper-badge journal">JEMS · 2nd Author</span>
-                    <h3 class="paper-title">Pathways of computational communication research in China: A network analysis perspective</h3>
-                    <div class="paper-authors">Chen, Z., <strong>Wang, W.</strong>, Zhou, H., &amp; Li, S. (2025)</div>
-                    <div class="paper-venue">// Journal of Educational Media Studies (in Chinese) · † Corresponding author</div>
-                </article>
-            </div>
-        </div>
-
-        <div class="research-section">
-            <h3 class="research-category-title" data-i18n="research_proceedings">Peer-Reviewed Conference Proceedings</h3>
-            <div class="paper-list">
-                <article class="paper-card">
-                    <span class="paper-badge proceeding">CSCW '26 · 1st Author</span>
-                    <h3 class="paper-title">The Productivity–Entry Paradox: AI Coding Tools Boost Output but Do Not Lower Barriers to Open-Source Contribution</h3>
-                    <div class="paper-authors"><strong>Wang, W.</strong>, &amp; Song, Y. (2026)</div>
-                    <div class="paper-venue">// Companion of the Computer-Supported Cooperative Work and Social Computing (CSCW Companion '26) · Salt Lake City, UT, USA</div>
-                    <div class="paper-actions">
-                        <a href="https://doi.org/10.1145/3785651.3831552" target="_blank" rel="noopener noreferrer" class="action-btn">[DOI]</a>
-                    </div>
-                </article>
-
-                <article class="paper-card">
-                    <span class="paper-badge proceeding">CSCW '26 · 1st Author</span>
-                    <h3 class="paper-title">Do LLMs Read for Free? Auditing the Open Access Bias in AI-Mediated Science</h3>
-                    <div class="paper-authors"><strong>Wang, W.</strong>, &amp; Song, Y. (2026)</div>
-                    <div class="paper-venue">// Companion of the Computer-Supported Cooperative Work and Social Computing (CSCW Companion '26) · Salt Lake City, UT, USA</div>
-                    <div class="paper-actions">
-                        <a href="https://doi.org/10.1145/3785651.3831551" target="_blank" rel="noopener noreferrer" class="action-btn">[DOI]</a>
-                    </div>
-                </article>
-            </div>
-        </div>
-
-        <div class="research-section">
-            <h3 class="research-category-title" data-i18n="research_conferences">Award-Winning Conference Papers</h3>
-            <div class="paper-list">
-                <article class="paper-card">
-                    <span class="paper-badge award">Best Faculty Paper · ICA '26</span>
-                    <h3 class="paper-title">How Travel Videos Shape Intergroup Perception? The Spillover Effect of Mediated Intergroup Contact</h3>
-                    <div class="paper-authors">Chen, Z., &amp; <strong>Wang, W.</strong> (2026)</div>
-                    <div class="paper-venue">// 2026 ICA 76th Conference · Cape Town, South Africa · June 4–8, 2026</div>
-                </article>
-
-                <article class="paper-card">
-                    <span class="paper-badge award">Promising Student Paper · ICA '25</span>
-                    <h3 class="paper-title">Quantifying Academic Capital: Examining the Evolution of Inequality in China’s Communication Research Production</h3>
-                    <div class="paper-authors">Zhou, H., <strong>Wang, W.</strong>, &amp; Li, S. (2025)</div>
-                    <div class="paper-venue">// 2025 ICA 75th Conference · Denver, USA · Information Systems Division</div>
-                </article>
-
-                <article class="paper-card">
-                    <span class="paper-badge award">Top Student Paper · AEJMC '24</span>
-                    <h3 class="paper-title">Focusing on Minority Groups: A Quantitative Study on the Attitudes of Diverse Minority Groups towards ChatGPT</h3>
-                    <div class="paper-authors"><strong>Wang, W.</strong>, Liu, Y., Lin, Z., &amp; Ouyang, W. (2024)</div>
-                    <div class="paper-venue">// 2024 AEJMC 107th Conference · Philadelphia, USA · August 8–11, 2024</div>
-                </article>
-            </div>
-        </div>
+  <div class="two">
+    <div>
+      <h2><span class="en">Research</span><span class="zh">研究议程</span></h2>
+      <ul class="focus">
+        <li><span class="k">01</span><span class="en">How <strong>policy &amp; technology changes</strong> reshape online behavior</span><span class="zh"><strong>政策与技术变迁</strong>如何重塑线上行为</span></li>
+        <li><span class="k">02</span><span class="en">How <strong>large language models</strong> are reshaping computational social science research</span><span class="zh"><strong>大语言模型</strong>如何重塑计算社会科学研究</span></li>
+        <li><span class="k">03</span><span class="en"><strong>Computational social science methods</strong></span><span class="zh"><strong>计算社会科学方法</strong></span></li>
+      </ul>
     </div>
-</section>
-
-
-<!-- ============================================================ -->
-<!-- PAGE: BLOG                                                    -->
-<!-- ============================================================ -->
-<section id="page-blog" class="page">
-    <div class="container blog-page">
-        <h2 class="section-title" data-i18n="blog_title">Academic Blog & Notes</h2>
-        <div class="paper-card">
-            <h3 class="paper-title"><a href="blog1/ic2s2-online-poster.html">IC²S² Online Poster: Exposure & Engagement</a></h3>
-            <div class="paper-venue">// Posted on July 15, 2025 | Conference Notes</div>
-            <p style="color:var(--fg-muted);margin-top:8px;">Interactive online poster presented at the 2025 IC²S² Conference, analyzing fitness influencer visual strategies.</p>
-        </div>
+    <div>
+      <h2><span class="en">News</span><span class="zh">最新动态</span></h2>
+      <ul class="news">
+        <li><span class="d"><span class="en">FALL 2026</span><span class="zh">2026 秋</span></span>
+          <span class="en">Started my Ph.D. at Northwestern with <a href="https://agneshorvat.soc.northwestern.edu/">Ágnes Horvát</a>.</span>
+          <span class="zh">加入美国西北大学传播学院攻读博士，师从 <a href="https://agneshorvat.soc.northwestern.edu/">Ágnes Horvát</a> 副教授。</span></li>
+        <li><span class="d"><span class="en">JUN 2026</span><span class="zh">2026.06</span></span>
+          <span class="en">Two papers at ICA 2026, incl. the Best Faculty Paper Award (ICCA).</span>
+          <span class="zh">两篇论文被 ICA 2026 录用，并获 ICCA 分部 Best Faculty Paper Award。</span></li>
+        <li><span class="d">2026</span>
+          <span class="en">Two posters at CSCW 2026 on how LLMs shape knowledge production.</span>
+          <span class="zh">在 CSCW 2026 展示两篇 poster，讨论大语言模型如何影响知识生产与合作。</span></li>
+      </ul>
     </div>
-</section>
+  </div>
 
+  <h2><span class="en">Selected Papers</span><span class="zh">代表性论文</span></h2>
+  <div class="pubs">
+    <div class="pub"><div><div class="t">Platform ownership change and user response</div><div class="m"><strong>Wang, W.</strong> &amp; Chen, Z. · <em>Human Communication Research</em> · <span class="en">Conditional accept</span><span class="zh">有条件接收</span></div></div><span class="badge b-jrnl">HCR</span></div>
+    <div class="pub"><div><div class="t">When the Text Is Silent: Memory Shortcuts and the Validity of LLM Annotation under Evidence Insufficiency</div><div class="m"><strong>Wang, W.</strong> &amp; Song, Y. · <a href="https://arxiv.org/abs/2611.02273">arXiv</a></div></div><span class="badge b-arx"><span class="en">PREPRINT</span><span class="zh">预印本</span></span></div>
+    <div class="pub"><div><div class="t">Do LLMs Read for Free? Auditing the Open Access Bias in AI-Mediated Science</div><div class="m"><strong>Wang, W.</strong> &amp; Song, Y. · <em>CSCW Companion '26</em> · <a href="https://doi.org/10.1145/3785651.3831551">DOI</a></div></div><span class="badge b-cscw">CSCW '26</span></div>
+  </div>
+  <a class="more" href="research.html"><span class="en">All publications →</span><span class="zh">全部论文 →</span></a>
 
-<!-- ============================================================ -->
-<!-- PAGE: CONTACT                                                 -->
-<!-- ============================================================ -->
-<section id="page-contact" class="page">
-    <div class="container contact-page">
-        <h2 class="section-title" data-i18n="contact_title">Contact & Communication</h2>
-        <div class="arcade-card" style="max-width:650px;margin:0 auto;">
-            <div class="arcade-header">
-                <div><span class="arcade-badge">CONTACT</span> WENCHANG WANG</div>
-                <div>STATUS: OPEN</div>
-            </div>
-            <div class="arcade-body">
-                <p><strong>Email:</strong> <a href="mailto:wenchangwang2031@u.northwestern.edu">wenchangwang2031@u.northwestern.edu</a></p>
-                <p><strong>X (Twitter):</strong> <a href="https://x.com/divejira" target="_blank">@divejira</a></p>
-                <p><strong>GitHub:</strong> <a href="https://github.com/dovejira" target="_blank">@dovejira</a></p>
-            </div>
-        </div>
-    </div>
-</section>
+  <h2><span class="en">Education</span><span class="zh">教育背景</span></h2>
+  <div class="edu">
+    <div class="ed"><img src="images/nu-logo.png" alt=""><div>
+      <div class="s"><span class="en">Northwestern University</span><span class="zh">美国西北大学</span></div>
+      <div class="m"><span class="en">Ph.D., Media, Technology, and Society · Advisor: <a href="https://agneshorvat.soc.northwestern.edu/">Ágnes Horvát</a></span><span class="zh">媒体、技术与社会（MTS）博士 · 导师：<a href="https://agneshorvat.soc.northwestern.edu/">Ágnes Horvát</a> 副教授</span></div>
+    </div><span class="y"><span class="en">2026 – NOW</span><span class="zh">2026 – 至今</span></span></div>
+    <div class="ed"><img src="images/pku-logo.png" alt=""><div>
+      <div class="s"><span class="en">Peking University</span><span class="zh">北京大学</span></div>
+      <div class="m"><span class="en">M.A., Journalism &amp; Communication; Minor in Economics · Advisor: <a href="https://english.phbs.pku.edu.cn/info/3812/44052.htm">Zhuo Chen</a></span><span class="zh">新闻与传播学硕士；辅修经济学 · 导师：<a href="https://english.phbs.pku.edu.cn/info/3812/44052.htm">陈灼</a> 助理教授</span></div>
+    </div><span class="y">2023 – 2026</span></div>
+    <div class="ed"><img src="images/uni-koeln-logo.png" alt=""><div>
+      <div class="s"><span class="en">University of Cologne</span><span class="zh">德国科隆大学</span></div>
+      <div class="m"><span class="en">Exchange Student, Economics &amp; Information Science</span><span class="zh">经济学与信息科学交换生</span></div>
+    </div><span class="y">2024 – 2025</span></div>
+    <div class="ed"><img src="images/suda-logo.png" alt=""><div>
+      <div class="s"><span class="en">Soochow University</span><span class="zh">苏州大学</span></div>
+      <div class="m"><span class="en">B.E., Mechanical &amp; Electronic Engineering</span><span class="zh">机械电子工程学士</span></div>
+    </div><span class="y">2017 – 2021</span></div>
+  </div>
+</main>
 
-
-<!-- VS Code Fixed Bottom Status Bar -->
-<div class="statusbar">
-    <div class="statusbar-left">
-        <div class="statusbar-item"><span class="dot"></span> <span>git: main*</span></div>
-        <div class="statusbar-item"><span>Status: 200 OK (Northwestern Ph.D. '26)</span></div>
-    </div>
-    <div class="statusbar-right">
-        <div class="statusbar-item"><span>UTF-8</span></div>
-        <div class="statusbar-item"><span>Soul Music Pixel Drift Engine</span></div>
-    </div>
-</div>
-
-
-<!-- Scripts -->
-<script src="js/theme.js"></script>
-<script src="js/router.js" defer></script>
-<script src="js/i18n.js" defer></script>
-<script src="js/particles.js" defer></script>
-<script src="js/puppets.js" defer></script>
-<script src="js/pages/homepage.js" defer></script>
-<script src="js/pages/cv.js" defer></script>
-<script src="js/pages/research.js" defer></script>
-<script src="js/pages/blog.js" defer></script>
-<script src="js/pages/contact.js" defer></script>
-
+<footer>
+  <div class="contact"><a href="mailto:wenchangwang2031@u.northwestern.edu">EMAIL</a><a href="https://github.com/dovejira">GITHUB</a><a href="https://x.com/divejira">X</a></div>
+  <div><span class="en">MADE WITH <span class="note">♪</span> IN EVANSTON</span><span class="zh">© 2026 王文长 · 伊文斯顿 <span class="note">♪</span></span></div>
+</footer>
+<script src="site.js"></script>
 </body>
 </html>

@@ -1,129 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="index, follow">
-    <meta name="description" content="Research and publications by Wenchang Wang, including preprints, journal articles, conference proceedings, and award-winning conference papers.">
-    <title>Research - Wenchang Wang</title>
-    <link rel="stylesheet" href="styles/main.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Publications by Wenchang Wang: preprints, journal articles, CSCW proceedings and award-winning ICA/AEJMC papers on platforms, LLMs and causal inference.">
+<meta name="author" content="Wenchang Wang">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://wenchang-wang.github.io/research.html">
+<meta property="og:title" content="Research · Wenchang Wang">
+<meta property="og:description" content="Publications by Wenchang Wang: preprints, journal articles, CSCW proceedings and award-winning ICA/AEJMC papers on platforms, LLMs and causal inference.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://wenchang-wang.github.io/research.html">
+<meta property="og:image" content="https://wenchang-wang.github.io/images/profile.JPG">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' shape-rendering='crispEdges'><rect width='8' height='8' rx='1' fill='%232a2522'/><path fill='%23f3c13a' d='M4 1h1v5H4zM5 1h1v1H5zM6 2h1v2H6zM2 5h2v1H2zM2 6h3v1H2z'/></svg>">
+<title>Research · Wenchang Wang</title>
+<meta name="title-en" content="Research · Wenchang Wang">
+<meta name="title-zh" content="研究 · 王文长">
+<script>(function(){var r=document.documentElement,t,l;try{t=localStorage.getItem('theme');l=localStorage.getItem('lang');}catch(e){}r.setAttribute('data-theme',t||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));r.setAttribute('data-lang',l||((navigator.language||'').indexOf('zh')===0?'zh':'en'));})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Silkscreen&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
 </head>
-<body class="has-hero">
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">Wenchang Wang</a>
-            <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="cv.html">CV</a></li>
-                <li><a href="research.html" class="active">Research</a></li>
-                <li><a href="blog.html">Blog</a></li>
-            </ul>
-            <button class="theme-toggle" data-theme-toggle type="button">theme: auto</button>
-        </div>
-    </nav>
+<body>
 
-    <div class="header-banner">
-        <img src="images/banner.JPG" alt="Research Banner" class="banner-image">
-        <div class="banner-overlay">
-            <div class="hero-inner">
-                <p class="hero-kicker">Research</p>
-                <h1>Research &amp; Publications</h1>
-                <p class="hero-subtitle">Computational evidence about people, platforms, policy, and technology.</p>
-                <a href="#main-content" class="hero-scroll" data-scroll-next>Scroll</a>
-            </div>
-        </div>
+<nav><div class="in">
+  <a class="brand" href="index.html">W.WANG</a>
+  <div class="right">
+    <div class="links">
+      <a href="index.html"><span class="en">About</span><span class="zh">首页</span></a>
+      <a class="on" href="research.html"><span class="en">Research</span><span class="zh">研究</span></a>
+      <a href="cv.html"><span class="en">CV</span><span class="zh">简历</span></a>
+      <a href="blog.html"><span class="en">Blog</span><span class="zh">博客</span></a>
     </div>
+    <div class="ctrls">
+      <button class="ctl" data-act="lang" aria-label="Switch language / 切换语言"><span class="opt" data-v="en">EN</span><span class="sep">/</span><span class="opt" data-v="zh">中</span></button>
+      <button class="ctl" data-act="theme" aria-label="Toggle dark mode / 切换深色模式">
+        <svg class="i-sun" viewBox="0 0 8 8" shape-rendering="crispEdges" fill="currentColor"><rect x="3" y="0" width="2" height="1"/><rect x="3" y="7" width="2" height="1"/><rect x="0" y="3" width="1" height="2"/><rect x="7" y="3" width="1" height="2"/><rect x="1" y="1" width="1" height="1"/><rect x="6" y="1" width="1" height="1"/><rect x="1" y="6" width="1" height="1"/><rect x="6" y="6" width="1" height="1"/><rect x="2" y="2" width="4" height="4"/></svg>
+        <svg class="i-moon" viewBox="0 0 8 8" shape-rendering="crispEdges" fill="currentColor"><rect x="2" y="0" width="3" height="1"/><rect x="1" y="1" width="2" height="1"/><rect x="0" y="2" width="2" height="4"/><rect x="1" y="6" width="2" height="1"/><rect x="2" y="7" width="4" height="1"/><rect x="5" y="6" width="2" height="1"/><rect x="2" y="1" width="1" height="6"/><rect x="3" y="6" width="2" height="1"/></svg>
+      </button>
+    </div>
+  </div>
+</div></nav>
 
-    <!-- Main Content -->
-    <main class="main-container" id="main-content">
-        <section class="research-section">
-            <h2 class="section-title">Preprints</h2>
+<div class="stage short"><canvas></canvas></div>
 
-            <article class="research-item">
-                <div class="research-title"><a href="https://arxiv.org/abs/2611.02491" target="_blank" rel="noopener noreferrer">Same Sentence, Different Construct: Identity-Swapped Rationales Reveal Measurement Non-Invariance in LLM Hate Speech Classifiers</a></div>
-                <div class="research-authors"><strong>Wang, W.</strong>, &amp; Song, Y. (2026)</div>
-                <div class="research-venue">arXiv:2611.02491</div>
-                <div class="research-date"><span class="research-status">Preprint · 1st Author</span></div>
-            </article>
+<main>
+  <div class="head">
+    <div class="kicker"><span class="en">&gt; RESEARCH.LOG</span><span class="zh">&gt; 研究</span></div>
+    <h1><span class="en">Research &amp; Publications</span><span class="zh">研究与学术成果</span></h1>
+    <p><span class="en">Policy and technology shocks, LLMs in computational social science, and the methods to study them.</span><span class="zh">政策与技术冲击、大语言模型与计算社会科学，以及研究它们的方法。</span></p>
+  </div>
 
-            <article class="research-item">
-                <div class="research-title"><a href="https://arxiv.org/abs/2611.02273" target="_blank" rel="noopener noreferrer">When the Text Is Silent: Memory Shortcuts and the Validity of LLM Annotation under Evidence Insufficiency</a></div>
-                <div class="research-authors"><strong>Wang, W.</strong>, &amp; Song, Y. (2026)</div>
-                <div class="research-venue">arXiv:2611.02273</div>
-                <div class="research-date"><span class="research-status">Preprint · 1st Author</span></div>
-            </article>
+  <h2><span class="en">Preprints</span><span class="zh">预印本</span></h2>
+  <div class="pubs">
+    <div class="pub"><div><div class="t">Same Sentence, Different Construct: Identity-Swapped Rationales Reveal Measurement Non-Invariance in LLM Hate Speech Classifiers</div><div class="m"><strong>Wang, W.</strong> &amp; Song, Y. (2026) · <a href="https://arxiv.org/abs/2611.02491">arXiv:2611.02491</a></div></div><span class="badge b-arx">ARXIV</span></div>
+    <div class="pub"><div><div class="t">When the Text Is Silent: Memory Shortcuts and the Validity of LLM Annotation under Evidence Insufficiency</div><div class="m"><strong>Wang, W.</strong> &amp; Song, Y. (2026) · <a href="https://arxiv.org/abs/2611.02273">arXiv:2611.02273</a></div></div><span class="badge b-arx">ARXIV</span></div>
+    <div class="pub"><div><div class="t">The Hidden Costs of Gatekeeping in Open Science: Quasi-Experimental Evidence from arXiv's Endorsement Policy Tightening</div><div class="m"><strong>Wang, W.</strong> (2026) · <a href="https://arxiv.org/abs/2610.33980">arXiv:2610.33980</a></div></div><span class="badge b-arx">ARXIV</span></div>
+  </div>
 
-            <article class="research-item">
-                <div class="research-title"><a href="https://arxiv.org/abs/2610.33980" target="_blank" rel="noopener noreferrer">The Hidden Costs of Gatekeeping in Open Science: Quasi-Experimental Evidence from arXiv's Endorsement Policy Tightening</a></div>
-                <div class="research-authors"><strong>Wang, W.</strong> (2026)</div>
-                <div class="research-venue">arXiv:2610.33980</div>
-                <div class="research-date"><span class="research-status">Preprint · 1st Author</span></div>
-            </article>
-        </section>
+  <h2><span class="en">Journal Articles</span><span class="zh">期刊论文</span></h2>
+  <div class="pubs">
+    <div class="pub"><div><div class="t">Platform ownership change and user response</div><div class="m"><strong>Wang, W.</strong> &amp; Chen, Z. · <em>Human Communication Research</em> · <span class="en">Conditional accept</span><span class="zh">有条件接收</span></div></div><span class="badge b-jrnl">HCR</span></div>
+    <div class="pub"><div><div class="t">Pathways of computational communication research in China: A network analysis perspective</div><div class="m">Chen, Z., <strong>Wang, W.</strong>, Zhou, H., &amp; Li, S. (2025) · <em>Journal of Educational Media Studies</em> <span class="en">(in Chinese)</span><span class="zh">（中文）</span> · † <span class="en">Corresponding author</span><span class="zh">通讯作者</span></div></div><span class="badge b-jrnl">JEMS</span></div>
+  </div>
 
-        <section class="research-section">
-            <h2 class="section-title">Journal Articles</h2>
+  <h2><span class="en">Conference Proceedings</span><span class="zh">同行评审会议论文集</span></h2>
+  <div class="pubs">
+    <div class="pub"><div><div class="t">The Productivity–Entry Paradox: AI Coding Tools Boost Output but Do Not Lower Barriers to Open-Source Contribution</div><div class="m"><strong>Wang, W.</strong> &amp; Song, Y. (2026) · <em>CSCW Companion '26</em>, Salt Lake City · <a href="https://doi.org/10.1145/3785651.3831552">DOI</a></div></div><span class="badge b-cscw">CSCW '26</span></div>
+    <div class="pub"><div><div class="t">Do LLMs Read for Free? Auditing the Open Access Bias in AI-Mediated Science</div><div class="m"><strong>Wang, W.</strong> &amp; Song, Y. (2026) · <em>CSCW Companion '26</em>, Salt Lake City · <a href="https://doi.org/10.1145/3785651.3831551">DOI</a></div></div><span class="badge b-cscw">CSCW '26</span></div>
+  </div>
 
-            <article class="research-item">
-                <div class="research-title">Platform ownership change and user response</div>
-                <div class="research-authors"><strong>Wang, W.</strong>, &amp; Chen, Z.</div>
-                <div class="research-venue">Human Communication Research</div>
-                <div class="research-date"><span class="research-status">Conditional accept · 1st Author</span></div>
-            </article>
+  <h2><span class="en">Award-Winning Conference Papers</span><span class="zh">获奖会议论文</span></h2>
+  <div class="pubs">
+    <div class="pub"><div><div class="t">How Travel Videos Shape Intergroup Perception? The Spillover Effect of Mediated Intergroup Contact</div><div class="m">Chen, Z., &amp; <strong>Wang, W.</strong> (2026) · <em>ICA 2026</em>, Cape Town · 🏆 Best Faculty Paper</div></div><span class="badge b-ica">ICA '26</span></div>
+    <div class="pub"><div><div class="t">Quantifying Academic Capital: Examining the Evolution of Inequality in China’s Communication Research Production</div><div class="m">Zhou, H., <strong>Wang, W.</strong>, &amp; Li, S. (2025) · <em>ICA 2025</em>, Denver · 🏆 Promising Student Paper</div></div><span class="badge b-ica">ICA '25</span></div>
+    <div class="pub"><div><div class="t">Focusing on Minority Groups: A Quantitative Study on the Attitudes of Diverse Minority Groups towards ChatGPT</div><div class="m"><strong>Wang, W.</strong>, Liu, Y., Lin, Z., &amp; Ouyang, W. (2024) · <em>AEJMC 2024</em>, Philadelphia · 🏆 Top Student Paper</div></div><span class="badge b-aejmc">AEJMC '24</span></div>
+  </div>
+</main>
 
-            <article class="research-item">
-                <div class="research-title">Pathways of computational communication research in China: A network analysis perspective</div>
-                <div class="research-authors">Chen, Z., <strong>Wang, W.</strong>, Zhou, H., &amp; Li, S. (2025)</div>
-                <div class="research-venue">Journal of Educational Media Studies (in Chinese)</div>
-                <div class="research-date"><span class="research-status">2nd Author · † Corresponding author</span></div>
-            </article>
-        </section>
-
-        <section class="research-section">
-            <h2 class="section-title">Peer-Reviewed Conference Proceedings</h2>
-
-            <article class="research-item">
-                <div class="research-title"><a href="https://doi.org/10.1145/3785651.3831552" target="_blank" rel="noopener noreferrer">The Productivity–Entry Paradox: AI Coding Tools Boost Output but Do Not Lower Barriers to Open-Source Contribution</a></div>
-                <div class="research-authors"><strong>Wang, W.</strong>, &amp; Song, Y. (2026)</div>
-                <div class="research-venue">Companion of the Computer-Supported Cooperative Work and Social Computing (CSCW Companion '26), Salt Lake City, UT, USA</div>
-                <div class="research-date"><span class="research-status">CSCW '26 · 1st Author</span></div>
-            </article>
-
-            <article class="research-item">
-                <div class="research-title"><a href="https://doi.org/10.1145/3785651.3831551" target="_blank" rel="noopener noreferrer">Do LLMs Read for Free? Auditing the Open Access Bias in AI-Mediated Science</a></div>
-                <div class="research-authors"><strong>Wang, W.</strong>, &amp; Song, Y. (2026)</div>
-                <div class="research-venue">Companion of the Computer-Supported Cooperative Work and Social Computing (CSCW Companion '26), Salt Lake City, UT, USA</div>
-                <div class="research-date"><span class="research-status">CSCW '26 · 1st Author</span></div>
-            </article>
-        </section>
-
-        <section class="research-section">
-            <h2 class="section-title">Award-Winning Conference Papers</h2>
-
-            <article class="research-item">
-                <div class="research-title">How Travel Videos Shape Intergroup Perception? The Spillover Effect of Mediated Intergroup Contact</div>
-                <div class="research-authors">Chen, Z., &amp; <strong>Wang, W.</strong> (2026)</div>
-                <div class="research-venue">2026 ICA 76th Conference, Cape Town, South Africa · June 4–8, 2026</div>
-                <div class="research-date"><span class="research-status award">Best Faculty Paper Award</span></div>
-            </article>
-
-            <article class="research-item">
-                <div class="research-title">Quantifying Academic Capital: Examining the Evolution of Inequality in China’s Communication Research Production</div>
-                <div class="research-authors">Zhou, H., <strong>Wang, W.</strong>, &amp; Li, S. (2025)</div>
-                <div class="research-venue">2025 ICA 75th Conference, Denver, USA · Information Systems Division</div>
-                <div class="research-date"><span class="research-status award">Promising Student Paper Award</span></div>
-            </article>
-
-            <article class="research-item">
-                <div class="research-title">Focusing on Minority Groups: A Quantitative Study on the Attitudes of Diverse Minority Groups towards ChatGPT</div>
-                <div class="research-authors"><strong>Wang, W.</strong>, Liu, Y., Lin, Z., &amp; Ouyang, W. (2024)</div>
-                <div class="research-venue">2024 AEJMC 107th Conference, Philadelphia, USA · August 8–11, 2024</div>
-                <div class="research-date"><span class="research-status award">Top Student Paper Award</span></div>
-            </article>
-        </section>
-    </main>
-
-    <script src="scripts/main.js" defer></script>
+<footer>
+  <div class="contact"><a href="mailto:wenchangwang2031@u.northwestern.edu">EMAIL</a><a href="https://github.com/dovejira">GITHUB</a><a href="https://x.com/divejira">X</a></div>
+  <div><span class="en">MADE WITH <span class="note">♪</span> IN EVANSTON</span><span class="zh">© 2026 王文长 · 伊文斯顿 <span class="note">♪</span></span></div>
+</footer>
+<script src="site.js"></script>
 </body>
 </html>
